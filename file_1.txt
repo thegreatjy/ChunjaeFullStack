@@ -1,4 +1,3 @@
-git Test 1
 user2, 6th
 user2, 7th
 first
