@@ -1,6 +1,7 @@
 package javaProblems.Chapter4;
 
-public class problem4_9 {
+// ch4 # 10
+public class problem4_10 {
     public static void main(String[] args) {
         String str = "12345";
         int sum = 0;
@@ -11,3 +12,4 @@ public class problem4_9 {
         System.out.println("sum="+sum);
     }
 }
+
