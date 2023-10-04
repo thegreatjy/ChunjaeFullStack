@@ -1,4 +1,4 @@
-package com.mystudy.run;
+package javaProblems.Chapter4;
 
 public class problem4_7 {
     //Math.random()을 이용해서 1부터 6사이의 임의의 정수를 변수 value에 저장하는

@@ -1,4 +1,4 @@
-package com.mystudy.run;
+package javaProblems.Chapter4;
 
 public class problem4_10 {
     public static void main(String[] args) {
