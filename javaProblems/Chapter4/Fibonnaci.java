@@ -1,7 +1,7 @@
 package javaProblems.Chapter4;
 
 // ch4 # 11
-public class problem4_11 {
+public class Fibonnaci {
     public static void main(String[] args) {
         int num1 = 1, num2 = 1, num3 = 0;
         System.out.print(num1+", "+num2);

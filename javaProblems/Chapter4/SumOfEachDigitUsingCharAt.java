@@ -1,7 +1,7 @@
 package javaProblems.Chapter4;
 
 // ch4 # 9
-public class SumOfEachDigit {
+public class SumOfEachDigitUsingCharAt {
     public static void main(String[] args) {
         String str = "12345";
         int sum = 0;
