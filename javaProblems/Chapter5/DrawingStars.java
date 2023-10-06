@@ -1,5 +1,6 @@
 package javaProblems.Chapter5;
 
+// Ch 5 # 8
 public class DrawingStars {
     public static void main(String[] args) {
         int[] answer = { 1,4,4,3,1,4,4,2,1,3,2 };

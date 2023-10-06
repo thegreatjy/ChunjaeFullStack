@@ -2,6 +2,7 @@ package javaProblems.Chapter5;
 
 import java.util.Scanner;
 
+// Ch 5 # 13
 public class MixedString {
     public static void main(String[] args) {
         String[] words = { "television", "computer", "mouse", "phone" };

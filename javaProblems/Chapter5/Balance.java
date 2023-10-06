@@ -1,5 +1,6 @@
 package javaProblems.Chapter5;
 
+// ch5 # 6
 public class Balance {
     public static void main(String[] args) {
         int[] coinUnit = {500, 100, 50, 10};

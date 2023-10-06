@@ -1,5 +1,6 @@
 package javaProblems.Chapter5;
 
+// Ch 5 # 10
 public class Encoding {
     public static void main(String[] args) {
         char[] abcCode =
