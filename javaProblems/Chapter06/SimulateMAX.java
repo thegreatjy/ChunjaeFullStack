@@ -1,4 +1,4 @@
-package javaProblems.Chapter6;
+package javaProblems.Chapter06;
 
 public class SimulateMAX {
     static int max(int[] arr){

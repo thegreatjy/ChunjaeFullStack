@@ -1,4 +1,4 @@
-package javaProblems.Chapter4;
+package javaProblems.Chapter04;
 
 // ch4 #13
 public class CharOrInteger {

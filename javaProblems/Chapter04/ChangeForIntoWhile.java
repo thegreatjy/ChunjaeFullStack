@@ -1,4 +1,4 @@
-package javaProblems.Chapter4;
+package javaProblems.Chapter04;
 
 // ch4 # 5
 // 1+(-2)+3+(-4)+... 과 같은 식으로 계속 더해나갔을 때, 몇까지 더해야 총합이

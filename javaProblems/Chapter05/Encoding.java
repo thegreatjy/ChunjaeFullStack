@@ -1,4 +1,4 @@
-package javaProblems.Chapter5;
+package javaProblems.Chapter05;
 
 // Ch 5 # 10
 public class Encoding {

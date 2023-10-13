@@ -1,4 +1,4 @@
-package javaProblems.Chapter5;
+package javaProblems.Chapter05;
 
 public class Rotating90 {
     public static void main(String[] args) {

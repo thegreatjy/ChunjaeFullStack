@@ -1,4 +1,4 @@
-package javaProblems.Chapter6;
+package javaProblems.Chapter06;
 
 // ch 6 # 24
 public class SimulateABS {
