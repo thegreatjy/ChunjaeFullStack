@@ -1,0 +1,76 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+a,
+a:link,
+a:visited {
+  color: inherit;
+  text-decoration: none;
+}
+li {
+  list-style: none;
+}
+
+.container {
+  /* 너비: 1140px, 수평 방향에서 중앙 정렬 (위아래 마진 0, 왼쪽오른쪽 auto) */
+  width: 1140px;
+  margin: 0 auto;
+}
+header {
+  /* 요소의 왼쪽 상단 모서리를 기준점으로 한다. 
+  상단 기준으로 0 밑에 위치시킨다. */
+  position: absolute;
+  color: black;
+  top: 0;
+  z-index: 1;
+  width: 100%;
+  padding: 1rem;
+}
+
+header .container {
+  /* 플렉스 레이아웃(한줄)
+    플렉스 아이템 사이의 간격을 동일하게 정렬 */
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+}
+
+
+header nav ul {
+  display: flex;
+}
+header nav ul li {
+    /* 리스트 각 요소의 padding 설정 */
+    padding: 10px;
+}
+
+header button {
+  background: transparent;
+  border: 0;
+  cursor: pointer;
+/* 13.3.3 에서 추가*/
+  /* color:white;  */
+}
+header h1 button {
+  font-size: 2rem;
+  font-weight: bold;
+}
+header nav ul li button {
+  font-size: 1.2rem;
+}
+
+header.active {
+  background-color: rgba(0, 0, 0);
+  animation: fadeIn 0.5s ease-in-out;
+}
+@keyframes fadeIn {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
