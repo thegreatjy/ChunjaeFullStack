@@ -309,7 +309,7 @@ section.portfolio::after {
 /* 프로젝트를 한 줄에 2개씩 출력한다.
  각 45% 너비를 갖도록 한다. */
 /* 1번 사각형 너비 + 1번 오른쪽 마진 + 2번 사각형 너비
-  (45 + 10) + 45 = 100 */
+  (45 + 5) + 45 = 100 */
 section.portfolio .portfolio-inner {
   width: 45%;
   margin-right: 10%;
@@ -318,14 +318,14 @@ section.portfolio .portfolio-inner {
   background-color: #f8f8f8;
   border: 1px solid #ccc;
   margin-bottom: 3rem;
+  /* padding-bottom: 45%; */
 }
-
+/* 2번째마다 margin-right 0 적용 */
 section.portfolio .portfolio-inner:nth-child(2n) {
   margin-right: 0;
 }
-
 /* 이미지의 크기가 부모 요소를 넘지 않도록 100%로 지정 */
-section.portfolio a .portfolio-inner img {
+section.portfolio .portfolio-inner img {
   width: 100%;
   display: block;
 }
@@ -339,88 +339,5 @@ section.portfolio .portfolio-inner strong {
 section.portfolio .portfolio-inner h3 {
   font-size: 1.75rem;
 }
-
-
 /* End portfolio.css */
 
-
-/* contact_with_me.css */
-section.contact .contact-me::after {
-  content: "";
-  display: block;
-  clear: both;
-}
-section.contact .contact-me .left {
-  width: 30%;
-  float: left;
-}
-section.contact .contact-me .right {
-  float: left;
-  width: 65%;
-  margin-left: 5%;
-}
-section.contact .contact-me .left .card {
-  border: 1px solid #ccc;
-  padding: 1rem;
-  display: flex;
-  align-items: center;
-  margin-bottom: 1.25rem;
-}
-section.contact .contact-me .left .card .icon i {
-  font-size: 2rem;
-  margin-right: 5px;
-}
-section.contact .contact-me .right {
-  float: left;
-  width: 65%;
-  margin-left: 5%;
-  margin-bottom: 2rem;
-  border: 1px solid #ccc;
-  padding: 1rem;
-}
-/* form-group 사이 간격 지정 */
-section.contact .contact-me .right .form-group {
-  margin-bottom: 1.25rem;
-}
-/* label 태그가 인라인 성격이어서 외부 여백을 적용하기 위해 block으로 변경 */
-section.contact .contact-me .right .form-group label {
-  display: block;
-  margin-bottom: 0.85rem;
-}
-/* input 요소 꾸미기 */
-section.contact .contact-me .right .form-group input {
-  padding: 0.625rem;
-  width: 100%;
-  outline: none;
-  border: 1px solid #ccc;
-  border-radius: 10px;
-}
-/* :focus 가상 클래스 선택자로 입력 요소에 커서가 활성화되면 파란색 테두리와 그림자 효과 추가 */
-section.contact .contact-me .right .form-group input:focus {
-  border: 1px solid #FF6AC2;
-  box-shadow: 0 0 10px #FF6AC2;
-}
-/* textarea 요소 꾸미기 */
-section.contact .contact-me .right .form-group textarea {
-  height: 300px;
-  width: 100%;
-  resize: none;
-  border: 1px solid #ccc;
-  border-radius: 10px;
-}
-/* textarea 요소에 커서 활성화가 되면 파란색 테두리와 그림자 효과 추가 */
-section.contact .contact-me .right .form-group textarea:focus {
-  outline: none;
-  border: 1px solid #FF6AC2;
-  box-shadow: 0 0 10px #FF6AC2;
-}
-/* 버튼 요소 꾸미기 */
-section.contact .contact-me .right button {
-  width: 100%;
-  padding: 1rem;
-  background-color: #FF6AC2;
-  border: none;
-  color: white;
-}
-
-/* End contact_with_me.css */
