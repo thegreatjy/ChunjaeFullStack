@@ -28,7 +28,7 @@ A.
 2. (a,b) -> a*b 로 수정해야 한다. 매개변수가 2개 이상인 경우에는 괄호를 붙여야 한다.
 
 
-## 다음 코드의 실행 결과를 보고 빈 곳에 들어갈 람다식을 작성해보세요.
+## 4. 다음 코드의 실행 결과를 보고 빈 곳에 들어갈 람다식을 작성해보세요.
 ```java
 public class Example {
     public static void main(String[] args) {
@@ -41,5 +41,74 @@ public class Example {
         );
         thread.start(); 
     }
+}
+```
+
+## 5. 다음 코드의 실행 결과를 보고 밑줄 친 곳에 들어갈 람다식을 작성해보세요.
+```java
+public class Button {
+    //정적 멤버 인터페이스(함수형 인터페이스)
+    @FunctionalInterface
+    public static interface ClickListener{
+        void onClick();
+    }
+    
+    private ClickListener clickListener;
+    
+    public void setClickListener(ClickListener clickListener) { 
+        this.clickListener = clickListener;
+    }
+    public void click() { 
+        this.clickListener.onClick();
+    } 
+}
+
+```
+```java
+public class Example {
+    public static void main(String[] args) {
+        Button btnOk = new Button();
+        btnOk.setClickListener(()->{
+            System.out.println("OK 버튼을 클릭했습니다.");
+        }); 
+        btnOk.click();
+        
+        Button btnCancel = new Button();
+        btnCancel.setClickListener(()->{
+            System.out.println("Cancel 버튼을 클릭했습니다.");
+        }); 
+        btnCancel.click();
+    } 
+}
+```
+```java
+// 실행 결과
+Ok 버튼을 클릭했습니다. 
+Cancel 버튼을 클릭했습니다.
+```
+
+## 6. 다음 코드를 보고, Function 함수형 인터페이스를 작성해보세요.
+```java
+public class Example {
+    public static double calc(Function fun) {
+        double x = 10;
+        double y = 4;
+        return fun.apply(x, y);
+    }
+    public static void main(String[] args) { 
+        double result = calc( (x, y) -> (x / y) ); 
+        System.out.println("result: " + result);
+    } 
+}
+```
+```java
+// 실행 결과 
+result: 2.5
+```
+--- solution ---
+```java
+@FunctionalInterface
+public interface Function {
+    public double apply(double x, double y);
 }
 ```
