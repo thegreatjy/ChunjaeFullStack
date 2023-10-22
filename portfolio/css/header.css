@@ -51,7 +51,6 @@ header button {
   background: transparent;
   border: 0;
   cursor: pointer;
-/* 13.3.3 에서 추가*/
   /* color:white;  */
 }
 header h1 button {

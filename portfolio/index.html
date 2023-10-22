@@ -19,14 +19,14 @@
     <header>
       <div class="container">
         <h1>
-          <button>TheGreatJY</button>
+          <button data-animation-scroll="true" data-target="#main">TheGreatJY</button>
         </h1>
         <nav>
           <ul>
-            <li><button>About</button></li>
-            <li><button>Features</button></li>
-            <li><button>Portfolio</button></li>
-            <li><button>Contact</button></li>
+            <li><button data-animation-scroll="true" data-target="#about">About</button></li>
+            <li><button data-animation-scroll="true" data-target="#features">Features</button></li>
+            <li><button data-animation-scroll="true" data-target="#portfolio">Portfolio</button></li>
+            <li><button data-animation-scroll="true" data-target="#contact">Contact</button></li>
           </ul>
         </nav>
       </div>
@@ -37,7 +37,7 @@
     <main id="main">
       <div class="container">
         <h4>Welcome</h4>
-        <h2>I'm a <span>Back-End Developer</span></h2>
+        <h2>I'm a <span></span></h2>
         <p>독서를 좋아하는 개발자</p>
         <p>함께 일하고 싶은 개발자가 되고 싶습니다.</p>
         <button class="download">DOWNLOAD CV</button>
@@ -82,13 +82,13 @@
               omnis quibusdam.
             </p>
             <div class="social">
-              <a href="https://github.com/thegreatjy">
+              <a href="https://github.com/thegreatjy" target="_blank">
                 <i class="fa-brands fa-github"></i>
               </a>
-              <a href="https://jygrace.tistory.com/">
+              <a href="https://jygrace.tistory.com/" target="_blank">
                 <i class="fa-solid fa-blog"></i>
               </a>
-              <a href="https://www.linkedin.com/in/jiyeon-lee-606064229/">
+              <a href="https://www.linkedin.com/in/jiyeon-lee-606064229/" target="_blank">
                 <i class="fa-brands fa-linkedin"></i>
               </a>
             </div>
@@ -154,35 +154,89 @@
     <div class="bg"></div>
     <!-- //end Background-->
 
-
     <!-- PortFolio -->
-  <section id="portfolio" class="portfolio">
-    <div class="container">
-      <div class="title">
-        <h4>PORTFOLIOBACK</h4>
-        <h2>PortFolio</h2>
-      </div>
-      <div class="portfolio-me">
-        <div class="portfolio-inner">
-          <div class="icon">
-            <i class="fa-solid fa-book-open"></i>
-          </div>
-          <strong>Android Application</strong>
-          <h3>Dream Home</h3>
+    <section id="portfolio" class="portfolio">
+      <div class="container">
+        <div class="title">
+          <h4>PORTFOLIOBACK</h4>
+          <h2>PortFolio</h2>
         </div>
-        <div class="portfolio-inner">
-          <div class="icon">
-            <i class="fa-brands fa-android"></i>
-          </div>
-          <strong>ML Pipeline</strong>
-          <h3>Deploying a Sustainable Deep Learning Pipeline for Poison Ivy Image Classification</h3>
+        <div class="portfolio-me">
+          <table>
+            <tr>
+              <td>
+                <div class="portfolio-inner">
+                  <div class="icon">
+                    <i class="fa-solid fa-book-open"></i>
+                  </div>
+                  <strong>Paper</strong>
+                  <h3>
+                    Deploying a Sustainable<br />Deep Learning Pipeline<br />for
+                    Poison Ivy Image Classification
+                  </h3>
+                </div>
+              </td>
+              <td>
+                <div class="portfolio-inner">
+                  <a href="https://github.com/thegreatjy/DreamHome" target="_blank">
+                    <div class="icon">
+                      <i class="fa-brands fa-android"></i>
+                    </div>
+                    <strong>Android Application</strong>
+                    <h3>Dream Home</h3>
+                  </a>
+                </div>
+              </td>
+            </tr>
+          </table>
         </div>
       </div>
-    </div>
-  </section>
-  <!-- //end PortFolio -->
+    </section>
+    <!-- //end PortFolio -->
 
-  
+    <!-- Contact Me -->
+    <section id="contact" class="contact">
+      <div class="container">
+        <div class="title">
+          <h4>CONTACT</h4>
+          <h2>Contact Me</h2>
+        </div>
+
+        <div class="contact-me">
+          <div class="left">
+            <div class="card">
+              <div class="icon">
+                <i class="fa-solid fa-envelope-open-text"></i>
+              </div>
+              <div class="info-text">
+                <h3>email</h3>
+                <p>thegreatjy@gmail.com</p>
+              </div>
+            </div>
+          </div>
+
+          <div class="right">
+            <form action="#">
+              <div class="form-group">
+                <label for="name">name</label>
+                <input type="text" id="name" />
+              </div>
+              <div class="form-group">
+                <label for="email">email</label>
+                <input type="text" id="email" />
+              </div>
+              <div class="form-group">
+                <label for="msg">message</label>
+                <textarea id="msg"></textarea>
+              </div>
+              <button>send</button>
+            </form>
+          </div>
+        </div>
+      </div>
+    </section>
+    <!-- end Contact Me -->
+
     <!-- script 태그는 수정하지 않습니다. -->
     <script src="script.js"></script>
   </body>
