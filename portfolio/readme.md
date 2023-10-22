@@ -1,6 +1,9 @@
 <코딩 자율학습 HTML + CSS + 자바스크립트> 책으로 html, css, js를 공부한 후, 포트폴리오 웹 페이지를 만들었습니다.
 
 
+https://thegreatjy.github.io/JavaStudy/portfolio/index.html 에서 확인할 수 있습니다.
+
+
 # 수정사항
 # portfolio 페이지
 
