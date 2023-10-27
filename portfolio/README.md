@@ -5,6 +5,23 @@
 <a href="https://thegreatjy.github.io/JavaStudy/portfolio/index.html" target="_blank">Here!</a>
 에서 확인할 수 있습니다.
 
+## 목차
+  * [Development Environment](#development-environment)
+  * [Description](#description)
+    + [Main](#main)
+    + [Header](#header)
+    + [About](#about)
+    + [Features](#features)
+    + [Portfolio](#portfolio)
+    + [Contact](#contact)
+  * [수정사항](#수정사항)
+    + [portfolio 페이지 - 프로젝트 박스](#portfolio-페이지---프로젝트-박스)
+    + [portfolio 페이지 - 프로젝트](#portfolio-페이지---프로젝트)
+    + [table](#table)
+  * [유효성 검사](#유효성-검사)
+
+<br>
+
 ## Development Environment
 - VSCode
 - HTML5
@@ -60,7 +77,7 @@ form을 사용하여 화면을 구성하였다. 각 폼이 활성화되면 테�
 
 <img width="400" alt="Untitled 2" src="https://github.com/thegreatjy/JavaStudy/assets/74610908/7526aa16-2316-4c68-abd3-c60473cb2fc3">
 
-#### \<a>
+#### <a>
 ```html
 <div class="portfolio-inner">
   <a href="https://github.com/thegreatjy" target="_blank">
