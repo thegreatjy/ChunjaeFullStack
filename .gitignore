@@ -1,0 +1,22 @@
+# MUST ignore
+Documents/
+etc/
+
+
+# Under dir of Java_Study
+Java_Study/**/out
+Java_Study/**/.idea
+Java_Study/**/*.iml
+
+
+# Under dir of Web_Study
+Web_Study/\[grid] selfcheck/
+Web_Study/\[과제]\ ex5_FinalTest/
+Web_Study/images/
+Web_Study/multi/
+Web_Study/shoppingmallWeb/
+Web_Study/*.jpeg
+
+
+### Mac OS ###
+**/.DS_Store
