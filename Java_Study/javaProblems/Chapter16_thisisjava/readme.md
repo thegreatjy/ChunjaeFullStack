@@ -81,7 +81,7 @@ public class Example {
     } 
 }
 ```
-```java
+```text
 // 실행 결과
 Ok 버튼을 클릭했습니다. 
 Cancel 버튼을 클릭했습니다.
@@ -101,7 +101,7 @@ public class Example {
     } 
 }
 ```
-```java
+```text
 // 실행 결과 
 result: 2.5
 ```
