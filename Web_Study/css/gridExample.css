@@ -1,0 +1,16 @@
+.grid-container{
+    display: grid;
+    grid-template-columns: 100px 100px;
+    grid-template-rows: repeat(2, 100px);
+    background-color: aqua;
+    width: 200px;
+    height: 200px;
+}
+.grid-item{
+    color: white;
+    background-color: #ff5252;
+    margin: 5px;
+}
+.grid-item:nth-child(2n){
+    background-color: #bf5e5e;
+}

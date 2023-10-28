@@ -1,0 +1,31 @@
+.grid-container{
+    display: grid;
+    grid-template-columns: repeat(4, 100px);
+    grid-template-rows: repeat(4, 100px);
+    grid-template-areas: 
+    "header header header"
+    "sidebar content content"
+    "footer footer footer";
+    gap: 10px;  /*행과 열 사이의 간격*/
+    padding: 10px; 
+    background-color: antiquewhite;
+    height: 320px;
+    width: 320px;
+}
+
+#header{
+    grid-area: header;
+    background-color: orange;
+}
+#sidebar{
+    grid-area: sidebar;
+    background-color: deeppink;
+}
+#content{
+    grid-area: content;
+    background-color: grey;
+}
+#footer{
+    grid-area: footer;
+    background-color: lightblue;
+}
