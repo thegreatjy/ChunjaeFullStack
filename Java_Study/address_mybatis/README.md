@@ -40,6 +40,33 @@ PRIMARY KEY (`id`)
 2. File > Project Structure > Project Settings > Modules > Dependencies > + > 1. Add Jars 에 [mariadb.jar](lib) 파일을 추가한다.
 3. AddrApp 실행
 
+## Description
+- ### Insert
+주소록 데이터를 삽입한다.
+
+![add](https://github.com/thegreatjy/JavaStudy/assets/74610908/cb7a7186-d290-499f-b520-da570d3d3e12)
+
+![add-result](https://github.com/thegreatjy/JavaStudy/assets/74610908/4efb4ef8-4849-47c4-86a9-c235543c66aa)
+
+
+- ### List
+저장되어 있는 주소록 목록을 조회한다.
+
+![list-1](https://github.com/thegreatjy/JavaStudy/assets/74610908/52fa090a-1c30-4ad1-9f01-0b80026a3afa)
+
+- ### Update
+등록되어 있는 주소록의 번호를 지정하여 데이터를 수정한다.
+
+![update](https://github.com/thegreatjy/JavaStudy/assets/74610908/e48cb6b7-0fe5-48c4-b93a-4f3a4922ffd4)
+
+![update-result](https://github.com/thegreatjy/JavaStudy/assets/74610908/84986404-6e9a-457b-9fcf-2d1237887f8d)
+
+- ### Delete
+등록되어 있는 주소록의 번호를 지정하여 데이터를 삭제한다.
+
+![delete](https://github.com/thegreatjy/JavaStudy/assets/74610908/7d5526d4-f03d-44d7-97f7-8e4eff227e36)
+
+
 ## What I Learned
 ### Mapper 인터페이스: [AddrMapper](src/addr/AddrMapper.java)
 
