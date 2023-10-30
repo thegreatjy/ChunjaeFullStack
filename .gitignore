@@ -5,8 +5,6 @@ etc/
 
 # Under dir of Java_Study
 Java_Study/**/out
-Java_Study/**/.idea
-Java_Study/**/*.iml
 
 
 # Under dir of Web_Study
