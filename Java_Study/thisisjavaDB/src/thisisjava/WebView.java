@@ -1,11 +1,11 @@
-package addr;
+package thisisjava;
 
 import java.util.ArrayList;
 
 public class WebView {
 
-	public void printAddr(ArrayList<Addr> addrList) {
-		
+	public void printAddr(ArrayList<Object> addrList) {
+		/*
 		System.out.println("웹 브라우저에 출력");
 		for(int i = 0; i < addrList.size(); i++) {
 			System.out.println("========= 주소록 목록 ==========");
@@ -15,5 +15,7 @@ public class WebView {
 			System.out.println("번호 : " + addrList.get(i).getPhone());
 			System.out.println("=============================");
 		}
+		*/
+
 	}
 }
