@@ -15,7 +15,7 @@
         </environment>
     </environments>
     <mappers>
-        <mapper resource="thisisjava/ObjectMapper.xml"/>
+        <mapper resource="board/BoardMapper.xml"/>
     </mappers>
 </configuration>
 

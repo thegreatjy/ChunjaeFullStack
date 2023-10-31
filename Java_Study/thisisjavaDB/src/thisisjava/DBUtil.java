@@ -39,28 +39,7 @@ public class DBUtil {
         }
     }
 
-    // AddrMapper.xml에 정의된 SQL문과 연결된다.
-    // 주소록 전체를 받아온다.
-    public <T> ArrayList<T> getObjects(String type) {
-        // sql session: conn+stmt, jdbc 처리를 함 (sql문 처리, 조회 결과를 받아온다)
-        // sql문 + 메서드 + 데이터 타입(스키마) 을 알려줘야 한다.
-
-        // openSession: MyBatis에서 실제 SQL 실행을 담당하는 컴포넌트
-        SqlSession session = sqlSessionFactory.openSession();
-        ObjectMapper mapper = session.getMapper(ObjectMapper.class);
-        ArrayList<T> objectsList;
-
-        if(type.equals("Account")) {
-            objectsList = mapper.getAccounts();
-        }else if(type.equals("Board")){
-            objectsList = mapper.getBoards();
-        }else if(type.equals("User")){
-            objectsList = mapper.getUsers();
-        }else{
-            // exception 처리
-            objectsList = null;
-        }
-
-        return objectsList;
+    public SqlSessionFactory getSession() {
+        return sqlSessionFactory;
     }
 }
