@@ -2,6 +2,7 @@ package account;
 
 import lombok.*;
 
+// DTO
 
 @NoArgsConstructor
 @AllArgsConstructor

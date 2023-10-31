@@ -2,9 +2,11 @@ package account;
 
 import java.util.*;
 
+// DAO
+
 public interface AccountMapper {
     public ArrayList<Account> getAccounts();
-    public void insertAccounts(Account account);
-    public void updateAccounts(Account account);
-    public void deleteAccounts(int id);
+    public void insertAccount (Account account);
+    public void updateAccount (Account account);
+    public void deleteAccount (int id);
 }

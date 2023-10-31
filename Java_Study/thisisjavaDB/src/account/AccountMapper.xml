@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<!-- 인터페이스 연결 -->
+<!-- mapper namespace = "package명.인터페이스명" -->
+<mapper namespace="account.AccountMapper">
+
+    <!-- 해당 sql을 인터페이스에 선언된 메서드와 연결해서 처리.
+    id는 메서드명, resultType 리턴 타입(풀 패키지명), parameterType 매개변수 -->
+    <select id="getAccounts" resultType="account.Account">
+        SELECT *
+        FROM accounts
+    </select>
+
+    <insert id="insertAccount" parameterType="account.Account">
+        INSERT INTO accounts(ano, owner, balance)
+        values (#{ano}, #{owner}, #{balance})
+    </insert>
+
+    <update id="updateAccount" parameterType="account.Account">
+        update accounts
+        set owner = #{owner},
+        balance = #{balance}
+        where ano = #{ano}
+    </update>
+
+    <delete id="deleteAccount" parameterType="int">
+        delete from accounts
+        where ano = #{ano}
+    </delete>
+</mapper>
