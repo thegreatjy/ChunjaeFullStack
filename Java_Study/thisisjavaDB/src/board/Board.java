@@ -1,4 +1,4 @@
-package thisisjava;
+package board;
 
 import lombok.*;
 import java.sql.Timestamp;

@@ -1,4 +1,4 @@
-package thisisjava;
+package user;
 
 import lombok.*;
 
