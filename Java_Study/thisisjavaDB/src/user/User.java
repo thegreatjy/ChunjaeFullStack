@@ -13,5 +13,4 @@ public class User {
     private int userage;
     private String useremail;
 
-
 }
