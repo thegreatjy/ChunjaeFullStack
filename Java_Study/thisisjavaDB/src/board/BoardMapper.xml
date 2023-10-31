@@ -14,18 +14,15 @@
     </select>
 
     <insert id="insertBoard" parameterType="board.Board">
-        INSERT INTO boards(bno, btitle, bcontent, bwriter, bdate, bfilename, bfiledata)
-        values (#{bno}, #{btitle}, #{bcontent}, #{bwriter}, NOW(), #{bfilename},#{bfiledata})
+        INSERT INTO boards(btitle, bcontent, bwriter, bdate)
+        values (#{btitle}, #{bcontent}, #{bwriter}, NOW())
     </insert>
 
     <update id="updateBoard" parameterType="board.Board">
         update boards
         set btitle = #{btitle},
             bcontent = #{bcontent},
-            bwriter = #{bwriter},
-            bdate = #{bdate},
-            bfilename = #{bfilename},
-            bfiledata = #{bfiledata}
+            bwriter = #{bwriter}
         where bno = #{bno}
     </update>
 

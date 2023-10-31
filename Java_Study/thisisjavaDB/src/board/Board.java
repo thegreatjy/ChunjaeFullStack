@@ -7,13 +7,17 @@ import java.sql.Timestamp;
 @AllArgsConstructor
 @Getter
 @Setter
-
 public class Board {
     private int bno;
     private String btitle;
     private String bcontent;
     private String bwriter;
     private Timestamp bdate;
-    private String bfilename;
-    private byte[] bfiledata;
+
+    Board(String btitle, String bcontent, String bwriter){
+        super();
+        this.btitle = btitle;
+        this.bcontent = bcontent;
+        this.bwriter = bwriter;
+    }
 }
