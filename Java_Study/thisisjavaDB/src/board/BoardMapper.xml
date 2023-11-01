@@ -13,6 +13,12 @@
         FROM boards
     </select>
 
+    <select id="getBoard" resultType="board.Board">
+        SELECT *
+        FROM boards
+        where bno = #{bno}
+    </select>
+
     <insert id="insertBoard" parameterType="board.Board">
         INSERT INTO boards(btitle, bcontent, bwriter, bdate)
         values (#{btitle}, #{bcontent}, #{bwriter}, NOW())

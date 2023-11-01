@@ -33,6 +33,8 @@ public class Main {
         // 프로그램 지속 여부
         boolean flag = true;
 
+        String btitle, bcontent, bwriter;
+
         while(flag){
             // 게시글 전체 보여주기
             ArrayList<Board> boardList = boardDB.getBoards();
@@ -48,21 +50,59 @@ public class Main {
                     view.createBoardHeader();
 
                     System.out.print("* 제목 : ");
-                    String btitle = br.readLine();
+                    btitle = br.readLine();
                     System.out.print("* 내용 : ");
-                    String bcontent = br.readLine();
+                    bcontent = br.readLine();
                     System.out.print("* 작성자 : ");
-                    String bwriter = br.readLine();
+                    bwriter = br.readLine();
 
                     boardDB.insertBoard(btitle, bcontent, bwriter);
 
                     view.createBoardFooter();
                     break;
-                // read
+                // read & update & delete
                 case 2:
+                    // read one board
+                    view.readBoardHeader();
+                    // 게시글 번호 입력
+                    System.out.print("bno : ");
+                    int bno = Integer.parseInt(br.readLine());
+                    Board board = boardDB.getBoard(bno);
+
+                    view.readBoardContent(board);
+
+                    // 보조 메뉴
+                    view.updateBoardMenu();
+                    System.out.print("메뉴 선택 : ");
+                    int subMenu = Integer.parseInt(br.readLine());
+
+                    // update
+                    if(subMenu == 1){
+                        System.out.println("[수정 내용 입력]");
+                        System.out.print("제목 : ");
+                        btitle = br.readLine();
+                        System.out.print("내용 : ");
+                        bcontent = br.readLine();
+                        System.out.print("작성자 : ");
+                        bwriter = br.readLine();
+
+                        // update approve or cancel
+                        view.updateCancel();
+                        System.out.print("메뉴 선택 : ");
+                        int cancel = Integer.parseInt(br.readLine());
+                        // update approved
+                        if(cancel == 1)
+                            boardDB.updateBoard(btitle, bcontent, bwriter);
+                    }else if(subMenu == 2){ // delete
+                        System.out.print("삭제할 게시글 번호 : ");
+                        int deleteBno = Integer.parseInt(br.readLine());
+                        boardDB.deleteBoard(deleteBno);
+                    }else{ // read all boards
+                        break;
+                    }
 
                     break;
-                // clear
+                // clear == delete all the boards
                 case 3:
 
                     break;

@@ -30,6 +30,15 @@ public class BoardDAO {
         return objectsList;
     }
 
+    public Board getBoard(int bno){
+        SqlSession session = sqlSessionFactory.openSession();
+        BoardMapper mapper = session.getMapper(BoardMapper.class);
+
+        Board board = mapper.getBoard(bno);
+
+        return board;
+    }
+
     public void insertBoard(String btitle, String bcontent, String bwriter) {
         SqlSession session = sqlSessionFactory.openSession();
         BoardMapper mapper = session.getMapper(BoardMapper.class);

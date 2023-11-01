@@ -48,7 +48,24 @@ public class View {
 		System.out.println("-----------------------------------------------------------------------");
 	}
 
-	public void readBoard(){
+	public void readBoardHeader(){
+		System.out.println("[ 게시글 읽기 ]");
+	}
+	public void readBoardContent(Board board){
+		System.out.println("-----------------------------------------------------------------------");
+		System.out.println("번호 : " + board.getBno());
+		System.out.println("제목 : " + board.getBtitle());
+		System.out.println("내용 : " + board.getBcontent());
+		System.out.println("작성자 : " + board.getBwriter());
+		System.out.println("날짜 : " + board.getBdate());
+		System.out.println("-----------------------------------------------------------------------");
+	}
 
+	public void updateBoardMenu(){
+		System.out.println("보조 메뉴 : 1.Update | 2.Delete | 3.List");
+	}
+	public void updateCancel(){
+		System.out.println("-----------------------------------------------------------------------");
+		System.out.println("보조 메뉴: 1.Ok | 2.Cancel");
 	}
 }
