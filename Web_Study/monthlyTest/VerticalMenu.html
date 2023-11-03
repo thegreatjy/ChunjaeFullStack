@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>다운메뉴</title>
+<style>
+
+	* {
+		margin: 0;
+		padding: 0;
+	}
+
+	ul li {
+		list-style: none;
+	}
+
+	a {
+		text-decoration: none;
+		color:#000000;
+	}
+
+	#menu {
+		width:750px;
+		height:50px;
+        font:15px;		
+		background: #ccc;
+		color:black;
+		line-height: 50px; 
+		margin:0 auto;
+		text-align: center;
+	}
+
+
+	#menu > ul > li {
+		position:relative;
+        width:150px;
+        float:left;
+	}
+	
+    #menu > ul > li > ul {
+		position: absolute;
+        width:150px;
+		display:none;
+		font-size:15px;
+		background: rgb(248, 113, 147);
+	}
+
+    /* 드롭 모양 */
+    #menu > ul > li:hover > ul {
+		display:block;
+	}
+
+    /* 마우스 갖다대면 버튼에 색 변경 */
+    #menu > ul > li > ul > li:hover {
+		background: rgb(231, 184, 200);
+	}
+
+</style>
+
+</head>
+<body>
+    <div id="menu">
+        <ul>
+            <li><a href="#">Menu1</a>
+                <ul>
+                    <li><a href="#">Sub</a></li>
+                    <li><a href="#">Sub2</a></li>
+                    <li><a href="#">Sub3</a></li>
+                </ul>
+            </li>
+            <li><a href="#">Menu2</a>
+                <ul>
+                    <li><a href="#">Sub</a></li>
+                    <li><a href="#">Sub2</a></li>
+                    <li><a href="#">Sub3</a></li>
+                </ul>
+            </li>
+            <li><a href="#">Menu3</a>
+                <ul>
+                    <li><a href="#">Sub</a></li>
+                    <li><a href="#">Sub2</a></li>
+                    <li><a href="#">Sub3</a></li>
+                </ul>
+            </li>
+            <li><a href="#">Menu4</a>
+                <ul>
+                    <li><a href="#">Sub</a></li>
+                    <li><a href="#">Sub2</a></li>
+                    <li><a href="#">Sub3</a></li>
+                </ul>
+            </li>
+            <li><a href="#">Menu5</a>
+                <ul>
+                    <li><a href="#">Sub</a></li>
+                    <li><a href="#">Sub2</a></li>
+                    <li><a href="#">Sub3</a></li>
+                </ul>
+            </li>
+        </ul>
+    </div>
+
+</body>
+</html>

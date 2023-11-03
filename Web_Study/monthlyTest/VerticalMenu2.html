@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>세로형 메뉴, 부메뉴</title>
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+      }
+      a {
+        text-decoration: none;
+        color: #000;
+      }
+      ul {
+        list-style: none;
+      }
+      .big > li {
+        display: block;
+      }
+      .big > li > a {
+        width: 180px;
+        height: auto;
+        background-color: #bbb;
+        color: #fff;
+        line-height: 40px;
+        text-align: center;
+        font-size: 18px;
+        display: block;
+      }
+      .big > li > a:hover {
+        font-weight: bold;
+      }
+      .small>li>a {
+        width: 180px;
+        height: auto;
+        background-color: #eee;
+        line-height: 40px;
+        text-align: center;
+        font-size: 16px;
+        display: block;
+      }
+
+      .small>li>a:hover {
+        background-color: #fafafa;
+      }
+    </style>
+  </head>
+  <body>
+    <ul class="big">
+      <li>
+        <a href="#">MENU 1</a>
+        <ul class="small">
+          <li><a href="#">SUB 1</a></li>
+          <li><a href="#">SUB 2</a></li>
+          <li><a href="#">SUB 3</a></li>
+          <li><a href="#">SUB 4</a></li>
+        </ul>
+      </li>
+      <li>
+        <a href="#">MENU 2</a>
+        <ul class="small">
+          <li><a href="#">SUB 1</a></li>
+          <li><a href="#">SUB 2</a></li>
+          <li><a href="#">SUB 3</a></li>
+          <li><a href="#">SUB 4</a></li>
+        </ul>
+      </li>
+      <li>
+        <a href="#">MENU 3</a>
+        <ul class="small">
+          <li><a href="#">SUB 1</a></li>
+          <li><a href="#">SUB 2</a></li>
+          <li><a href="#">SUB 3</a></li>
+          <li><a href="#">SUB 4</a></li>
+        </ul>
+      </li>
+    </ul>
+  </body>
+</html>

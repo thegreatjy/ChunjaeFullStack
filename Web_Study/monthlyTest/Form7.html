@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>form 7 types</title>
+</head>
+<body>
+    <form action="#" method="post">
+        <legend>아이디 : </legend>
+        <input type="text">
+        
+        <legend>비밀번호 : </legend>
+        <input type="password">
+        <br>
+        
+        <select name="category" id="board">
+            <optgroup label="카테고리">
+                <option value="question" selected>질문</option>
+                <option value="answer">답변</option>
+            </optgroup>
+        </select>
+        
+        <legend>글 제목 : </legend>
+        <textarea>제목을 입력해주세요.</textarea>
+        
+        <legend>글 내용 : </legend>
+        <textarea>내용을 입력해주세요.</textarea>
+
+        <legend>알림 설정</legend>
+        <input type="radio" id="alertY" name="alert" value="alertY">
+        <label for="alertY">알림 받기</label>
+        <input type="radio" id="alertN" name="alert" value="alertN">
+        <label for="alertN">알림 거부</label>
+
+        <legend>게시글 설정</legend>
+        <input type="checkbox" id="search" name="config" value="search">
+        <label for="search">검색 가능</label>
+        <input type="checkbox" id="copy" name="config" value="copy">
+        <label for="copy">복사 가능</label>
+        <br>
+
+        <input type="submit" value="등록">
+        <input type="reset" value="초기화">
+    </form>
+</body>
+</html>

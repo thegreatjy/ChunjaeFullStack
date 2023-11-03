@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>세로 주메뉴, 부메뉴</title>
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+      }
+	  
+      li {
+        list-style: none;
+      }
+      a {
+        text-decoration: none;
+        color: #eee;
+      }
+      .menu_test {
+        position: relative;
+        background: #5e5e5e;
+        width: 200px;
+        height: 49px;
+        border-bottom: 1px solid #fff;
+        line-height: 50px;
+        margin: 100px auto;
+        text-align: center;
+        color: #fff;
+      }
+      .menu_test:hover {
+        background-color: #414141;
+      }
+      .open_menu {
+        display: none;
+      }
+      .menu_test:hover .open_menu {
+        display: block;
+      }
+
+      /* 주메뉴 */
+      .open_menu > ul > li {
+        position: relative;
+      }
+      .open_menu > ul > li > a {
+        display: block;
+        width: 200px;
+        height: 49px;
+        border-bottom: 1px solid #fff;
+        background-color: #5e5e5e;
+        text-align: center;
+        line-height: 50px;
+      }
+      .open_menu > ul > li:hover > a {
+        background-color: #414141;
+      }
+      .open_menu > ul > li:hover > a {
+        color: deeppink;
+      }
+      .sub {
+        position: absolute;
+        top: 0;
+        left: 200px;
+        display: none;
+      }
+      .sub li {
+        width: 200px;
+        height: 49px;
+        border-bottom: 1px solid #fff;
+        background-color: #414141;
+        text-align: center;
+        line-height: 50px;
+      }
+      .open_menu > ul > li:hover .sub {
+        display: block;
+      }
+      .sub li:hover {
+        background-color: #232323;
+      }
+      .sub li:hover a {
+        color: chartreuse;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="menu_test">
+      주메뉴
+      <div class="open_menu">
+        <ul>
+          <li>
+            <a href="#">주메뉴 1</a>
+            <ul class="sub">
+              <li><a href="#">부메뉴 1</a></li>
+              <li><a href="#">부메뉴 2</a></li>
+              <li><a href="#">부메뉴 3</a></li>
+              <li><a href="#">부메뉴 4</a></li>
+            </ul>
+          </li>
+          <li>
+            <a href="#">주메뉴 2</a>
+            <ul class="sub">
+              <li><a href="#">부메뉴 1</a></li>
+              <li><a href="#">부메뉴 2</a></li>
+              <li><a href="#">부메뉴 3</a></li>
+              <li><a href="#">부메뉴 4</a></li>
+            </ul>
+          </li>
+          <li>
+            <a href="#">주메뉴 3</a>
+            <ul class="sub">
+              <li><a href="#">부메뉴 1</a></li>
+              <li><a href="#">부메뉴 2</a></li>
+              <li><a href="#">부메뉴 3</a></li>
+              <li><a href="#">부메뉴 4</a></li>
+            </ul>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </body>
+</html>

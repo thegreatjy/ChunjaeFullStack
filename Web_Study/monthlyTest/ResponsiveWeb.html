@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      header {
+        text-align: center;
+        font-size: 40px;
+        min-height: 400px;
+        background-color: lightpink;
+        }
+
+      .flex-container{
+        display: flex;
+        text-align: center;
+      }
+
+      .flex-box{
+        margin: 15px;
+      }
+
+      div {
+        font-size: 30px;
+        text-align: center;
+      }
+
+      #main {
+        display: grid;
+        grid-template-columns: 3fr 1fr;
+      }
+
+      #main section {
+        min-height: 500px;
+        background-color:hotpink;
+        margin-right: 10px;
+      }
+
+      #main aside {
+        min-height: 500px;
+        background-color:palevioletred;
+      }
+
+      footer {
+        margin-top: 10px;
+        background-color:mistyrose;
+        min-height: 200px;
+      }
+
+      @media (max-width: 800px) {
+        /*가로 너비가 600px 이하일 때 아래 스타일 적용*/
+        header {
+            min-height: 300px;
+        }
+
+        .flex-container{
+            display: block;
+        }
+
+        #main {
+          display: block;
+        }
+
+        #main section {
+          margin-bottom: 10px;
+          margin-right: 0px;
+        }
+        #main aside {
+          min-height: 0;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <header>bskyvision</header>
+    <nav>
+        <ul class="flex-container">
+            <li class="flex-box"><a href="#">NAV 1</a></li>
+            <li class="flex-box"><a href="#">NAV 2</a></li>
+            <li class="flex-box"><a href="#">NAV 3</a></li>
+            <li class="flex-box"><a href="#">NAV 4</a></li>
+          </ul>
+    </nav>
+    <div id="main">
+      <section>section</section>
+      <aside>aside</aside>
+    </div>
+
+    <footer>footer</footer>
+  </body>
+</html>
