@@ -1,4 +1,4 @@
-# Java + MariaDB + MyBatis Project
+# 주소록 CRUD 프로젝트
 해당 프로젝트를 하며 MariaDB와 MyBatis 사용 연습을 하였습니다.
 소스코드는 차태진님의 [MyBatis 개념과 세팅및 사용법](https://youtu.be/eMuFWW6-8i0?si=dv7ZTQyppn0krpDN) 유튜브 영상을 참고했습니다.
 이 영상과 MyBatis 공식 Docs를 참고하여 공부한 내용을 정리했습니다.
@@ -10,15 +10,15 @@
 - MyBatis 3.5.11
 
 ## Description
-| 파일 | 설명 |
-| --- | --- |
-| Addr 클래스 | 주소록(이름, 주소, 전화번호) 정보를 가진 클래스  |
-| AddrApp 클래스 | 메인 메서드 존재. 사용자로부터 CRUD 명령을 받아 DBUtil 객체에 주소록 CRUD 기능 요청 |
-| AddrMapper 인터페이스 | Mapper.xml에 있는 SQL문을 호출하는 인터페이스 |
-| AddrMapper.xml | 인터페이스와  SQL문을 연결한다.  |
-| DBUtil 클래스 | 데이터베이스와 직접 소통하는 객체 |
-| myconfig.xml | DB 연결 설정 |
-| WebView 클래스 | 콘솔에 Addr 클래스를 출력한다. |
+|        파일         |                            설명                            |
+|:-----------------:|:--------------------------------------------------------:|
+|     Addr 클래스      |               주소록(이름, 주소, 전화번호) 정보를 가진 클래스               |
+|    AddrApp 클래스    | 메인 메서드 존재. 사용자로부터 CRUD 명령을 받아 DBUtil 객체에 주소록 CRUD 기능 요청  |
+| AddrMapper 인터페이스  |             Mapper.xml에 있는 SQL문을 호출하는 인터페이스              |
+|  AddrMapper.xml   |                   인터페이스와  SQL문을 연결한다.                    |
+|    DBUtil 클래스     |                    데이터베이스와 직접 소통하는 객체                    |
+|   myconfig.xml    |                         DB 연결 설정                         |
+|    WebView 클래스    |                   콘솔에 Addr 클래스를 출력한다.                    |
 
 ## Prerequisite
 - MariaDB 3306 포트로 연결

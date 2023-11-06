@@ -7,6 +7,7 @@
 |             디렉터리             |             설명              | 
 |:----------------------------:|:---------------------------:|
 |  [Java_Study](./Java_Study)  |      Java 공부 내용 & 프로젝트      |
+| [javaProblems](./Java_Study/Java_Study/javaProblems) | <자바의 정석>, <이것이 자바다> 연습 문제 풀이 |
 |   [Web_Study](./Web_Study)   | HTML, CSS, JS 공부 내용 & 프로젝트  |
 
 ## Projects
