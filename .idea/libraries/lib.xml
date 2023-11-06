@@ -1,0 +1,10 @@
+<component name="libraryTable">
+  <library name="lib">
+    <CLASSES>
+      <root url="jar://$PROJECT_DIR$/Java_Study/address_mybatis/lib/mybatis-3.5.11.jar!/" />
+      <root url="jar://$PROJECT_DIR$/Java_Study/address_mybatis/lib/mariadb-java-client-3.2.0.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES />
+  </library>
+</component>

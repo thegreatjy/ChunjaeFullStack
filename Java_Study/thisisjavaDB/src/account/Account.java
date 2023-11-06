@@ -2,7 +2,7 @@ package account;
 
 import lombok.*;
 
-// DTO
+// VO, DTO?
 
 @NoArgsConstructor
 @AllArgsConstructor

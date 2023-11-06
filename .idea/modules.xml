@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/.idea/JavaStudy_github.iml" filepath="$PROJECT_DIR$/.idea/JavaStudy_github.iml" />
+      <module fileurl="file://$PROJECT_DIR$/Java_Study/Java_Study.iml" filepath="$PROJECT_DIR$/Java_Study/Java_Study.iml" />
+      <module fileurl="file://$PROJECT_DIR$/Java_Study/Java_Study/Java_Study1.iml" filepath="$PROJECT_DIR$/Java_Study/Java_Study/Java_Study1.iml" />
+      <module fileurl="file://$PROJECT_DIR$/Java_Study/address_mybatis/address_mybatis.iml" filepath="$PROJECT_DIR$/Java_Study/address_mybatis/address_mybatis.iml" />
+      <module fileurl="file://$PROJECT_DIR$/Java_Study/thisisjavaDB/thisisjavaDB.iml" filepath="$PROJECT_DIR$/Java_Study/thisisjavaDB/thisisjavaDB.iml" />
+    </modules>
+  </component>
+</project>
