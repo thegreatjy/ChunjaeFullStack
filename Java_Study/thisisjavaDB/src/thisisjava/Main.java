@@ -1,14 +1,12 @@
 package thisisjava;
 
-import account.Account;
 import board.Board;
 import board.BoardDAO;
-import user.User;
+import resources.MyBatisConfig;
 
 import java.io.BufferedReader;
 import java.io.InputStreamReader;
 import java.util.ArrayList;
-import java.util.Scanner;
 
 
 // 트랜잭션 -> 커밋, 롤백 exception 처리
@@ -16,7 +14,7 @@ import java.util.Scanner;
 
 public class Main {
     public static void main(String[] args) throws Exception {
-        DBUtil db = new DBUtil();
+        MyBatisConfig db = new MyBatisConfig();
         // DB 연결 초기화
         db.init();
 

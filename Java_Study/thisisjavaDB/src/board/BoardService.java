@@ -1,11 +1,11 @@
 package board;
 
-import thisisjava.DBUtil;
+import resources.MyBatisConfig;
 
 public class BoardService {
 
     public void init(){
-        DBUtil db = new DBUtil();
+        MyBatisConfig db = new MyBatisConfig();
         // DB 연결 초기화
         db.init();
 

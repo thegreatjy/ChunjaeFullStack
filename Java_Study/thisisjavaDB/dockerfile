@@ -1,0 +1,7 @@
+# base image
+FROM openjdk:11
+COPY . /thisisjavaDB
+WORKDIR /thisisjavaDB/src/thisisjava
+# docker image가 빌드될 떄, 실행될 명령어
+RUN ["javac", "Main.java"]
+ENTRYPOINT ["java", "thisisjava.Main"]
