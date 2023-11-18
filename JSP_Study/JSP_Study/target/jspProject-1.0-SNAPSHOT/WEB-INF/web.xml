@@ -37,6 +37,7 @@
     </filter-mapping>
     <!-- 한글 인코딩 -->
 
+    <!-- DB 연결 -->
     <context-param>
         <param-name>MySQL_Driver</param-name>
         <param-value>org.mariadb.jdbc.Driver</param-value>
@@ -53,6 +54,31 @@
         <param-name>MySQL_Pwd</param-name>
         <param-value>12345</param-value>
     </context-param>
+    <!-- DB 연결 -->
+
+    <!-- HelloServlet 연결 -->
+    <!--
+    <servlet>
+        <servlet-name>helloservelet</servlet-name>
+        <servlet-class>servlet.HelloServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>helloservelet</servlet-name>
+        <url-pattern>/12Servlet/HelloServlet.do</url-pattern>
+    </servlet-mapping>
+     <! HelloServlet 연결 -->
+
+    <!-- DirectServletPrint
+    <servlet>
+        <servlet-name>directservlet</servlet-name>
+        <servlet-class>servlet.DirectServletPrint</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>directservlet</servlet-name>
+        <url-pattern>/12Servlet/DirectServletPrint.do</url-pattern>
+    </servlet-mapping>
+     -->
+
 
     <session-config>
         <session-timeout>1000</session-timeout>

@@ -42,12 +42,9 @@
       width: 90%;
     }
 
-    td{
-      align: center;
-    }
-
     .width10{
       width: 10%;
+      align: center;
     }
 
     .width15{
@@ -64,7 +61,7 @@
   <form method="get">
     <table>
       <tr>
-        <td>
+        <td align="center">
           <!-- 검색 종류 옵션 선택 (제목, 내용) -->
           <select name="searchField">
             <option value="title">제목</option>
@@ -82,11 +79,11 @@
   <table>
     <!-- 컬럼의 이름 -->
     <tr>
-      <td class="width10">번호</td>
-      <td class="width10">제목</td>
-      <td class="width15">작성자</td>
-      <td class="width10">조회수</td>
-      <td class="width15">작성일</td>
+      <td class="width10" align="center">번호</td>
+      <td class="width10" align="center">제목</td>
+      <td class="width15" align="center">작성자</td>
+      <td class="width10" align="center">조회수</td>
+      <td class="width15" align="center">작성일</td>
     </tr>
     <!-- 목록 내용 -->
     <%
@@ -94,7 +91,7 @@
       if(boardList.isEmpty()){
     %>
       <tr>
-        <td colspan="5" text-align="center">
+        <td colspan="5" align="center">
           등록된 게시글이 없습니다.
         </td>
       </tr>
@@ -111,19 +108,19 @@
             <%=virtualNum%>
           </td>
           <!-- 게시글 제목 및 하이퍼링크 -->
-          <td text-align="left">
+          <td align="left">
             <a href="View.jsp?num=<%= board.getNum() %>"><%= board.getTitle() %></a>
           </td>
           <!-- 작성자 아이디 -->
-          <td text-align="center">
+          <td align="center">
             <%= board.getId() %>
           </td>
           <!-- 조회수 -->
-          <td text-align="center">
+          <td align="center">
             <%= board.getVisitcount() %>
           </td>
           <!-- 작성일 -->
-          <td text-align="center">
+          <td align="center">
             <%= board.getPostdate() %>
           </td>
         </tr>
@@ -135,7 +132,7 @@
 
   <!-- 글쓰기 버튼 -->
   <table>
-    <tr text-align="right">
+    <tr align="right">
       <td>
         <!-- location.href="이동할 주소"; -->
         <button type="button" onclick="location.href='Write.jsp';">
