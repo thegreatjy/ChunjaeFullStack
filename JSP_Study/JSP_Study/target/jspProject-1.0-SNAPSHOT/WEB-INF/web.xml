@@ -79,6 +79,14 @@
     </servlet-mapping>
      -->
 
+    <context-param>
+        <param-name>posts_per_page</param-name>
+        <param-value>10</param-value>
+    </context-param>
+    <context-param>
+        <param-name>pages_per_block</param-name>
+        <param-value>5</param-value>
+    </context-param>
 
     <session-config>
         <session-timeout>1000</session-timeout>

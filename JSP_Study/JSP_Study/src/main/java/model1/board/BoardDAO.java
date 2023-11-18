@@ -82,8 +82,49 @@ public class BoardDAO extends JDBConnect {
         List<BoardDTO> bbs = new Vector<>();
 
         // 쿼리
-        String query = "select * from (select";
+        //String query = "select A.* from (select CONVERT(@rownum:=@rownum+1, SIGNED) rownumber, t.* from board as t where (@rownum:=0) = 0) as A where rownumber >= 1 and rownumber <= 10 order by A.rownumber desc";
+        String query = "select * from board order by num desc limit ";
+        int limit = (int)map.get("pageSize");
+        int offset = (int)map.get("totalCount") - (int)map.get("start");
+        query += Integer.toString(limit)+" offset " + Integer.toString(offset);
+        // 검색 조건 추가
+        /* if(map.get("searchWord") != null){
+            query += "where "+map.get("searchField")+
+                    " like '%"+map.get("searchWord")+"%' ";
+        }*/
+        //query += " order by num desc limit ? offset ?";
 
+        try {
+            System.out.println("1");
+            // 쿼리문 완성
+            psmt = con.prepareStatement(query);
+
+            System.out.println(limit+", "+offset);
+
+            // 쿼리문 실행
+            rs = psmt.executeQuery();
+
+            System.out.println("2");
+            while (rs.next()) {  // 결과를 순화하며...
+                // 한 행(게시물 하나)의 내용을 DTO에 저장
+                System.out.println("3");
+                BoardDTO dto = new BoardDTO();
+
+                dto.setNum(rs.getString("num"));          // 일련번호
+                dto.setTitle(rs.getString("title"));      // 제목
+                dto.setContent(rs.getString("content"));  // 내용
+                dto.setPostdate(rs.getDate("postdate"));  // 작성일
+                dto.setId(rs.getString("id"));            // 작성자 아이디
+                dto.setVisitcount(rs.getString("visitcount"));  // 조회수
+
+                bbs.add(dto);  // 결과 목록에 저장
+            }
+        }
+        catch (Exception e) {
+            System.out.println("게시물 조회 중 예외 발생");
+            e.printStackTrace();
+        }
+        System.out.println("4");
         return bbs;
     }
 
