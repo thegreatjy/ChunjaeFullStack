@@ -10,11 +10,13 @@ public class MyFileDAO extends DBConnPool {
     public int insertFile(MyFileDTO dto) {
         int applyResult = 0;
         try {
-            String query = "INSERT INTO myfile (title, cate, ofile, sfile) VALUES ("+dto.getTitle()+", "+dto.getCate()+", "+dto.getOfile()+", "+dto.getSfile()+")";
-
-            stmt = con.createStatement();
-            rs = stmt.executeQuery(query);
-            if(rs != null) applyResult = 1;
+            String query = "INSERT INTO myfile (title, cate, ofile, sfile) VALUES (?, ?, ?, ?)";
+            psmt = con.prepareStatement(query);
+            psmt.setString(1, dto.getTitle());
+            psmt.setString(2, dto.getCate());
+            psmt.setString(3, dto.getOfile());
+            psmt.setString(4, dto.getSfile());
+            applyResult = psmt.executeUpdate();  // 쿼리 실행 결과의 행 개수를 리턴
         }
         catch (Exception e) {
             System.out.println("INSERT 중 예외 발생");
