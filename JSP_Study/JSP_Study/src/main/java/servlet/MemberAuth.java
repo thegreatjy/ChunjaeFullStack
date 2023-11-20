@@ -49,7 +49,7 @@ public class MemberAuth extends HttpServlet {
         if(memberName != null){ // 일치하는 회원 찾음
             req.setAttribute("authMessage", memberName + "회원님 환영합니다.");
         }else{ // 일치하는 회원 없음
-            if(admin_id.equals(id)){    // 관리자
+            if(admin_id != null && id.equals(admin_id)){    // 관리자
                 req.setAttribute("authMessage", admin_id+"는 최고 관리자입니다.");
             }else { // 비회원
                 req.setAttribute("authMessage", "귀하는 회원이 아닙니다.");
