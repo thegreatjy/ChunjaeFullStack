@@ -34,14 +34,16 @@ public class JSFunction {
     }
 
     // 메세지 알림창을 띄운 후, 이전 페이지로 돌아간다.
-    public static void alertBack(String msg, JspWriter out){
-        try{
-            String script = ""
-                    + "<script>"
-                    + " alert('" + msg + "');"
-                    + " history.back();"
+    public static void alertBack(HttpServletResponse resp, String msg) {
+        try {
+            resp.setContentType("text/html;charset=UTF-8");
+            PrintWriter writer = resp.getWriter();
+            String script = "<script>"
+                    + "    alert('" + msg + "');"
+                    + "    history.back();"
                     + "</script>";
-            out.println(script);
-        }catch (Exception e){}
+            writer.print(script);
+        }
+        catch (Exception e) {}
     }
 }
