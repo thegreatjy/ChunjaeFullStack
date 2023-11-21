@@ -2,6 +2,7 @@ package board.controller;
 
 import board.model.BoardService;
 import board.model.BoardVO;
+import board.view.BoardPage;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -41,8 +42,8 @@ public class ListController extends HttpServlet {
 
         /* 페이지 처리 start */
         // ServletContext application = getServletContext();
-        int pageSize = POSTS_PER_PAGE;
-        int blockPage = PAGES_PER_BLOCK;
+        int pageSize = POSTS_PER_PAGE; // 10
+        int blockPage = PAGES_PER_BLOCK; // 5
 
         // 현재 페이지 확인
         int pageNum = 1;  // 기본값
@@ -51,10 +52,10 @@ public class ListController extends HttpServlet {
             pageNum = Integer.parseInt(pageTemp); // 요청받은 페이지로 수정
 
         // 목록에 출력할 게시물 범위 계산
-        int start = (pageNum - 1) * pageSize + 1;  // 첫 게시물 번호
-        int end = pageNum * pageSize; // 마지막 게시물 번호
-        map.put("start", start);
-        map.put("end", end);
+        int start = (pageNum - 1) * pageSize + 1;  // 첫 게시물 번호, 제일 하단에 있는 게시물
+        int end = pageNum * pageSize; // 마지막 게시물 번호, 제일 상위에 있는 게시물
+        map.put("pageNum", pageNum);
+        map.put("pageSize", pageSize);
         /* 페이지 처리 end */
 
         List<BoardVO> boardLists = getBoardService().selectListPage(map);  // 게시물 목록 받기
@@ -71,6 +72,6 @@ public class ListController extends HttpServlet {
         // 전달할 데이터를 request 영역에 저장 후 List.jsp로 포워드
         req.setAttribute("boardLists", boardLists);
         req.setAttribute("map", map);
-        req.getRequestDispatcher("/14MVCBoard/List.jsp").forward(req, resp);
+        req.getRequestDispatcher("/board/List.jsp").forward(req, resp);
     }
 }

@@ -15,16 +15,19 @@
         </if>
     </select>
 
-    <select id="selectListPage" parameterType="java.util.HashMap" resultType="java.util.List">
-        select Tb.*
-        from (
-            select *
-            from mvcboard
-            <if test='searchWord != null'>
-                where #{searchField} like concat('%', #{searchWord}, '%')
-            </if>
-            order by idx desc
-             ) as Tb
-        limit #{num} offset #{end}
+    <select id="selectListPage" parameterType="java.util.HashMap" resultType="board.model.BoardVO">
+        select *
+        from mvcboard
+        <if test='searchWord != null'>
+            where #{searchField} like concat('%', #{searchWord}, '%')
+        </if>
+        order by idx desc
+        limit #{pageSize} offset #{offsetStart}
     </select>
+
+    <insert id="insertWrite" parameterType="board.model.BoardVO">
+        INSERT
+        INTO mvcboard(name, title, content, ofile, sfile, pass)
+        VALUES(#{name}, #{title}, #{content}, #{ofile}, #{sfile}, #{pass})
+    </insert>
 </mapper>

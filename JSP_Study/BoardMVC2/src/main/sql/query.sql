@@ -29,3 +29,13 @@ insert into mvcboard (name, title, content, pass)
 values ('대조영', '자료실 제목5 입니다.','내용','1234');
 
 commit;
+
+-- selectCount
+select Tb.*
+from (
+         select *
+         from mvcboard
+         where title like '%자료실%'
+         order by idx desc
+     ) as Tb
+limit 10 offset 3;

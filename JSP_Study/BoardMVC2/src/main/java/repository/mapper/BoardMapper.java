@@ -10,5 +10,6 @@ public interface BoardMapper {
     public int selectCount(Map<String, Object> map);
     // 검색 조건에 맞는 게시물 목록을 반환 (페이징)
     public List<BoardVO> selectListPage(Map<String, Object> map);
-
+    // 게시물 데이터를 받아 DB에 추가 (파일 업로드 지원)
+    public int insertWrite(BoardVO board);
 }
