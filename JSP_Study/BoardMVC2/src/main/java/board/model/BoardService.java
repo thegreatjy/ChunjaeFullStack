@@ -51,4 +51,35 @@ public class BoardService {
         sqlSession.close();
         return result;
     }
+
+    // 게시물 번호에 해당하는 게시물을 반환
+    public BoardVO selectView(String idx){
+        this.sqlSession = factory.MyBatisFactory.getSqlSession();
+        mapper = this.sqlSession.getMapper(BoardMapper.class);
+        BoardVO board = null;
+        try {
+            board = mapper.selectView(idx);
+        }catch (Exception e){
+            System.out.println("selectView 오류");
+        }finally {
+            sqlSession.close();
+            return board;
+        }
+    }
+
+    // 게시물 번호에 해당하는 게시물의 조회수를 1 증가
+    public void updateVisitCount(String idx){
+        this.sqlSession = factory.MyBatisFactory.getSqlSession();
+        mapper = this.sqlSession.getMapper(BoardMapper.class);
+
+        int result = mapper.updateVisitCount(idx);
+        if(result == 1){
+            // update 성공
+            sqlSession.commit();
+        }else{
+            // update 실패
+        }
+
+        sqlSession.close();
+    }
 }

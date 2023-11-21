@@ -30,4 +30,16 @@
         INTO mvcboard(name, title, content, ofile, sfile, pass)
         VALUES(#{name}, #{title}, #{content}, #{ofile}, #{sfile}, #{pass})
     </insert>
+
+    <select id="selectView" parameterType="String" resultType="board.model.BoardVO">
+        select *
+        from mvcboard
+        where idx = #{idx}
+    </select>
+
+    <update id="updateVisitCount" parameterType="String">
+        update mvcboard
+        set visitcount = visitcount + 1
+        where idx = #{idx}
+    </update>
 </mapper>
