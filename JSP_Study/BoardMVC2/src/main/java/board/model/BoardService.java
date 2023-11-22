@@ -1,8 +1,9 @@
 package board.model;
 
+import auth.SHA256;
 import org.apache.ibatis.session.SqlSession;
-import repository.mapper.BoardDAO;
 
+import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
@@ -41,6 +42,18 @@ public class BoardService {
     public int insertWrite(BoardVO board){
         this.sqlSession = factory.MyBatisFactory.getSqlSession();
         mapper = this.sqlSession.getMapper(BoardDAO.class);
+
+        String encryptedPass = "";
+        try {
+            // controller로부터 pass 값을 받아온다.
+            String pass = board.getPass();
+            encryptedPass = SHA256.encrypt(pass);
+        }catch (Exception e){
+            System.out.println("insertWrite - encrypt 오류 발생");
+        }
+        // 암호화된 비밀번호로 변경
+        board.setPass(encryptedPass);
+
         int result = mapper.insertWrite(board);
         if(result == 1){
             // insert 성공
@@ -106,8 +119,29 @@ public class BoardService {
         this.sqlSession = factory.MyBatisFactory.getSqlSession();
         mapper = this.sqlSession.getMapper(BoardDAO.class);
 
-        boolean result = mapper.confirmPassWord(pass, idx);
-        return result;
+        HashMap<String, String> map = new HashMap<>();
+
+        boolean isEqual = false; // 일치 여부를 반환한다.
+        int result = 0;
+        try {
+            // 암호화된 비밀번호
+            String encryptedPass = SHA256.encrypt(pass);
+            System.out.println(pass + ", " + encryptedPass + ", " + idx);
+            map.put("pass", encryptedPass);
+            map.put("idx", idx);
+
+            result = mapper.confirmPassword(map);
+        }catch (Exception e){
+            System.out.println("confirmPassword - encryptedPass 오류 발생");
+            return isEqual;
+        }
+
+        if(result == 1){
+            // 일치
+            isEqual = true;
+        }
+
+        return isEqual;
     }
 
     // 게시물 번호에 해당하는 게시물 삭제
@@ -124,5 +158,22 @@ public class BoardService {
             System.out.println("deletePost 실패");
         }
         return result;
+    }
+
+    // 게시글 데이터를 받아 DB에 저장되어 있던 내용을 갱신합니다(파일 업로드 지원).
+    public int updatePost(BoardVO dto) {
+        this.sqlSession = factory.MyBatisFactory.getSqlSession();
+        mapper = this.sqlSession.getMapper(BoardDAO.class);
+
+        int result = mapper.updatePost(dto);
+        if(result == 1){
+            // 성공
+            sqlSession.commit();
+        }else{
+            // 실패
+            System.out.println("updatePost 실패");
+        }
+        return result;
+
     }
 }

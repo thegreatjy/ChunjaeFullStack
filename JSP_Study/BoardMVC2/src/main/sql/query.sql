@@ -15,6 +15,8 @@ create table mvcboard (
                           pass varchar(50) not null,
                           visitcount int default 0 not null
 );
+-- change password datatype for encryption
+ALTER TABLE mvcboard MODIFY pass varchar(64);
 
 --더미 데이터 입력
 insert into mvcboard (name, title, content, pass)
