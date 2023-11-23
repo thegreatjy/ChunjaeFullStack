@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="./js/jquery-3.7.1.min.js"></script>
+
+    <script>
+        $(function(){
+            // 기본 선택자
+            $('.wrap_1').css('border', '3px solid orange');
+            // 직접 선택자
+            // $('.wrap_1 p').css('background-color', 'yellow');
+            // 근접 선택자
+            $('.active').next('p').css('background-color', 'aqua');
+            // 위치 선택자 : 배열 0번째 값 선택
+            $('.active').eq(0).css('background-color', 'aqua');
+            // 속성 선택자
+            $('input[type=text]').css({'background-color': "red"});
+
+            // 삭제
+            // 선택한 요소의 클래스명 삭제
+            $('.wrap_1').eq(0).removeClass('active');
+            // <p class="" style="background-color: aqua;">active</p>이 됨
+
+            // 선택한 요소의 맨 마지막에 요소를 추가
+            $('.wrap_1').append('<p>append text</p>');
+        });
+    </script>
+    <title>Document</title>
+</head>
+<body>
+    <div class="wrap_1">
+        <p>test 1</p>
+        <p class="active">active</p>
+        <p><a href="#">naver</a></p>
+        <p>
+            <input type="text" value="hello" />
+        </p>
+    </div>
+</body>
+</html>

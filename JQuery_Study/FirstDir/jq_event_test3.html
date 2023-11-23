@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="./js/jquery-3.7.1.min.js"></script>
+
+    <script>
+        // group
+        $(function(){
+            $('.btn1 a').on('click', function(){
+                let ts = $(this);
+                $('.btn1').next('ul').filter(':visible').hide();
+                ts.parent().next().show();
+                return false; // 링크 이동 마비
+            });
+        });
+    </script>
+    <title>Document</title>
+</head>
+<body>
+    <p class="btn1"><a href="#">event 1</a>
+        <ul style="display: none">
+            <li>list 1</li>
+            <li>list 2</li>
+            <li>list 3</li>
+        </ul>
+    </p>
+
+    <p class="btn1"><a href="#">event 2</a>
+        <ul style="display: none">
+            <li>list 1</li>
+            <li>list 2</li>
+            <li>list 3</li>
+        </ul>
+    </p>
+</body>
+</html>

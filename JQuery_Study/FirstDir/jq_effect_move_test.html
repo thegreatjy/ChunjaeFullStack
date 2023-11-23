@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="./js/jquery-3.7.1.min.js"></script>
+    <script>
+        $(function(){
+            $('.btn1').on('click', function(){
+                let ts = $(this);
+                // 버튼 내용이 '숨김'
+                if(ts.text() == '숨김'){
+                    // wrap 부분이 1000ms 동안 slideup되어 사라짐
+                    // 그 후 버튼 내용이 '표시'로 바뀜
+                    $('.wrap').slideUp(1000, function(){
+                        $('.btn1').text('표시');
+                    });
+                }else{ // 버튼 내용이 '표시'
+                    // wrap 부분이 1000ms 동안 slideDown되어 표시됨
+                    // 그 후 버튼 내용이 '숨김'로 바뀜
+                    $('.wrap').slideDown(1000, function(){
+                        $('.btn1').text('숨김');
+                    });
+                }
+            });
+        });
+    </script>
+</head>
+<body>
+    <p class="btnWrap">
+        <button class="btn1">숨김</button>
+    </p>
+    <div class="wrap">
+        <p class="txt1">내용1</p>
+        <p class="txt2">내용2</p>
+    </div>
+</body>
+</html>

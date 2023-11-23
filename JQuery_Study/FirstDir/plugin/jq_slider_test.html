@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>    
+    <script src="http://code.jquery.com/jquery-latest.js"></script>
+    <script src="js/jquery.bxslider.js"></script>
+<link rel="stylesheet" href="css/jquery.bxslider.css" >
+<style>
+    .slider-wrap { max-width: 640px;
+    } 
+</style>
+<script>
+        $(document).ready(function () {
+$('.slider').bxSlider(); });
+    </script>
+    
+</head>
+<body>
+    <!-- ul.slider>li*7>img[src="images/pic_$.jpg"] : 컨트롤 누르고 엔터-->
+    <div class="slider-wrap">
+        <ul class="slider">
+            <li><img src="images/pic_1.jpg" alt=""></li>
+            <li><img src="images/pic_2.png" alt=""></li>
+            <li><img src="images/pic_3.jpg" alt=""></li>
+            <li><img src="images/pic_4.png" alt=""></li>
+            <li><img src="images/pic_5.png" alt=""></li>
+            <li><img src="images/pic_6.jpg" alt=""></li>
+            <li><img src="images/pic_7.png" alt=""></li>
+        </ul>
+    </div>
+</body>
+</html>

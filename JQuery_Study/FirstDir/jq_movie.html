@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="../js/jquery-3.7.1.min.js"></script>
+
+</head>
+
+<body>
+    <div id="mv"></div>
+    <button onclick="getData()">영화 데이터 요청</button>
+
+    <script>
+        function getData() {
+            $.ajax({
+                // url -> 데이터의 주소 
+                url: 'https://kobis.or.kr/kobisopenapi/webservice/rest/boxoffice/searchWeeklyBoxOfficeList.json?key=발급받은 키&targetDt=20220501',
+
+                // 쿼리스트링 ? get / jsp에서 post로 설정? post
+                type: 'get',
+                success: function (res) {
+                    // 성공했다면 ? 내 데이터는 어디있을까?
+                    // -> 매개변수 안에 담아주도록 했음
+                    // 1 case 1 innerHTML
+                    let data = ''
+                    data += '<table><tr><th>순위</th><th>영화제목</th><th>개봉일자</th></tr>'
+
+                    for(let i = 0; i < res.boxOfficeResult.weeklyBoxOfficeList.length;i++) {
+                        data += '<tr>'
+                            data += `<td>${res.boxOfficeResult.weeklyBoxOfficeList[i].rank}</td>`
+                            data += `<td>${res.boxOfficeResult.weeklyBoxOfficeList[i].movieNm}</td>`
+                            data += `<td>${res.boxOfficeResult.weeklyBoxOfficeList[i].openDt}</td>`
+                        data += '</tr>'
+                    }
+                    data += '</table>'
+
+                    $('#mv').append(data)
+                    console.log(res)
+
+                    // let output = '<table>'+'<tr>'+'<th>순위</th>' +'<th>영화제목</th>' +'<th>개봉일자</th>' +'</tr>'
+                    // for (let i = 0; i < 10; i++) {
+                    //     output += '<tr>'+'<td>'+res.boxOfficeResult.weeklyBoxOfficeList[i].rank +'</td><td>'
+                    //         +res.boxOfficeResult.weeklyBoxOfficeList[i].movieNm +
+                    //         '</td><td>'+res.boxOfficeResult.weeklyBoxOfficeList[i].openDt +'</td>' +'</tr>'
+                    // }
+                    // output += '</table>'
+                    // $('#mv').prepend(output)
+                }
+                ,
+                error: function () {
+                    alert('error!')
+                }
+            })
+        }
+    </script>
+</body>
+
+</html>

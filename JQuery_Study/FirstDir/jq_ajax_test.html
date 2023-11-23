@@ -1,0 +1,12 @@
+<!DOCTYPE html> <html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" /> <script src="./js/jquery-3.7.1.min.js"></script>
+<title>JQ_Test2</title>
+</head> <body>
+<button type="button" id="btn_data">클릭해주세요!</button> <div id="data">data</div>
+<script>
+$('#btn_data').click(function () {
+$('#data').load('https://raw.githubusercontent.com/paullabkorea/coronaVaccinationStatus/main/data/data.json'); });
+</script> </body>
+</html>
