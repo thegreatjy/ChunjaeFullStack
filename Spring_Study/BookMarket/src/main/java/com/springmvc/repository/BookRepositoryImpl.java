@@ -51,4 +51,17 @@ public class BookRepositoryImpl implements BookRepository{
         // TODO Auto-generated method stub
         return listOfBooks;
     }
+
+    public List<Book> getBookListByCategory(String category){
+        List<Book> booksByCategory = new ArrayList<>();
+
+        // book 목록을 순회하며 카테고리에 해당하는 book을 추가해 준다.
+        for(int i=0; i<listOfBooks.size(); i++){
+            Book book = listOfBooks.get(i);
+            if(category.equalsIgnoreCase(book.getCategory()))
+                booksByCategory.add(book);
+        }
+
+        return booksByCategory;
+    }
 }

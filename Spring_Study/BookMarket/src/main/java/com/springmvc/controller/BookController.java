@@ -6,6 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
@@ -30,7 +31,14 @@ public class BookController {
         ModelAndView mav = new ModelAndView();
         List<Book> list = bookService.getAllBookList();
         mav.addObject("bookList", list);
-        mav.setViewName("books");
+        mav.setViewName("books");   // books.jsp
         return mav;
+    }
+
+    @GetMapping("/{category}")
+    public String requestBooksByCategory(@PathVariable("category") String bookCategory, Model model){
+        List<Book> booksByCategory = bookService.getBookListByCategory(bookCategory);
+        model.addAttribute("bookList", booksByCategory);
+        return "books"; // books.jsp 호출
     }
 }
