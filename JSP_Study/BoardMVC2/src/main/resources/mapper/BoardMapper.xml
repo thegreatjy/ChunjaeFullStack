@@ -66,4 +66,10 @@
         set title=#{title}, name=#{name}, content=#{content}, ofile=#{ofile}, sfile=#{sfile}
         where idx=#{idx} and pass=#{pass}
     </update>
+
+    <select id="selectList" resultType="model1.board.BoardDTO">
+        select *
+        from mvcboard
+        order by idx desc
+    </select>
 </mapper>

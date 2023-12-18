@@ -44,7 +44,7 @@
     </context-param>
     <context-param>
         <param-name>MySQL_URL</param-name>
-        <param-value>jdbc:mariadb://localhost:3306/musthave</param-value>
+        <param-value>jdbc:mariadb://localhost:3306/test</param-value>
     </context-param>
     <context-param>
         <param-name>MySQL_Id</param-name>

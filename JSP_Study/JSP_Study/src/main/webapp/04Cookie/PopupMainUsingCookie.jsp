@@ -29,15 +29,15 @@
       position: absolute;
       top: 100px;
       left: 50px;
-      color: yellow;
       width: 270px;
       height: 100px;
-      background-color: gray;
+      background-color: rgb(128,128,128);
+      color: white; /* 팝업 글자색 */
     }
     div#popup>div{
       background-color: #ffffff;
       top: 0px;
-      border: 1px solid gray;
+      border: 1px solid rgb(128,128,128);
       padding: 10px;
       color: black;
     }

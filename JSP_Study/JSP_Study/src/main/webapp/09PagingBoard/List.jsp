@@ -67,14 +67,21 @@
     table{
       width: 90%;
     }
-
     .width10{
       width: 10%;
       align: center;
     }
-
     .width15{
       width: 15%;
+    }
+    .align-left{
+      text-align: left;
+    }
+    .align-center{
+      text-align: center;
+    }
+    .align-right{
+      text-align: right;
     }
   </style>
 </head>
@@ -87,7 +94,7 @@
   <form method="get">
     <table>
       <tr>
-        <td align="center">
+        <td class="align-center">
           <!-- 검색 종류 옵션 선택 (제목, 내용) -->
           <select name="searchField">
             <option value="title">제목</option>
@@ -105,11 +112,11 @@
   <table>
     <!-- 컬럼의 이름 -->
     <tr>
-      <td class="width10" align="center">번호</td>
-      <td class="width10" align="center">제목</td>
-      <td class="width15" align="center">작성자</td>
-      <td class="width10" align="center">조회수</td>
-      <td class="width15" align="center">작성일</td>
+      <td class="width10" class="align-center">번호</td>
+      <td class="width10" class="align-center">제목</td>
+      <td class="width15" class="align-center">작성자</td>
+      <td class="width10" class="align-center">조회수</td>
+      <td class="width15" class="align-center">작성일</td>
     </tr>
     <!-- 목록 내용 -->
     <%
@@ -117,7 +124,7 @@
       if(boardList.isEmpty()){
     %>
       <tr>
-        <td colspan="5" align="center">
+        <td colspan="5" class="align-center">
           등록된 게시글이 없습니다.
         </td>
       </tr>
@@ -130,25 +137,25 @@
           // virtualNumber = totalCount--;  // 전체 게시물 수에서 시작해 1씩 감소
           virtualNum = totalCount - (((pageNum - 1) * pageSize) + countNum++);
     %>
-        <tr text-align="center">
+        <tr class="align-center">
           <!-- 게시글 번호 -->
           <td>
             <%=virtualNum%>
           </td>
           <!-- 게시글 제목 및 하이퍼링크 -->
-          <td align="left">
+          <td class="align-left">
             <a href="View.jsp?num=<%= board.getNum() %>"><%= board.getTitle() %></a>
           </td>
           <!-- 작성자 아이디 -->
-          <td align="center">
+          <td class="align-center">
             <%= board.getId() %>
           </td>
           <!-- 조회수 -->
-          <td align="center">
+          <td class="align-center">
             <%= board.getVisitcount() %>
           </td>
           <!-- 작성일 -->
-          <td align="center">
+          <td class="align-center">
             <%= board.getPostdate() %>
           </td>
         </tr>
@@ -162,7 +169,7 @@
 
   <!-- 글쓰기 버튼 -->
   <table border="1" width="90%">
-    <tr align="center">
+    <tr class="align-center">
       <!-- 페이징 처리 -->
       <td>
         <%= BoardPage.pagingStr(totalCount, pageSize,

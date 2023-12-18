@@ -1,6 +1,7 @@
 package board.model;
 
 import board.model.BoardVO;
+import model1.board.BoardDTO;
 
 import java.util.Map;
 import java.util.List;
@@ -10,6 +11,8 @@ public interface BoardDAO {
     public int selectCount(Map<String, Object> map);
     // 검색 조건에 맞는 게시물 목록을 반환 (페이징)
     public List<BoardVO> selectListPage(Map<String, Object> map);
+
+    public List<BoardDTO> selectList();
     // 게시물 데이터를 받아 DB에 추가 (파일 업로드 지원)
     public int insertWrite(BoardVO board);
     // 게시물 번호에 해당하는 게시물을 반환

@@ -20,7 +20,7 @@ public class JDBConnect {
             Class.forName("org.mariadb.jdbc.Driver");
 
             // DB에 연결
-            String url = "jdbc:mariadb://localhost:3306/musthave";
+            String url = "jdbc:mariadb://localhost:3306/test";
             String id = "root";
             String pwd = "12345";
             con = DriverManager.getConnection(url, id, pwd);

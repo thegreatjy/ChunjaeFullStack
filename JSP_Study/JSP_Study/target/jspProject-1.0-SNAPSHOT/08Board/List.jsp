@@ -44,11 +44,21 @@
 
     .width10{
       width: 10%;
-      align: center;
+      text-align: center;
     }
 
     .width15{
       width: 15%;
+    }
+
+    .align-left{
+      text-align: left;
+    }
+    .align-center{
+      text-align: center;
+    }
+    .align-right{
+      text-align: right;
     }
   </style>
 </head>
@@ -56,34 +66,34 @@
   <!-- 네비게이션 바 -->
   <jsp:include page="../Common/Link.jsp" />
 
-  <h2>목록 보기</h2>
+  <h2>목록 보기(List)</h2>
   <!-- 검색 입력폼 -->
-  <form method="get">
     <table>
       <tr>
-        <td align="center">
-          <!-- 검색 종류 옵션 선택 (제목, 내용) -->
-          <select name="searchField">
-            <option value="title">제목</option>
-            <option value="content">내용</option>
-          </select>
-          <input type="text" name="searchWord" />
-          <input type="submit" name="검색하기" />
+        <td class="align-center">
+          <form method="get">
+            <!-- 검색 종류 옵션 선택 (제목, 내용) -->
+            <select name="searchField">
+              <option value="title">제목</option>
+              <option value="content">내용</option>
+            </select>
+            <input type="text" name="searchWord" />
+            <button type="submit">검색하기</button>
+          </form>
         </td>
       </tr>
     </table>
-  </form>
 
 
   <!-- 게시물 목록 테이블 -->
   <table>
     <!-- 컬럼의 이름 -->
     <tr>
-      <td class="width10" align="center">번호</td>
-      <td class="width10" align="center">제목</td>
-      <td class="width15" align="center">작성자</td>
-      <td class="width10" align="center">조회수</td>
-      <td class="width15" align="center">작성일</td>
+      <td class="width10">번호</td>
+      <td class="width10">제목</td>
+      <td class="width15 align-center">작성자</td>
+      <td class="width10">조회수</td>
+      <td class="width15 align-center">작성일</td>
     </tr>
     <!-- 목록 내용 -->
     <%
@@ -91,7 +101,7 @@
       if(boardList.isEmpty()){
     %>
       <tr>
-        <td colspan="5" align="center">
+        <td colspan="5" text-align="center">
           등록된 게시글이 없습니다.
         </td>
       </tr>
@@ -102,25 +112,25 @@
         for(BoardDTO board: boardList){
           virtualNum = totalCount--;
     %>
-        <tr text-align="center">
+        <tr class="align-center">
           <!-- 게시글 번호 -->
           <td>
             <%=virtualNum%>
           </td>
           <!-- 게시글 제목 및 하이퍼링크 -->
-          <td align="left">
+          <td class="align-left">
             <a href="View.jsp?num=<%= board.getNum() %>"><%= board.getTitle() %></a>
           </td>
           <!-- 작성자 아이디 -->
-          <td align="center">
+          <td class="align-center">
             <%= board.getId() %>
           </td>
           <!-- 조회수 -->
-          <td align="center">
+          <td class="align-center">
             <%= board.getVisitcount() %>
           </td>
           <!-- 작성일 -->
-          <td align="center">
+          <td class="align-center">
             <%= board.getPostdate() %>
           </td>
         </tr>
@@ -132,7 +142,7 @@
 
   <!-- 글쓰기 버튼 -->
   <table>
-    <tr align="right">
+    <tr class="align-right">
       <td>
         <!-- location.href="이동할 주소"; -->
         <button type="button" onclick="location.href='Write.jsp';">
