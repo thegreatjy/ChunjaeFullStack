@@ -1,12 +1,13 @@
 package com.springmvc.repository;
 
 import com.springmvc.domain.Book;
+import lombok.extern.log4j.Log4j2;
 import org.springframework.stereotype.Repository;
 
-import java.util.ArrayList;
-import java.util.List;
+import java.util.*;
 
 @Repository
+@Log4j2
 public class BookRepositoryImpl implements BookRepository{
     private List<Book> listOfBooks = new ArrayList<Book>();
 
@@ -63,5 +64,71 @@ public class BookRepositoryImpl implements BookRepository{
         }
 
         return booksByCategory;
+    }
+
+    @Override
+    public Set<Book> getBookListByFilter(Map<String, List<String>> filter) {
+        Set<Book> booksByPublisher = new HashSet<>();
+        Set<Book> booksByCategory = new HashSet<>();
+
+        Set<String> booksByFilter = filter.keySet();
+
+        if(booksByFilter.contains("publisher")){
+            // publisher의 개수만큼 순회
+            for(int j=0; j<filter.get("publisher").size(); j++){
+                // publisher 리스트 중 하나 선택
+                String publisherName = filter.get("publisher").get(j);
+
+                // 모든 책을 순회하며 해당 publisher 값을 가진 책을 찾아 set에 추가한다.
+                for(int i=0; i<listOfBooks.size(); i++){
+                    Book book = listOfBooks.get(i);
+
+                    if(publisherName.equalsIgnoreCase(book.getPublisher()))
+                        booksByPublisher.add(book);
+                }
+            }
+        }
+
+        if(booksByFilter.contains("category")){
+            // category의 개수만큼 순회
+            for(int i=0; i<filter.get("category").size(); i++){
+                // category 리스트 중 하나 선택
+                String category = filter.get("category").get(i);
+
+                List<Book> list = getBookListByCategory(category);
+                booksByCategory.addAll(list);
+            }
+        }
+        booksByCategory.retainAll(booksByPublisher);    // 두 set의 교집합 set을 구한다.
+
+        return booksByCategory;
+    }
+
+    @Override
+    public Book getBookById(String bookId) {
+        Book bookInfo = null;
+
+        // 모든 책 순회하며 해당 id의 책을 찾는다.
+        for(int i=0; i<listOfBooks.size(); i++){
+            Book book = listOfBooks.get(i);
+
+            if(book != null && book.getBookId() != null && book.getBookId().equals(bookId)){
+                bookInfo = book;
+                break;
+            }
+        }
+
+        // id에 맞는 도서가 없다.
+        if(bookInfo == null){
+            throw new IllegalArgumentException("도서 ID가 " +bookId +"에 해당하는 도서를 찾을 수 없습니다.");
+        }
+
+        return bookInfo;
+    }
+
+    // 책 등록
+    @Override
+    public void setNewBook(Book book) {
+        listOfBooks.add(book);
     }
 }

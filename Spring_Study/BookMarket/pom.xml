@@ -21,6 +21,7 @@
         <org.springframework-version>5.3.29</org.springframework-version>
         <org.aspectj-version>1.9.6</org.aspectj-version>
         <org.slf4j-version>1.7.36</org.slf4j-version>
+        <security.version>5.6.9</security.version>
     </properties>
 
     <dependencies>
@@ -78,6 +79,25 @@
             <artifactId>spring-tx</artifactId>
             <version>${org.springframework-version}</version>
         </dependency>
+
+        <!-- Spring Security -->
+        <dependency>
+            <groupId>org.springframework.security</groupId>
+            <artifactId>spring-security-web</artifactId>
+            <version>${security.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>org.springframework.security</groupId>
+            <artifactId>spring-security-config</artifactId>
+            <version>${security.version}</version>
+        </dependency>
+
+        <dependency>
+            <groupId>org.springframework.security</groupId>
+            <artifactId>spring-security-taglibs</artifactId>
+            <version>${security.version}</version>
+        </dependency>
+
 
         <!-- lombok -->
         <!-- https://mvnrepository.com/artifact/org.projectlombok/lombok -->
