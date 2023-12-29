@@ -41,8 +41,4 @@
             memberMobile = #{memberMobile}
         where id = #{id}
     </update>
-
-    <select id="test" resultType="String">
-        select now();
-    </select>
 </mapper>
