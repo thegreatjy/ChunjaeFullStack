@@ -5,6 +5,8 @@ import lombok.RequiredArgsConstructor;
 import org.mybatis.spring.SqlSessionTemplate;
 import org.springframework.stereotype.Repository;
 
+import java.lang.reflect.Member;
+
 @Repository
 @RequiredArgsConstructor
 public class MemberRepository {
@@ -13,5 +15,10 @@ public class MemberRepository {
 
     public int save(MemberDTO memberDTO) {
         return sql.insert("Member.save", memberDTO);
+    }
+
+    public MemberDTO login(MemberDTO memberDTO) {
+        MemberDTO result = (MemberDTO)sql.selectOne("Member.login", memberDTO);
+        return result;
     }
 }

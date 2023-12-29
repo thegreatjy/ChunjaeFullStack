@@ -15,4 +15,14 @@ public class MemberService {
     public int save(MemberDTO memberDTO) {
         return memberRepository.save(memberDTO);
     }
+
+    public boolean login(MemberDTO memberDTO) {
+        MemberDTO result = memberRepository.login(memberDTO);
+
+        if(result == null){ // 로그인 시도한 이메일, 비밀번호에 해당하는 member가 DB에 존재하지 않음
+            return false;
+        }else{
+            return true;
+        }
+    }
 }

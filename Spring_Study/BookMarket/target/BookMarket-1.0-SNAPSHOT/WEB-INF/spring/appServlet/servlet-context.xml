@@ -21,12 +21,16 @@
         <beans:property name="suffix" value=".jsp" />
     </beans:bean>
 
-    <context:component-scan base-package="kr.co.chunjae.*" />
+    <context:component-scan base-package="com.springmvc.*" />
 
-    <!-- 유효성 검사 메세지 -->
-    <beans:bean id= "messageSource" class="org.springframework.context.support.ResourceBundleMessageSource">
-        <beans:property name="basename" value="messages"/>
-        <beans:property name="defaultEncoding" value="UTF-8" />
+
+    <!-- DataSource
+    <beans:bean id="dataSource" class="org.springframework.jdbc.datasource.DriverManagerDataSource">
+        <beans:property name="driverClassName" value="org.mariadb.jdbc.Driver"/>
+        <beans:property name="url" value="jdbc:mariadb://localhost:3306/webdb"/>
+        <beans:property name="username" value="webuser"/>
+        <beans:property name="password" value="webuser"/>
     </beans:bean>
+    -->
 
 </beans:beans>

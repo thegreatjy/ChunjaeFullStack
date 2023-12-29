@@ -4,13 +4,14 @@ import kr.co.chunjae.domain.MemberDTO;
 import kr.co.chunjae.service.MemberService;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.log4j.Log4j;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.ModelAttribute;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.validation.Errors;
+import org.springframework.web.bind.WebDataBinder;
+import org.springframework.web.bind.annotation.*;
+
+import javax.servlet.http.HttpSession;
+import javax.validation.Valid;
 
 @Controller
 @Log4j
@@ -28,10 +29,13 @@ public class MemberController {
     }
 
     @PostMapping("/save")
-    public String save(@ModelAttribute("member") MemberDTO memberDTO, Model model){
-        log.info(memberDTO);
+    public String save(@Valid @ModelAttribute("member") MemberDTO memberDTO, Errors errors, Model model){
+        // 유효성 검사 오류 결과 확인
+        if(errors.hasErrors()){
+            return "save";
+        }
+
         int result = memberService.save(memberDTO);
-        log.info(result);
 
         if(result == 1){ // 회원가입 성공
             return "redirect:/";
@@ -41,9 +45,32 @@ public class MemberController {
         }
 
     }
-
+    // 바인딩은 제일 처음 실행된다.
     @ModelAttribute("msg")
     public String setMsg(){
         return "회원가입 페이지";
     }
+
+
+    // 로그인
+    @GetMapping("/login")
+    public String loginForm(Model model){
+        MemberDTO memberDTO = new MemberDTO();
+        model.addAttribute("member", memberDTO);
+        return "login";
+    }
+    // 스프링 시큐리티 추가할 것!
+    @PostMapping("/login")
+    public String login(@ModelAttribute("member") MemberDTO memberDTO, HttpSession session){
+        boolean result = memberService.login(memberDTO);
+
+        if(result){ // 로그인 성공
+            // 세션에 로그인된 이메일 저장
+            session.setAttribute("loginEmail", memberDTO.getEmail());
+            return "redirect:/";
+        }else{
+            return "login";
+        }
+    }
+
 }
