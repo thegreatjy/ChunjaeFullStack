@@ -1,8 +1,10 @@
 package kr.co.chunjae.controller;
 
 import kr.co.chunjae.dto.BoardDTO;
+import kr.co.chunjae.dto.CommentDTO;
 import kr.co.chunjae.dto.PageDTO;
 import kr.co.chunjae.service.BoardService;
+import kr.co.chunjae.service.CommentService;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.log4j.Log4j;
 import org.springframework.stereotype.Controller;
@@ -17,6 +19,8 @@ import java.util.List;
 @Log4j
 public class BoardController {
     private final BoardService boardService;
+    private final CommentService commentService;
+
     // 등록
     @GetMapping("/save")
     public String saveForm(){
@@ -28,7 +32,7 @@ public class BoardController {
         int saveResult = boardService.save(boardDTO);
 
         if(saveResult > 0){ // 성공
-            return "redirect:/board/";
+            return "redirect:/board/paging";
         }else { // 실패
             return "save";
         }
@@ -44,10 +48,16 @@ public class BoardController {
 
     // 상세 조회
     @RequestMapping
-    public String findById(@RequestParam("id") Long id, Model model){
+    public String findById(@RequestParam("id") Long id, @RequestParam(value="page", required = false, defaultValue = "1") int page, Model model){
         boardService.updateHits(id);
         BoardDTO boardDTO = boardService.findById(id);
         model.addAttribute("board", boardDTO);
+        model.addAttribute("page", page);   // 이전 목록 페이지로 돌아가기 위함
+
+        // 댓글 목록 조회
+        List<CommentDTO> commentDTOList = commentService.findAll(boardDTO.getId());
+        model.addAttribute("commentList", commentDTOList);
+
         return "detail";
     }
 
@@ -55,7 +65,7 @@ public class BoardController {
     @RequestMapping("/delete")
     public String delete(@RequestParam("id") Long id){
         boardService.delete(id);
-        return "redirect:/board/";
+        return "redirect:/board/paging";
     }
 
     // 게시글 수정
@@ -83,6 +93,7 @@ public class BoardController {
         List<BoardDTO> pagingList = boardService.pageList(page);
         log.info(pagingList);
 
+        // 해당 페이지 하단의 페이징
         PageDTO pageDTO = boardService.pagingParam(page);
         model.addAttribute("boardList", pagingList);
         model.addAttribute("paging", pageDTO);

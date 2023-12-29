@@ -62,8 +62,7 @@ public class BoardService {
         return pagingList;
     }
 
-    public void pagingParam(int page){
-        /*
+    public PageDTO pagingParam(int page){
         // 전체 글 개수 조회
         int boardCount = boardRepository.boardCount();
         // 전체 페이지 개수 계산 (전체 글 개수/한 페이지당 글 개수의 올림, 10/3 = 4)
@@ -76,7 +75,11 @@ public class BoardService {
         if(endPage > maxPage){
             endPage = maxPage;
         }
-
-         */
+        PageDTO pageDTO = new PageDTO();
+        pageDTO.setPage(page);
+        pageDTO.setMaxPage(maxPage);
+        pageDTO.setStartPage(startPage);
+        pageDTO.setEndPage(endPage);
+        return pageDTO;
     }
 }
