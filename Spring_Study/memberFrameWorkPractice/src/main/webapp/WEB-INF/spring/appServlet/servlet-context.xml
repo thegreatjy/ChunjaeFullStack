@@ -10,7 +10,7 @@
     <!-- DispatcherServlet Context: defines this servlet's request-processing infrastructure -->
 
     <!-- Enables the Spring MVC @Controller programming model -->
-    <annotation-driven />
+    <annotation-driven enable-matrix-variables="true" validator="validator" />
 
     <!-- Handles HTTP GET requests for /resources/** by efficiently serving up static resources in the ${webappRoot}/resources directory -->
     <resources mapping="/resources/**" location="/resources/" />
@@ -27,6 +27,22 @@
     <beans:bean id= "messageSource" class="org.springframework.context.support.ResourceBundleMessageSource">
         <beans:property name="basename" value="messages"/>
         <beans:property name="defaultEncoding" value="UTF-8" />
+    </beans:bean>
+
+
+    <!-- JSR-380 유효성 검사를 위해 LocalValidatorFactoryBean을 등록 -->
+    <beans:bean id="validator" class="org.springframework.validation.beanvalidation.LocalValidatorFactoryBean">
+        <beans:property name="validationMessageSource" ref="messageSource"/>
+    </beans:bean>
+
+    <!-- validator 구현 객체 -->
+    <beans:bean id="memberDTOMobileValidator" class="kr.co.chunjae.validator.MemberDTOMobileValidator"/>
+    <beans:bean id="memberDTOValidator" class="kr.co.chunjae.validator.MemberDTOValidator">
+        <beans:property name="springValidators">
+            <beans:set>
+                <beans:ref bean="memberDTOMobileValidator"/>
+            </beans:set>
+        </beans:property>
     </beans:bean>
 
 </beans:beans>

@@ -1,0 +1,34 @@
+<%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<html>
+<head>
+  <title>detail</title>
+</head>
+<body>
+<table>
+  <tr>
+    <th>id</th>
+    <td>${member.id}</td>
+  </tr>
+  <tr>
+    <th>email</th>
+    <td>${member.email}</td>
+  </tr>
+  <tr>
+    <th>password</th>
+    <td>${member.password}</td>
+  </tr>
+  <tr>
+    <th>name</th>
+    <td>${member.name}</td>
+  </tr>
+  <tr>
+    <th>age</th>
+    <td>${member.age}</td>
+  </tr>
+  <tr>
+    <th>mobile</th>
+    <td>${member.mobile}</td>
+  </tr>
+</table>
+</body>
+</html>
