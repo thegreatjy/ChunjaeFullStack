@@ -54,10 +54,10 @@ public class MemberController {
 
     }
     // 바인딩은 제일 처음 실행된다.
-    @ModelAttribute("msg")
+    /*@ModelAttribute("msg")
     public String setMsg(){
         return "회원가입 페이지";
-    }
+    }*/
 
 
     // 로그인
@@ -69,7 +69,7 @@ public class MemberController {
     }
     // 스프링 시큐리티 추가할 것!
     @PostMapping("/login")
-    public String login(@ModelAttribute("member") MemberDTO memberDTO, HttpSession session){
+    public String login(@ModelAttribute("member") MemberDTO memberDTO, HttpSession session, Model model){
         boolean result = memberService.login(memberDTO);
 
         if(result){ // 로그인 성공
@@ -77,6 +77,7 @@ public class MemberController {
             session.setAttribute("loginEmail", memberDTO.getEmail());
             return "redirect:/member/main";
         }else{
+            model.addAttribute("msg", "다시 시도해 주세요.");
             return "login";
         }
     }
@@ -134,10 +135,10 @@ public class MemberController {
     }
 
     @PostMapping("/update")
-    public String update(@ModelAttribute("member") MemberDTO memberDTO, BindingResult errors){
+    public String update(@Valid @ModelAttribute("member") MemberDTO memberDTO, BindingResult errors){
         log.info(errors);
 
-        if(errors.hasErrors()){
+        if(errors.hasFieldErrors("age") || errors.hasFieldErrors("mobile")){
             return "update";
         }
 
@@ -147,6 +148,13 @@ public class MemberController {
         }else{
             return "update";
         }
+    }
+
+    // 로그아웃
+    @GetMapping("/logout")
+    public String logout(HttpSession session){
+        session.invalidate();
+        return "redirect:/";
     }
 
 }

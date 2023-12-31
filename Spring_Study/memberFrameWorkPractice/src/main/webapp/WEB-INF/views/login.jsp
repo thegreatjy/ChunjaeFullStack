@@ -14,8 +14,9 @@
 <body>
     <%--@elvariable id="member" type="kr.co.chunjae.domain.MemberDTO"--%>
     <form:form modelAttribute="member" action="/member/login">
+        <p>${msg}</p>
         <form:input path="email" name="email" placeholder="이메일" onfocus="this"/>
-        <form:input path="password" name="password" placeholder="비밀번호"/>
+        <form:password path="password" name="password" placeholder="비밀번호"/>
         <input type="submit" value="로그인"/>
     </form:form>
 </body>
