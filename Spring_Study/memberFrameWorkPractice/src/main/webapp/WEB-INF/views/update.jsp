@@ -7,10 +7,10 @@
 <body>
 <%--@elvariable id="member" type="kr.co.chunjae.domain.MemberDTO"--%>
 <form:form modelAttribute="member" action="/member/update" method="post" name="updateForm">
-  <p>id: <form:input path="id" name="id" value="${member.id}" readonly="true" /> <form:errors path="id"/> </p>
-  <p>email: <form:input path="email" name="email" value="${member.email}" readonly="true"/> <form:errors path="email"/> </p>
+  <p>id: <form:input path="id" name="id" value="${member.id}" readonly="true" /> </p>
+  <p>email: <form:input path="email" name="email" value="${member.email}" readonly="true"/> </p>
   <p>password: <form:password path="password" name="password"/> <form:errors path="password"/> </p>
-  <p>name: <form:input path="name" name="name" value="${member.name}" readonly="true"/> <form:errors path="name"/> </p>
+  <p>name: <form:input path="name" name="name" value="${member.name}" readonly="true"/> </p>
   <p>age: <form:input path="age" name="age" value="${member.age}"/> <form:errors path="age"/> </p>
   <p>mobile: <form:input path="mobile" name="mobile" value="${member.mobile}"/> <form:errors path="mobile"/> </p>
 
