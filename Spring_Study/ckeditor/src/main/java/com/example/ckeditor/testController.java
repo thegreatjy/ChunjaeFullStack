@@ -6,11 +6,13 @@ import javax.servlet.ServletOutputStream;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.multipart.MultipartHttpServletRequest;
 
 import java.io.*;
+import java.nio.file.Files;
 import java.util.UUID;
 
 @Controller
@@ -29,8 +31,10 @@ public class testController {
     }
 
     @PostMapping("/upload")
-    public void ckeditorUpload(Content content){
+    public String ckeditorUpload(Content content, Model model){
         System.out.println(content);
+        model.addAttribute("content", content);
+        return "detail";
     }
 
     // 이미지 업로드
@@ -72,7 +76,7 @@ public class testController {
                     e.getStackTrace();
                 }
             }
-            out = new FileOutputStream(new File(ckUploadPath));
+            out = Files.newOutputStream(new File(ckUploadPath).toPath());
             out.write(bytes);
             out.flush(); // outputStram에 저장된 데이터를 전송하고 초기화
 

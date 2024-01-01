@@ -28,7 +28,7 @@
 
     <!-- ckeditor통해 업로드된 사진의 저장 경로 -->
     <beans:bean class="java.lang.String" id="uploadPath">
-        <beans:constructor-arg value="/Users/thegreatjy/Desktop/JavaStudy_github/Spring_Study/ckeditor/src/main/webapp/resources/"></beans:constructor-arg>
+        <beans:constructor-arg value="/Users/thegreatjy/Desktop/ChunjaeFullStack/Spring_Study/ckeditor/src/main/webapp/resources"></beans:constructor-arg>
     </beans:bean>
     <resources mapping="/uploads/**" location="/resources/uploads/" />
 
