@@ -46,4 +46,15 @@ public class StudentService {
     public StudentDTO searchById(int intId) {
         return studentRepository.searchById(intId);
     }
+
+    // 학생 학번을 검색. 있으면 true, 없으면 false
+    public boolean searchStudentNumber(int studentNumber){
+        Integer result = studentRepository.searchStudentNumber(studentNumber);
+
+        if(result == null || result.intValue() == 0){ // 존재하지 않음
+            return false;
+        }else{
+            return true;
+        }
+    }
 }

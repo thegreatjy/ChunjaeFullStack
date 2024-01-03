@@ -1,3 +1,4 @@
+<%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
 <%--
   Created by IntelliJ IDEA.
   User: thegreatjy
@@ -8,21 +9,29 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
 <head>
-    <title>Title</title>
+    <title>학생 등록</title>
 </head>
 <body>
-<form action="/student/insert" method="post" enctype="application/x-www-form-urlencoded">
-  <p>학번 : <input type="number" name="id" placeholder="학번" id="id" onblur="emailCheck()"></p>
-  <p id="check-result"></p>
-  <p>이름 : <input type="text" name="studentName" placeholder="이름"></p>
-  <p>국어 : <input type="number" name="studentKoreanScore" placeholder="국어"></p>
-  <p>영어 : <input type="number" name="studentEnglishScore" placeholder="영어"></p>
-  <p>수학 : <input type="number" name="studentMathScore" placeholder="수학"></p>
+<h3><a href="/">홈</a></h3>
+
+<%--@elvariable id="StudentDTO" type="kr.co.chunjae.dto.StudentDTO"--%>
+<form:form modelAttribute="StudentDTO" action="/student/insert" method="post" enctype="application/x-www-form-urlencoded">
+  <p>학번 : <form:input path="studentNumber" type="number" name="studentNumber" id="studentNumber" autofocus="true" /></p>
+  <p><form:errors path="studentNumber"/></p>
+  <p>이름 : <form:input path="studentName" type="text" name="studentName" /></p>
+  <p><form:errors path="studentName"/></p>
+  <p>국어 : <form:input path="studentKoreanScore" type="number" name="studentKoreanScore" placeholder="국어"/></p>
+  <p><form:errors path="studentKoreanScore"/></p>
+  <p>영어 : <form:input path="studentEnglishScore" type="number" name="studentEnglishScore" placeholder="영어"/></p>
+  <p><form:errors path="studentEnglishScore"/></p>
+  <p>수학 : <form:input path="studentMathScore" type="number" name="studentMathScore" placeholder="수학"/></p>
+  <p><form:errors path="studentMathScore"/></p>
+
   <input type="submit" value="입력">
   <input type="reset" value="초기화">
-</form>
+</form:form>
 </body>
 <script>
-  function emailCheck(){};
+  // function emailCheck(){};
 </script>
 </html>

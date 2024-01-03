@@ -1,3 +1,4 @@
+use webdb;
 
 drop table if exists member_table;
 create table member_table(
@@ -15,6 +16,7 @@ select * from member_table;
 drop table if exists student_table;
 create table student_table(
     id int primary key auto_increment,
+    studentNumber int unique,
     studentName varchar(20),
     studentKoreanScore int,
     studentEnglishScore int,

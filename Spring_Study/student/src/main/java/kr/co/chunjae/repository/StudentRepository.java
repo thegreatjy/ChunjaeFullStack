@@ -43,4 +43,8 @@ public class StudentRepository {
     public StudentDTO searchById(int intId) {
         return sql.selectOne("Student.searchById", intId);
     }
+
+    public Integer searchStudentNumber(int studentNumber) {
+        return sql.selectOne("Student.searchStudentNumber", studentNumber);
+    }
 }

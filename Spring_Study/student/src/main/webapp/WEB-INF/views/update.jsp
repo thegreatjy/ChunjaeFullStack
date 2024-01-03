@@ -1,18 +1,28 @@
+<%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
 <head>
-  <title>update</title>
+  <title>점수 정정 및 삭제</title>
 </head>
 <body>
-<form action="/student/score/update" method="post" name="updateForm">
-  학번 : <input type="number" name="id" value="${student.id}" readonly>
-  이름 : <input type="text" name="studentName" value="${student.studentName}" readonly>
-  국어 : <input type="number" name="studentKoreanScore" value="${student.studentKoreanScore}">
-  영어 : <input type="number" name="studentEnglishScore" value="${student.studentEnglishScore}">
-  수학 : <input type="number" name="studentMathScore" value="${student.studentMathScore}">
-  <input type="submit" value="수정">
-  <input type="button" value="삭제" onclick="deleteStudent('${student.id}')">
-</form>
+<h3><a href="/">홈</a></h3>
+
+  <%--@elvariable id="StudentDTO" type="kr.co.chunjae.dto.StudentDTO"--%>
+  <form:form modelAttribute="StudentDTO" action="/student/score/update" method="post" enctype="application/x-www-form-urlencoded">
+    <form:hidden path="id"/>
+    <p>학번 : <form:input path="studentNumber" type="number" name="studentNumber" id="studentNumber" readonly="true" /></p>
+    <p>이름 : <form:input path="studentName" type="text" name="studentName" readonly="true" /></p>
+    <p>국어 : <form:input path="studentKoreanScore" type="number" name="studentKoreanScore" placeholder="국어" autofocus="true" /></p>
+    <p><form:errors path="studentKoreanScore"/></p>
+    <p>영어 : <form:input path="studentEnglishScore" type="number" name="studentEnglishScore" placeholder="영어"/></p>
+    <p><form:errors path="studentEnglishScore"/></p>
+    <p>수학 : <form:input path="studentMathScore" type="number" name="studentMathScore" placeholder="수학"/></p>
+    <p><form:errors path="studentMathScore"/></p>
+
+    <input type="submit" value="수정">
+    <input type="button" value="삭제" onclick="deleteStudent('${StudentDTO.id}')">
+  </form:form>
+
 </body>
 <script>
   const update = () => {

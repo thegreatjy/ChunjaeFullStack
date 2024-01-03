@@ -3,25 +3,24 @@
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="Student">
     <select id="selectAll" resultType="student">
-        select id, studentName, studentKoreanScore, studentEnglishScore, studentMathScore
+        select id, studentNumber, studentName, studentKoreanScore, studentEnglishScore, studentMathScore
         from student_table
     </select>
 
     <select id="select" parameterType="int" resultType="student">
-        select id, studentName, studentKoreanScore, studentEnglishScore, studentMathScore
+        select id, studentNumber, studentName, studentKoreanScore, studentEnglishScore, studentMathScore
         from student_table
         where id = #{intId}
     </select>
 
     <insert id="insert" parameterType="student">
-        insert into student_table(studentName, studentKoreanScore, studentEnglishScore, studentMathScore)
-        values (#{studentName}, #{studentKoreanScore}, #{studentEnglishScore}, #{studentMathScore})
+        insert into student_table(studentNumber, studentName, studentKoreanScore, studentEnglishScore, studentMathScore)
+        values (#{studentNumber}, #{studentName}, #{studentKoreanScore}, #{studentEnglishScore}, #{studentMathScore})
     </insert>
 
     <update id="update">
         update student_table
-        set studentName = #{studentName},
-            studentKoreanScore = #{studentKoreanScore},
+        set studentKoreanScore = #{studentKoreanScore},
             studentEnglishScore = #{studentEnglishScore},
             studentMathScore = #{studentMathScore}
         where id = #{id}
@@ -31,4 +30,10 @@
         delete from student_table
         where id = #{intId}
     </delete>
+
+    <select id="searchStudentNumber" parameterType="int" resultType="int">
+        select count(*)
+        from student_table
+        where studentNumber = #{studentNumber}
+    </select>
 </mapper>

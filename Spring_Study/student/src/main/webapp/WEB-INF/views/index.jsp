@@ -2,14 +2,13 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <html>
 <head>
-    <title>Index</title>
+    <title>학점관리</title>
 </head>
 <body>
 <h1>학점관리</h1>
 
 <a href ="/student/login">로그인</a>
 <a href ="/student/insert">학생등록</a>
-<a href ="/student/score/update">점수정정</a>
 
 
 <form method="post" action="/student/search">
@@ -25,7 +24,7 @@
     <c:forEach items="${studentList}" var="student">
         <tr>
             <td>
-                <a href="/student/score/update?id=${student.id}">${student.id}</a>
+                <a href="/student/score/update?id=${student.id}">${student.studentNumber}</a>
             </td>
             <td>
                 <a href="/student/score/update?id=${student.id}">${student.studentName}</a>
