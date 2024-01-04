@@ -20,6 +20,10 @@
   <p><form:errors path="studentNumber"/></p>
   <p>이름 : <form:input path="studentName" type="text" name="studentName" /></p>
   <p><form:errors path="studentName"/></p>
+
+  <p>성별 : <label for="woman"><form:radiobutton path="studentGender" name="studentGender" id="woman" value="1" checked="true" />여자</label> <label for="man"><form:radiobutton path="studentGender" id="man" name="studentGender" value="2" />남자</label></p>
+  <p><form:errors path="studentGender"/></p>
+
   <p>국어 : <form:input path="studentKoreanScore" type="number" name="studentKoreanScore" placeholder="국어"/></p>
   <p><form:errors path="studentKoreanScore"/></p>
   <p>영어 : <form:input path="studentEnglishScore" type="number" name="studentEnglishScore" placeholder="영어"/></p>

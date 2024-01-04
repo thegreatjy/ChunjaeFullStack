@@ -12,6 +12,9 @@
     <form:hidden path="id"/>
     <p>학번 : <form:input path="studentNumber" type="number" name="studentNumber" id="studentNumber" readonly="true" /></p>
     <p>이름 : <form:input path="studentName" type="text" name="studentName" readonly="true" /></p>
+
+    <p>성별 : <form:radiobutton path="studentGender" name="studentGender" value="1" readonly="true" />여자 <form:radiobutton path="studentGender" name="studentGender" value="2" readonly="true" />남자</p>
+
     <p>국어 : <form:input path="studentKoreanScore" type="number" name="studentKoreanScore" placeholder="국어" autofocus="true" /></p>
     <p><form:errors path="studentKoreanScore"/></p>
     <p>영어 : <form:input path="studentEnglishScore" type="number" name="studentEnglishScore" placeholder="영어"/></p>

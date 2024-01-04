@@ -7,7 +7,7 @@
 <body>
 <h1>학점관리</h1>
 
-<a href ="/student/login">로그인</a>
+<a href ="/member/login">로그인</a>
 <a href ="/student/insert">학생등록</a>
 
 

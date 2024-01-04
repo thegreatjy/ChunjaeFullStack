@@ -20,7 +20,8 @@ create table student_table(
     studentName varchar(20),
     studentKoreanScore int,
     studentEnglishScore int,
-    studentMathScore int
+    studentMathScore int,
+    studentGender int
 );
 
 select * from student_table;

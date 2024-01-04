@@ -8,14 +8,14 @@
     </select>
 
     <select id="select" parameterType="int" resultType="student">
-        select id, studentNumber, studentName, studentKoreanScore, studentEnglishScore, studentMathScore
+        select id, studentNumber, studentName, studentKoreanScore, studentEnglishScore, studentMathScore, studentGender
         from student_table
         where id = #{intId}
     </select>
 
     <insert id="insert" parameterType="student">
-        insert into student_table(studentNumber, studentName, studentKoreanScore, studentEnglishScore, studentMathScore)
-        values (#{studentNumber}, #{studentName}, #{studentKoreanScore}, #{studentEnglishScore}, #{studentMathScore})
+        insert into student_table(studentNumber, studentName, studentKoreanScore, studentEnglishScore, studentMathScore, studentGender)
+        values (#{studentNumber}, #{studentName}, #{studentKoreanScore}, #{studentEnglishScore}, #{studentMathScore}, #{studentGender})
     </insert>
 
     <update id="update">

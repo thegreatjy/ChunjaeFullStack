@@ -20,10 +20,6 @@ import java.util.ArrayList;
 public class StudentController {
     private final StudentService studentService;
 
-    @GetMapping("/login")
-    public String loginForm(){
-        return "login";
-    }
 
     // 학생등록
     @GetMapping("/insert")

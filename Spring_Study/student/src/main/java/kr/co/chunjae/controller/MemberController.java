@@ -21,6 +21,46 @@ import java.util.List;
 public class MemberController {
     private final MemberService memberService;
 
+    // 커스텀 로그인 화면
+    @GetMapping("/customlogin")
+    public String customLoginForm(String error, String logout, Model model){
+        log.info("hereeeeeeeee");
+        log.info(error);
+        log.info(logout);
+
+        if(error != null){
+            model.addAttribute("error", "login error");
+        }
+
+        if (logout != null) {
+            model.addAttribute("logout", "logout");
+        }
+        return "customlogin";
+    }
+
+
+    // 접근 제한 된 화면
+    @GetMapping("/test")
+    public String testtest(){
+        return "testtest";
+    }
+
+    @GetMapping("/loginerror")
+    public String errorForm(String error, String logout, Model model){
+        log.info(error);
+        log.info(logout);
+
+        if(error != null){
+            model.addAttribute("error", "login error");
+        }
+
+        if (logout != null) {
+            model.addAttribute("logout", "logout");
+        }
+        return "customlogin";
+    }
+
+
     // 회원가입
     @GetMapping("/save")
     public String saveForm(){
@@ -40,19 +80,21 @@ public class MemberController {
 
     // 로그인
     @GetMapping("/login")
-    public String loginForm(){
-        System.out.println("controller");
+    public String loginForm(Model model){
+        MemberDTO memberDTO = new MemberDTO();
+        model.addAttribute("memberDTO", memberDTO);
         return "login";  // save.jsp
     }
 
     @PostMapping("/login")
-    public String login(@ModelAttribute MemberDTO memberDTO, HttpSession session){
+    public String login(@ModelAttribute("memberDTO") MemberDTO memberDTO, HttpSession session, Model model){
         boolean loginResult = memberService.login(memberDTO);
         System.out.println(loginResult);
         if(loginResult){ // 정상
             session.setAttribute("loginEmail", memberDTO.getMemberEmail());
             return "main";
         }else{  // 에러
+            model.addAttribute("error", "다시 시도해 주세요.");
             return "login";
         }
     }

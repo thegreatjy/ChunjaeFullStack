@@ -31,4 +31,6 @@ public class StudentDTO {
     @Min(0)
     @Max(100)
     private int studentMathScore;
+    @NotNull
+    private int studentGender;
 }
