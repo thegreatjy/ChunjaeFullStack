@@ -1,0 +1,161 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="aa34bfe4-92b6-4632-b54d-fa2356912af9" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/../../Spring_Study/tiles/pro27_int_maria/pro27/.idea/vcs.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../../Spring_Study/tiles/pro27_int_maria/pro27/.idea/vcs.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Spring_Study/tiles/pro27_int_maria/pro27/src/main/java/com/myspring/pro27/HomeController.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../Spring_Study/tiles/pro27_int_maria/pro27/src/main/java/com/myspring/pro27/HomeController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Spring_Study/tiles/pro27_int_maria/pro27/src/main/java/com/myspring/pro27/member/controller/MemberControllerImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../Spring_Study/tiles/pro27_int_maria/pro27/src/main/java/com/myspring/pro27/member/controller/MemberControllerImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Spring_Study/tiles/pro27_int_maria/pro27/src/main/resources/tiles/tiles_member.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../../Spring_Study/tiles/pro27_int_maria/pro27/src/main/resources/tiles/tiles_member.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Spring_Study/tiles/pro27_int_maria/pro27/src/main/webapp/WEB-INF/views/common/side.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/../../Spring_Study/tiles/pro27_int_maria/pro27/src/main/webapp/WEB-INF/views/common/side.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Spring_Study/tiles/pro27_int_maria/pro27/target/classes/com/myspring/pro27/HomeController.class" beforeDir="false" afterPath="$PROJECT_DIR$/../../Spring_Study/tiles/pro27_int_maria/pro27/target/classes/com/myspring/pro27/HomeController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Spring_Study/tiles/pro27_int_maria/pro27/target/classes/com/myspring/pro27/common/log/LoggingAdvice.class" beforeDir="false" afterPath="$PROJECT_DIR$/../../Spring_Study/tiles/pro27_int_maria/pro27/target/classes/com/myspring/pro27/common/log/LoggingAdvice.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Spring_Study/tiles/pro27_int_maria/pro27/target/classes/com/myspring/pro27/member/controller/MemberController.class" beforeDir="false" afterPath="$PROJECT_DIR$/../../Spring_Study/tiles/pro27_int_maria/pro27/target/classes/com/myspring/pro27/member/controller/MemberController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Spring_Study/tiles/pro27_int_maria/pro27/target/classes/com/myspring/pro27/member/controller/MemberControllerImpl.class" beforeDir="false" afterPath="$PROJECT_DIR$/../../Spring_Study/tiles/pro27_int_maria/pro27/target/classes/com/myspring/pro27/member/controller/MemberControllerImpl.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Spring_Study/tiles/pro27_int_maria/pro27/target/classes/com/myspring/pro27/member/dao/MemberDAO.class" beforeDir="false" afterPath="$PROJECT_DIR$/../../Spring_Study/tiles/pro27_int_maria/pro27/target/classes/com/myspring/pro27/member/dao/MemberDAO.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Spring_Study/tiles/pro27_int_maria/pro27/target/classes/com/myspring/pro27/member/dao/MemberDAOImpl.class" beforeDir="false" afterPath="$PROJECT_DIR$/../../Spring_Study/tiles/pro27_int_maria/pro27/target/classes/com/myspring/pro27/member/dao/MemberDAOImpl.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Spring_Study/tiles/pro27_int_maria/pro27/target/classes/com/myspring/pro27/member/interceptor/ViewNameInterceptor.class" beforeDir="false" afterPath="$PROJECT_DIR$/../../Spring_Study/tiles/pro27_int_maria/pro27/target/classes/com/myspring/pro27/member/interceptor/ViewNameInterceptor.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Spring_Study/tiles/pro27_int_maria/pro27/target/classes/com/myspring/pro27/member/service/MemberService.class" beforeDir="false" afterPath="$PROJECT_DIR$/../../Spring_Study/tiles/pro27_int_maria/pro27/target/classes/com/myspring/pro27/member/service/MemberService.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Spring_Study/tiles/pro27_int_maria/pro27/target/classes/com/myspring/pro27/member/service/MemberServiceImpl.class" beforeDir="false" afterPath="$PROJECT_DIR$/../../Spring_Study/tiles/pro27_int_maria/pro27/target/classes/com/myspring/pro27/member/service/MemberServiceImpl.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Spring_Study/tiles/pro27_int_maria/pro27/target/classes/com/myspring/pro27/member/vo/MemberVO.class" beforeDir="false" afterPath="$PROJECT_DIR$/../../Spring_Study/tiles/pro27_int_maria/pro27/target/classes/com/myspring/pro27/member/vo/MemberVO.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Spring_Study/tiles/pro27_int_maria/pro27/target/classes/tiles/tiles_member.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../../Spring_Study/tiles/pro27_int_maria/pro27/target/classes/tiles/tiles_member.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Spring_Study/tiles/pro27_int_maria/pro27/target/pro27-1.0.0-BUILD-SNAPSHOT/META-INF/MANIFEST.MF" beforeDir="false" afterPath="$PROJECT_DIR$/../../Spring_Study/tiles/pro27_int_maria/pro27/target/pro27-1.0.0-BUILD-SNAPSHOT/META-INF/MANIFEST.MF" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Spring_Study/tiles/pro27_int_maria/pro27/target/pro27-1.0.0-BUILD-SNAPSHOT/WEB-INF/classes/com/myspring/pro27/HomeController.class" beforeDir="false" afterPath="$PROJECT_DIR$/../../Spring_Study/tiles/pro27_int_maria/pro27/target/pro27-1.0.0-BUILD-SNAPSHOT/WEB-INF/classes/com/myspring/pro27/HomeController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Spring_Study/tiles/pro27_int_maria/pro27/target/pro27-1.0.0-BUILD-SNAPSHOT/WEB-INF/classes/com/myspring/pro27/common/log/LoggingAdvice.class" beforeDir="false" afterPath="$PROJECT_DIR$/../../Spring_Study/tiles/pro27_int_maria/pro27/target/pro27-1.0.0-BUILD-SNAPSHOT/WEB-INF/classes/com/myspring/pro27/common/log/LoggingAdvice.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Spring_Study/tiles/pro27_int_maria/pro27/target/pro27-1.0.0-BUILD-SNAPSHOT/WEB-INF/classes/com/myspring/pro27/member/controller/MemberController.class" beforeDir="false" afterPath="$PROJECT_DIR$/../../Spring_Study/tiles/pro27_int_maria/pro27/target/pro27-1.0.0-BUILD-SNAPSHOT/WEB-INF/classes/com/myspring/pro27/member/controller/MemberController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Spring_Study/tiles/pro27_int_maria/pro27/target/pro27-1.0.0-BUILD-SNAPSHOT/WEB-INF/classes/com/myspring/pro27/member/controller/MemberControllerImpl.class" beforeDir="false" afterPath="$PROJECT_DIR$/../../Spring_Study/tiles/pro27_int_maria/pro27/target/pro27-1.0.0-BUILD-SNAPSHOT/WEB-INF/classes/com/myspring/pro27/member/controller/MemberControllerImpl.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Spring_Study/tiles/pro27_int_maria/pro27/target/pro27-1.0.0-BUILD-SNAPSHOT/WEB-INF/classes/com/myspring/pro27/member/dao/MemberDAO.class" beforeDir="false" afterPath="$PROJECT_DIR$/../../Spring_Study/tiles/pro27_int_maria/pro27/target/pro27-1.0.0-BUILD-SNAPSHOT/WEB-INF/classes/com/myspring/pro27/member/dao/MemberDAO.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Spring_Study/tiles/pro27_int_maria/pro27/target/pro27-1.0.0-BUILD-SNAPSHOT/WEB-INF/classes/com/myspring/pro27/member/dao/MemberDAOImpl.class" beforeDir="false" afterPath="$PROJECT_DIR$/../../Spring_Study/tiles/pro27_int_maria/pro27/target/pro27-1.0.0-BUILD-SNAPSHOT/WEB-INF/classes/com/myspring/pro27/member/dao/MemberDAOImpl.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Spring_Study/tiles/pro27_int_maria/pro27/target/pro27-1.0.0-BUILD-SNAPSHOT/WEB-INF/classes/com/myspring/pro27/member/interceptor/ViewNameInterceptor.class" beforeDir="false" afterPath="$PROJECT_DIR$/../../Spring_Study/tiles/pro27_int_maria/pro27/target/pro27-1.0.0-BUILD-SNAPSHOT/WEB-INF/classes/com/myspring/pro27/member/interceptor/ViewNameInterceptor.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Spring_Study/tiles/pro27_int_maria/pro27/target/pro27-1.0.0-BUILD-SNAPSHOT/WEB-INF/classes/com/myspring/pro27/member/service/MemberService.class" beforeDir="false" afterPath="$PROJECT_DIR$/../../Spring_Study/tiles/pro27_int_maria/pro27/target/pro27-1.0.0-BUILD-SNAPSHOT/WEB-INF/classes/com/myspring/pro27/member/service/MemberService.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Spring_Study/tiles/pro27_int_maria/pro27/target/pro27-1.0.0-BUILD-SNAPSHOT/WEB-INF/classes/com/myspring/pro27/member/service/MemberServiceImpl.class" beforeDir="false" afterPath="$PROJECT_DIR$/../../Spring_Study/tiles/pro27_int_maria/pro27/target/pro27-1.0.0-BUILD-SNAPSHOT/WEB-INF/classes/com/myspring/pro27/member/service/MemberServiceImpl.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Spring_Study/tiles/pro27_int_maria/pro27/target/pro27-1.0.0-BUILD-SNAPSHOT/WEB-INF/classes/com/myspring/pro27/member/vo/MemberVO.class" beforeDir="false" afterPath="$PROJECT_DIR$/../../Spring_Study/tiles/pro27_int_maria/pro27/target/pro27-1.0.0-BUILD-SNAPSHOT/WEB-INF/classes/com/myspring/pro27/member/vo/MemberVO.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Spring_Study/tiles/pro27_int_maria/pro27/target/pro27-1.0.0-BUILD-SNAPSHOT/WEB-INF/classes/tiles/tiles_member.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../../Spring_Study/tiles/pro27_int_maria/pro27/target/pro27-1.0.0-BUILD-SNAPSHOT/WEB-INF/classes/tiles/tiles_member.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Spring_Study/tiles/pro27_int_maria/pro27/target/pro27-1.0.0-BUILD-SNAPSHOT/WEB-INF/lib/aopalliance-1.0.jar" beforeDir="false" afterPath="$PROJECT_DIR$/../../Spring_Study/tiles/pro27_int_maria/pro27/target/pro27-1.0.0-BUILD-SNAPSHOT/WEB-INF/lib/aopalliance-1.0.jar" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Spring_Study/tiles/pro27_int_maria/pro27/target/pro27-1.0.0-BUILD-SNAPSHOT/WEB-INF/lib/aspectjrt-1.6.10.jar" beforeDir="false" afterPath="$PROJECT_DIR$/../../Spring_Study/tiles/pro27_int_maria/pro27/target/pro27-1.0.0-BUILD-SNAPSHOT/WEB-INF/lib/aspectjrt-1.6.10.jar" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Spring_Study/tiles/pro27_int_maria/pro27/target/pro27-1.0.0-BUILD-SNAPSHOT/WEB-INF/lib/aspectjtools-1.6.10.jar" beforeDir="false" afterPath="$PROJECT_DIR$/../../Spring_Study/tiles/pro27_int_maria/pro27/target/pro27-1.0.0-BUILD-SNAPSHOT/WEB-INF/lib/aspectjtools-1.6.10.jar" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Spring_Study/tiles/pro27_int_maria/pro27/target/pro27-1.0.0-BUILD-SNAPSHOT/WEB-INF/lib/aspectjweaver-1.6.10.jar" beforeDir="false" afterPath="$PROJECT_DIR$/../../Spring_Study/tiles/pro27_int_maria/pro27/target/pro27-1.0.0-BUILD-SNAPSHOT/WEB-INF/lib/aspectjweaver-1.6.10.jar" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Spring_Study/tiles/pro27_int_maria/pro27/target/pro27-1.0.0-BUILD-SNAPSHOT/WEB-INF/lib/cglib-nodep-2.2.jar" beforeDir="false" afterPath="$PROJECT_DIR$/../../Spring_Study/tiles/pro27_int_maria/pro27/target/pro27-1.0.0-BUILD-SNAPSHOT/WEB-INF/lib/cglib-nodep-2.2.jar" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Spring_Study/tiles/pro27_int_maria/pro27/target/pro27-1.0.0-BUILD-SNAPSHOT/WEB-INF/lib/commons-beanutils-1.8.0.jar" beforeDir="false" afterPath="$PROJECT_DIR$/../../Spring_Study/tiles/pro27_int_maria/pro27/target/pro27-1.0.0-BUILD-SNAPSHOT/WEB-INF/lib/commons-beanutils-1.8.0.jar" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Spring_Study/tiles/pro27_int_maria/pro27/target/pro27-1.0.0-BUILD-SNAPSHOT/WEB-INF/lib/commons-dbcp-1.2.2.jar" beforeDir="false" afterPath="$PROJECT_DIR$/../../Spring_Study/tiles/pro27_int_maria/pro27/target/pro27-1.0.0-BUILD-SNAPSHOT/WEB-INF/lib/commons-dbcp-1.2.2.jar" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Spring_Study/tiles/pro27_int_maria/pro27/target/pro27-1.0.0-BUILD-SNAPSHOT/WEB-INF/lib/commons-digester-2.0.jar" beforeDir="false" afterPath="$PROJECT_DIR$/../../Spring_Study/tiles/pro27_int_maria/pro27/target/pro27-1.0.0-BUILD-SNAPSHOT/WEB-INF/lib/commons-digester-2.0.jar" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Spring_Study/tiles/pro27_int_maria/pro27/target/pro27-1.0.0-BUILD-SNAPSHOT/WEB-INF/lib/commons-logging-1.1.1.jar" beforeDir="false" afterPath="$PROJECT_DIR$/../../Spring_Study/tiles/pro27_int_maria/pro27/target/pro27-1.0.0-BUILD-SNAPSHOT/WEB-INF/lib/commons-logging-1.1.1.jar" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Spring_Study/tiles/pro27_int_maria/pro27/target/pro27-1.0.0-BUILD-SNAPSHOT/WEB-INF/lib/commons-pool-1.3.jar" beforeDir="false" afterPath="$PROJECT_DIR$/../../Spring_Study/tiles/pro27_int_maria/pro27/target/pro27-1.0.0-BUILD-SNAPSHOT/WEB-INF/lib/commons-pool-1.3.jar" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Spring_Study/tiles/pro27_int_maria/pro27/target/pro27-1.0.0-BUILD-SNAPSHOT/WEB-INF/lib/javax.inject-1.jar" beforeDir="false" afterPath="$PROJECT_DIR$/../../Spring_Study/tiles/pro27_int_maria/pro27/target/pro27-1.0.0-BUILD-SNAPSHOT/WEB-INF/lib/javax.inject-1.jar" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Spring_Study/tiles/pro27_int_maria/pro27/target/pro27-1.0.0-BUILD-SNAPSHOT/WEB-INF/lib/jcl-over-slf4j-1.6.6.jar" beforeDir="false" afterPath="$PROJECT_DIR$/../../Spring_Study/tiles/pro27_int_maria/pro27/target/pro27-1.0.0-BUILD-SNAPSHOT/WEB-INF/lib/jcl-over-slf4j-1.6.6.jar" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Spring_Study/tiles/pro27_int_maria/pro27/target/pro27-1.0.0-BUILD-SNAPSHOT/WEB-INF/lib/jstl-1.2.jar" beforeDir="false" afterPath="$PROJECT_DIR$/../../Spring_Study/tiles/pro27_int_maria/pro27/target/pro27-1.0.0-BUILD-SNAPSHOT/WEB-INF/lib/jstl-1.2.jar" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Spring_Study/tiles/pro27_int_maria/pro27/target/pro27-1.0.0-BUILD-SNAPSHOT/WEB-INF/lib/log4j-1.2.15.jar" beforeDir="false" afterPath="$PROJECT_DIR$/../../Spring_Study/tiles/pro27_int_maria/pro27/target/pro27-1.0.0-BUILD-SNAPSHOT/WEB-INF/lib/log4j-1.2.15.jar" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Spring_Study/tiles/pro27_int_maria/pro27/target/pro27-1.0.0-BUILD-SNAPSHOT/WEB-INF/lib/mybatis-3.1.0.jar" beforeDir="false" afterPath="$PROJECT_DIR$/../../Spring_Study/tiles/pro27_int_maria/pro27/target/pro27-1.0.0-BUILD-SNAPSHOT/WEB-INF/lib/mybatis-3.1.0.jar" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Spring_Study/tiles/pro27_int_maria/pro27/target/pro27-1.0.0-BUILD-SNAPSHOT/WEB-INF/lib/mybatis-spring-1.1.0.jar" beforeDir="false" afterPath="$PROJECT_DIR$/../../Spring_Study/tiles/pro27_int_maria/pro27/target/pro27-1.0.0-BUILD-SNAPSHOT/WEB-INF/lib/mybatis-spring-1.1.0.jar" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Spring_Study/tiles/pro27_int_maria/pro27/target/pro27-1.0.0-BUILD-SNAPSHOT/WEB-INF/lib/mysql-connector-java-5.1.29.jar" beforeDir="false" afterPath="$PROJECT_DIR$/../../Spring_Study/tiles/pro27_int_maria/pro27/target/pro27-1.0.0-BUILD-SNAPSHOT/WEB-INF/lib/mysql-connector-java-5.1.29.jar" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Spring_Study/tiles/pro27_int_maria/pro27/target/pro27-1.0.0-BUILD-SNAPSHOT/WEB-INF/lib/slf4j-api-1.6.6.jar" beforeDir="false" afterPath="$PROJECT_DIR$/../../Spring_Study/tiles/pro27_int_maria/pro27/target/pro27-1.0.0-BUILD-SNAPSHOT/WEB-INF/lib/slf4j-api-1.6.6.jar" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Spring_Study/tiles/pro27_int_maria/pro27/target/pro27-1.0.0-BUILD-SNAPSHOT/WEB-INF/lib/slf4j-log4j12-1.6.6.jar" beforeDir="false" afterPath="$PROJECT_DIR$/../../Spring_Study/tiles/pro27_int_maria/pro27/target/pro27-1.0.0-BUILD-SNAPSHOT/WEB-INF/lib/slf4j-log4j12-1.6.6.jar" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Spring_Study/tiles/pro27_int_maria/pro27/target/pro27-1.0.0-BUILD-SNAPSHOT/WEB-INF/lib/spring-aop-3.1.1.RELEASE.jar" beforeDir="false" afterPath="$PROJECT_DIR$/../../Spring_Study/tiles/pro27_int_maria/pro27/target/pro27-1.0.0-BUILD-SNAPSHOT/WEB-INF/lib/spring-aop-3.1.1.RELEASE.jar" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Spring_Study/tiles/pro27_int_maria/pro27/target/pro27-1.0.0-BUILD-SNAPSHOT/WEB-INF/lib/spring-asm-3.1.1.RELEASE.jar" beforeDir="false" afterPath="$PROJECT_DIR$/../../Spring_Study/tiles/pro27_int_maria/pro27/target/pro27-1.0.0-BUILD-SNAPSHOT/WEB-INF/lib/spring-asm-3.1.1.RELEASE.jar" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Spring_Study/tiles/pro27_int_maria/pro27/target/pro27-1.0.0-BUILD-SNAPSHOT/WEB-INF/lib/spring-beans-3.1.1.RELEASE.jar" beforeDir="false" afterPath="$PROJECT_DIR$/../../Spring_Study/tiles/pro27_int_maria/pro27/target/pro27-1.0.0-BUILD-SNAPSHOT/WEB-INF/lib/spring-beans-3.1.1.RELEASE.jar" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Spring_Study/tiles/pro27_int_maria/pro27/target/pro27-1.0.0-BUILD-SNAPSHOT/WEB-INF/lib/spring-context-3.1.1.RELEASE.jar" beforeDir="false" afterPath="$PROJECT_DIR$/../../Spring_Study/tiles/pro27_int_maria/pro27/target/pro27-1.0.0-BUILD-SNAPSHOT/WEB-INF/lib/spring-context-3.1.1.RELEASE.jar" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Spring_Study/tiles/pro27_int_maria/pro27/target/pro27-1.0.0-BUILD-SNAPSHOT/WEB-INF/lib/spring-context-support-3.1.1.RELEASE.jar" beforeDir="false" afterPath="$PROJECT_DIR$/../../Spring_Study/tiles/pro27_int_maria/pro27/target/pro27-1.0.0-BUILD-SNAPSHOT/WEB-INF/lib/spring-context-support-3.1.1.RELEASE.jar" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Spring_Study/tiles/pro27_int_maria/pro27/target/pro27-1.0.0-BUILD-SNAPSHOT/WEB-INF/lib/spring-core-3.1.1.RELEASE.jar" beforeDir="false" afterPath="$PROJECT_DIR$/../../Spring_Study/tiles/pro27_int_maria/pro27/target/pro27-1.0.0-BUILD-SNAPSHOT/WEB-INF/lib/spring-core-3.1.1.RELEASE.jar" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Spring_Study/tiles/pro27_int_maria/pro27/target/pro27-1.0.0-BUILD-SNAPSHOT/WEB-INF/lib/spring-expression-3.1.1.RELEASE.jar" beforeDir="false" afterPath="$PROJECT_DIR$/../../Spring_Study/tiles/pro27_int_maria/pro27/target/pro27-1.0.0-BUILD-SNAPSHOT/WEB-INF/lib/spring-expression-3.1.1.RELEASE.jar" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Spring_Study/tiles/pro27_int_maria/pro27/target/pro27-1.0.0-BUILD-SNAPSHOT/WEB-INF/lib/spring-jdbc-3.1.1.RELEASE.jar" beforeDir="false" afterPath="$PROJECT_DIR$/../../Spring_Study/tiles/pro27_int_maria/pro27/target/pro27-1.0.0-BUILD-SNAPSHOT/WEB-INF/lib/spring-jdbc-3.1.1.RELEASE.jar" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Spring_Study/tiles/pro27_int_maria/pro27/target/pro27-1.0.0-BUILD-SNAPSHOT/WEB-INF/lib/spring-tx-3.1.1.RELEASE.jar" beforeDir="false" afterPath="$PROJECT_DIR$/../../Spring_Study/tiles/pro27_int_maria/pro27/target/pro27-1.0.0-BUILD-SNAPSHOT/WEB-INF/lib/spring-tx-3.1.1.RELEASE.jar" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Spring_Study/tiles/pro27_int_maria/pro27/target/pro27-1.0.0-BUILD-SNAPSHOT/WEB-INF/lib/spring-web-3.1.1.RELEASE.jar" beforeDir="false" afterPath="$PROJECT_DIR$/../../Spring_Study/tiles/pro27_int_maria/pro27/target/pro27-1.0.0-BUILD-SNAPSHOT/WEB-INF/lib/spring-web-3.1.1.RELEASE.jar" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Spring_Study/tiles/pro27_int_maria/pro27/target/pro27-1.0.0-BUILD-SNAPSHOT/WEB-INF/lib/spring-webmvc-3.1.1.RELEASE.jar" beforeDir="false" afterPath="$PROJECT_DIR$/../../Spring_Study/tiles/pro27_int_maria/pro27/target/pro27-1.0.0-BUILD-SNAPSHOT/WEB-INF/lib/spring-webmvc-3.1.1.RELEASE.jar" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Spring_Study/tiles/pro27_int_maria/pro27/target/pro27-1.0.0-BUILD-SNAPSHOT/WEB-INF/lib/tiles-api-2.2.2.jar" beforeDir="false" afterPath="$PROJECT_DIR$/../../Spring_Study/tiles/pro27_int_maria/pro27/target/pro27-1.0.0-BUILD-SNAPSHOT/WEB-INF/lib/tiles-api-2.2.2.jar" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Spring_Study/tiles/pro27_int_maria/pro27/target/pro27-1.0.0-BUILD-SNAPSHOT/WEB-INF/lib/tiles-core-2.2.2.jar" beforeDir="false" afterPath="$PROJECT_DIR$/../../Spring_Study/tiles/pro27_int_maria/pro27/target/pro27-1.0.0-BUILD-SNAPSHOT/WEB-INF/lib/tiles-core-2.2.2.jar" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Spring_Study/tiles/pro27_int_maria/pro27/target/pro27-1.0.0-BUILD-SNAPSHOT/WEB-INF/lib/tiles-jsp-2.2.2.jar" beforeDir="false" afterPath="$PROJECT_DIR$/../../Spring_Study/tiles/pro27_int_maria/pro27/target/pro27-1.0.0-BUILD-SNAPSHOT/WEB-INF/lib/tiles-jsp-2.2.2.jar" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Spring_Study/tiles/pro27_int_maria/pro27/target/pro27-1.0.0-BUILD-SNAPSHOT/WEB-INF/lib/tiles-servlet-2.2.2.jar" beforeDir="false" afterPath="$PROJECT_DIR$/../../Spring_Study/tiles/pro27_int_maria/pro27/target/pro27-1.0.0-BUILD-SNAPSHOT/WEB-INF/lib/tiles-servlet-2.2.2.jar" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Spring_Study/tiles/pro27_int_maria/pro27/target/pro27-1.0.0-BUILD-SNAPSHOT/WEB-INF/lib/tiles-template-2.2.2.jar" beforeDir="false" afterPath="$PROJECT_DIR$/../../Spring_Study/tiles/pro27_int_maria/pro27/target/pro27-1.0.0-BUILD-SNAPSHOT/WEB-INF/lib/tiles-template-2.2.2.jar" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Spring_Study/tiles/pro27_int_maria/pro27/target/pro27-1.0.0-BUILD-SNAPSHOT/WEB-INF/views/common/side.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/../../Spring_Study/tiles/pro27_int_maria/pro27/target/pro27-1.0.0-BUILD-SNAPSHOT/WEB-INF/views/common/side.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Spring_Study/tiles/tiles_test/.idea/vcs.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../../Spring_Study/tiles/tiles_test/.idea/vcs.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Spring_Study/vali_test/src/main/resources/messages.properties" beforeDir="false" afterPath="$PROJECT_DIR$/../../Spring_Study/vali_test/src/main/resources/messages.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Spring_Study/vali_test/src/main/webapp/WEB-INF/views/webpage13_01.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/../../Spring_Study/vali_test/src/main/webapp/WEB-INF/views/webpage13_01.jsp" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="ExternalProjectsData">
+    <projectState path="$PROJECT_DIR$">
+      <ProjectState />
+    </projectState>
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Jsp File" />
+        <option value="Class" />
+      </list>
+    </option>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/../.." />
+  </component>
+  <component name="MarkdownSettingsMigration">
+    <option name="stateVersion" value="1" />
+  </component>
+  <component name="ProjectColorInfo">{
+  &quot;associatedIndex&quot;: 7
+}</component>
+  <component name="ProjectId" id="2anHaUPiMzWUMnKJdoP4GJkkZPh" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;Gradle.Build HelloWorld.executor&quot;: &quot;Run&quot;,
+    &quot;RequestMappingsPanelOrder0&quot;: &quot;0&quot;,
+    &quot;RequestMappingsPanelOrder1&quot;: &quot;1&quot;,
+    &quot;RequestMappingsPanelWidth0&quot;: &quot;75&quot;,
+    &quot;RequestMappingsPanelWidth1&quot;: &quot;75&quot;,
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;Spring Boot.HelloWorldApplication.executor&quot;: &quot;Run&quot;,
+    &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.pluginManager&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
+  }
+}</component>
+  <component name="RunManager">
+    <configuration name="HelloWorldApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot" nameIsGenerated="true">
+      <module name="HelloWorld.main" />
+      <option name="SPRING_BOOT_MAIN_CLASS" value="com.study.helloworld.HelloWorldApplication" />
+      <option name="WORKING_DIRECTORY" value="file://$MODULE_WORKING_DIR$" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+  </component>
+  <component name="SharedIndexes">
+    <attachedChunks>
+      <set>
+        <option value="jdk-17.0.9-azul-17.0.9-f644763e9732-f1fdc68d" />
+      </set>
+    </attachedChunks>
+  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="aa34bfe4-92b6-4632-b54d-fa2356912af9" name="Changes" comment="" />
+      <created>1704947487653</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1704947487653</updated>
+      <workItem from="1704947488923" duration="1887000" />
+      <workItem from="1704950073926" duration="8000" />
+    </task>
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
+  </component>
+</project>

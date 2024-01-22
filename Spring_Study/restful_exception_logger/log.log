@@ -1,0 +1,11 @@
+2024-01-10 14:18:07,992 INFO [org.springframework.web.context.ContextLoader] Root WebApplicationContext: initialization started 
+2024-01-10 14:18:08,132 INFO [org.springframework.web.context.ContextLoader] Root WebApplicationContext initialized in 139 ms 
+2024-01-10 14:18:08,170 INFO [org.springframework.web.servlet.FrameworkServlet] Initializing Servlet 'appServlet' 
+2024-01-10 14:18:08,689 INFO [org.springframework.web.servlet.FrameworkServlet] Completed initialization in 518 ms 
+2024-01-10 14:18:14,982 WARN [org.springframework.web.servlet.DispatcherServlet] No mapping for GET /logger03 
+2024-01-10 14:18:17,484 WARN [org.springframework.web.servlet.DispatcherServlet] No mapping for GET /logger02 
+2024-01-10 14:18:18,415 WARN [org.springframework.web.servlet.DispatcherServlet] No mapping for GET /logger02 
+2024-01-10 14:18:20,653 INFO [kr.co.chunjae.LoggerController] info msg 
+2024-01-10 14:18:20,654 WARN [kr.co.chunjae.LoggerController] warn msg 
+2024-01-10 14:18:20,654 ERROR [kr.co.chunjae.LoggerController] error msg 
+2024-01-10 14:18:20,654 ERROR [LoggerController] error msg 

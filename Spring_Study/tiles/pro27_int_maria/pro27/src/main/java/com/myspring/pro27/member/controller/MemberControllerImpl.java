@@ -154,5 +154,18 @@ public class MemberControllerImpl   implements MemberController {
 		return viewName;
 	}
 
+	@RequestMapping(value = "/board", method =  RequestMethod.GET)
+	public ModelAndView boardForm(HttpServletRequest request, HttpServletResponse response) throws Exception {
+		String viewName = getViewName(request);
+		ModelAndView mav = new ModelAndView(viewName);
+		return mav;
+	}
+
+	@RequestMapping(value = "/product", method =  RequestMethod.GET)
+	public ModelAndView productForm(HttpServletRequest request, HttpServletResponse response) throws Exception {
+		String viewName = getViewName(request);
+		ModelAndView mav = new ModelAndView(viewName);
+		return mav;
+	}
 
 }

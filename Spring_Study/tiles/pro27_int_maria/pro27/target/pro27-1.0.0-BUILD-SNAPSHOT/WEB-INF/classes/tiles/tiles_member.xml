@@ -38,4 +38,14 @@
       <put-attribute name="title" value="회원상세창" />
       <put-attribute name="body" value="/WEB-INF/views/member/viewDetail.jsp" />
    </definition>
+
+   <definition name="/board" extends="baseLayout">
+      <put-attribute name="title" value="게시판관리" />
+      <put-attribute name="body" value="/WEB-INF/views/boardForm.jsp" />
+   </definition>
+
+   <definition name="/product" extends="baseLayout">
+      <put-attribute name="title" value="상품관리" />
+      <put-attribute name="body" value="/WEB-INF/views/productForm.jsp" />
+   </definition>
 </tiles-definitions>

@@ -15,7 +15,7 @@
 
 <p>이메일：<form:input path="email" /> <form:errors path="email"/>
 
-<p>이메일：<form:input path="mobile" /> <form:errors path="mobile"/>
+<p>휴대전화：<form:input path="mobile" /> <form:errors path="mobile"/>
 
 <p><input type="submit" value="확인" />
 
