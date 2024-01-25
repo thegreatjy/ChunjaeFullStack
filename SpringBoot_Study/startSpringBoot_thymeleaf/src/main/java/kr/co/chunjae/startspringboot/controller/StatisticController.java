@@ -29,7 +29,6 @@ public class StatisticController {
 
     @GetMapping("exc_in_service")
     public void serviceException() {
-            System.out.println("스테디 ");
             statisticService.makeException(); // service에서 ArrayIndexOutOfBoundsException 예외발생 -> 결국 컨트롤러에서 예외 발생된 것과 동일
     }
 
@@ -50,7 +49,6 @@ public class StatisticController {
     public String oobException() throws Exception{
         // ...
         log.warn("oob oob");
-        System.out.println("oob oob sout");
         return "error/oob";
     }
 

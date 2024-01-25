@@ -14,6 +14,6 @@ public class IOExceptionTestController {
 
     @GetMapping("/make_nullpointer_exception")
     public void createNullPointerException() throws NullPointerException{
-        throw new NullPointerException();
+        throw new NullPointerException();   // @ControllerAdvice 호출됨
     }
 }
