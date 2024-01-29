@@ -19,6 +19,7 @@ Web_Study/*.jpeg
 ### Mac OS ###
 **/.DS_Store
 
-SpringBoot_Study/category/src/main/webapp/resources/inc/
+SpringBoot_Study/category/src/main/webapp/
 SpringBoot_Study/category/src/main/webapp/resources/images/
 SpringBoot_Study/category/src/main/webapp/WEB-INF/views/category/
+SpringBoot_Study/category/src/main/resources/
