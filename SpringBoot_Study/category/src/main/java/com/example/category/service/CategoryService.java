@@ -9,6 +9,7 @@ import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
 import java.util.Map;
+import java.util.function.LongToIntFunction;
 
 @Log4j2
 @RequiredArgsConstructor
@@ -27,8 +28,8 @@ public class CategoryService {
 
     // 키테고리 순서 수정
     @Transactional  // [*****]
-    public boolean modifyOrders(List<Integer> newOrders) {
-        Integer result = categoryMapper.updateOrders(newOrders);
+    public boolean modifyOrders(List<Integer> newOrders, Long userId) {
+        Integer result = categoryMapper.updateOrders(newOrders, userId);
 
         if(result > 0)  return true;
         else            return false;
@@ -39,13 +40,6 @@ public class CategoryService {
     public boolean createCategory(CategoryDTO categoryDTO) {
         Integer result = categoryMapper.createCategory(categoryDTO);
 
-        // [*****]
-        categoryDTO.setParentId(2L);
-        categoryDTO.setShowFlag(1);
-        categoryDTO.setUserId(1);
-        categoryDTO.setName("node 12");
-
-
         if(result > 0)  return true;
         else            return false;
     }
@@ -53,33 +47,32 @@ public class CategoryService {
     // 카테고리 수정
     @Transactional  // [*****]
     public void modifyCategory(CategoryDTO categoryDTO) {
-        // 카테고리의 기존 상위 카테고리 id와 순서를 조회
-        Map<String, Long> map = selectParentIdAndOrders(categoryDTO);
+        // 카테고리의 기존 상위 카테고리 id와 기존 순서를 조회
+        Map<String, Object> map = categoryMapper.selectParentIdAndOrders(categoryDTO.getId());
+        Integer originalOrders = ObjectToInteger(map.get("orders"));
+        Long originalParentId = ObjectToLong(map.get("parentId"));
 
-        // 상위 카테고리를 변경한 경우, 기존 상위 카테고리의 하위 카테고리들의 순서를 앞당겨준다.
-        if(map.get("parentId") != categoryDTO.getParentId()){
-
+        // 상위 카테고리를 변경한 경우
+        if(originalParentId != categoryDTO.getParentId()){
+            // 기존 상위 카테고리의 하위 카테고리들의 순서를 앞당겨준다.
+            categoryMapper.shiftOrders(originalParentId, originalOrders);
+            // 새로운 상위 카테고리의 하위 카테고리들의 마지막 순서를 조회한다.
+            Integer maxOrders = categoryMapper.getLastOrders(categoryDTO.getParentId());
+            // 새로운 상위 카테고리의 마지막에 위치시킨다.
+            categoryDTO.setOrders(maxOrders + 1);
         }else{  // 싱위 카테고리를 변경하지 않은 경우, 순서를 유지한다.
-            categoryDTO.setOrders(Integer.parseInt(String.valueOf(map.get("orders"))));
+            categoryDTO.setOrders(originalOrders);
         }
-        updateCategoryContents(categoryDTO);
-
+        categoryMapper.updateCategoryContents(categoryDTO);
     }
 
-    // 카테고리 부모 id, 이름, 사용 여부, 순서 수정
-    private boolean updateCategoryContents(CategoryDTO categoryDTO){
-        Integer result = categoryMapper.updateCategoryContents(categoryDTO);
-
-        if(result > 0)  return true;
-        else            return false;
+    // Object -> Integer
+    private Integer ObjectToInteger(Object object){
+        return Integer.parseInt(String.valueOf(object));
     }
 
-    // 카테고리의 부모 id와 순서를 조회
-    private Map<String, Long> selectParentIdAndOrders(CategoryDTO categoryDTO){
-        Map<String, Long> map = categoryMapper.selectParentIdAndOrders(categoryDTO.getId());
-        return map;
+    // Object -> Long
+    private Long ObjectToLong(Object object){
+        return Long.valueOf(String.valueOf(object));
     }
-
-    // 순서 앞당기기
-    //private void shiftCategories()
 }

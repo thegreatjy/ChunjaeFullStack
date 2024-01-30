@@ -5,6 +5,7 @@ import com.example.category.service.CategoryService;
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.Parameter;
 import io.swagger.v3.oas.annotations.tags.Tag;
+import jakarta.servlet.http.HttpSession;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.log4j.Log4j2;
 import org.springframework.http.HttpStatus;
@@ -92,11 +93,11 @@ public class CategoryController {
     @Parameter(name = "categoryDTO", description = "생성할 카테고리")
     @ResponseBody
     @PostMapping("category")
-    public ResponseEntity createCategory(@RequestBody CategoryDTO categoryDTO){ // [*****] @Valid 나중에 추가하기
+    public ResponseEntity createCategory(HttpSession session, @RequestBody CategoryDTO categoryDTO){ // [*****] @Valid 나중에 추가하기
         log.info("createCategory category확인 " + categoryDTO);
 
         // HttpSession session / 로그인 되어 있는 사용자 id [*****]
-        // categoryDTO.setUserId(session.getAttribute("userId"));
+        setLoginedUserId(session, categoryDTO);
 
         // 카테고리 추가
         boolean result = categoryService.createCategory(categoryDTO);
@@ -116,12 +117,11 @@ public class CategoryController {
     @Parameter(name = "categoryDTO", description = "수정할 카테고리")
     @ResponseBody
     @PutMapping("category")
-    public ResponseEntity modifyCategory(@RequestBody CategoryDTO categoryDTO){
+    public ResponseEntity modifyCategory(HttpSession session, @RequestBody CategoryDTO categoryDTO){
         log.info("modifyCategory category확인 " + categoryDTO);
 
         // HttpSession session / 로그인 되어 있는 사용자 id [*****]
-        // categoryDTO.setUserId(session.getAttribute("userId"));
-        categoryDTO.setUserId(1);
+        setLoginedUserId(session, categoryDTO);
 
         // 카테고리 수정
         categoryService.modifyCategory(categoryDTO);
@@ -145,13 +145,15 @@ public class CategoryController {
      * @return
      */
     @PutMapping("orders")
-    public ResponseEntity<String> modifyOrders(@RequestParam(value = "newOrders") List<Integer> newOrders){
+    public ResponseEntity<String> modifyOrders(HttpSession session, @RequestParam(value = "newOrders") List<Integer> newOrders){
         for(int i: newOrders){
             log.info(i);
         }
+        // 로그인된 userId 조회
+        Long userId = getLoginedUserId(session);
 
         // 순서 변경
-        boolean result = categoryService.modifyOrders(newOrders);
+        boolean result = categoryService.modifyOrders(newOrders, userId);
 
         ResponseEntity responseEntity;
         if(result){ // 성공
@@ -179,5 +181,17 @@ public class CategoryController {
                         i2 -> i2)
                 );
         return categoryMap;
+    }
+
+    // 세션에 저장되어 있는 로그인된 userId를 categoryDTO에 대입
+    private void setLoginedUserId(HttpSession session, CategoryDTO categoryDTO){
+        // categoryDTO.setUserId((Long)session.getAttribute("userId")); [*****]
+        categoryDTO.setUserId(1L);
+    }
+
+    // 세션에 저장되어 있는 로그인된 userId를 조회
+    private Long getLoginedUserId(HttpSession session){
+        // return (Long)session.getAttribute("userId");  [*****]
+        return 1L;
     }
 }

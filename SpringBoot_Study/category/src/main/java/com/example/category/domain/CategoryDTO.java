@@ -18,8 +18,7 @@ public class CategoryDTO {
     private Integer depth;      // 깊이
     private Integer orders;     // 같은 깊이 내 순서
     private Integer updateFlag; // 수정여부. 수정 1. 수정 없음 0
-    private Integer userId;     // 수정한 회원 아이디
-
+    private Long userId;     // 수정한 회원 아이디
 
     private String parentName;  // 상위 카테고리 이름
 
