@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        const clickEvent = function(){
+            const list = document.getElementById("list");
+            const liArr = list.getElementsByTagName("li");
+        
+            for (let index = 0; index < liArr.length; index++) {
+                const element = liArr[index];
+                element.innerText = "hello_" + (index + 1);
+            }
+        }
+
+        // 아직 body가 로드되지 않아서 null
+        // document.getElementById("btn").onclick(clickEvent());
+
+        // window에서 페이지 로드를 끝내고 난 다음 함수 한번 실행
+        // head에 script를 넣어도 잘 실행된다.
+        window.onload = function(){
+            console.log(document.getElementById("btn"));
+
+            // document.getElementById("btn").onclick = function(){clickEvent()};
+            document.getElementById("btn").onclick = clickEvent;
+        };
+    </script>
+</head>
+<body>
+    <button id="btn">click button</button>
+
+    <div id="box">
+        <ul id="list" onclick="clickEvent()">
+            <li>1</li>
+            <li>2</li>
+            <li>3</li>
+        </ul>
+    </div>
+</body>
+</html>

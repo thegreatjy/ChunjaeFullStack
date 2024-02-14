@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>attribute / property</title>
+
+    <script>
+        const init = () => {
+            console.log("page load");
+
+            document.getElementById("btn").onclick = function(){
+                // DOM
+                const link = document.getElementById("link");
+                // attribute
+                console.log("link get attribute(target) : ", link.getAttribute("target"));  // null 
+                // DOM property
+                console.log(link.target);   // 빈칸
+
+                // DOM
+                const link2 = document.getElementById("link2");
+                // attribute
+                console.log("link get attribute(num) : ", link2.getAttribute("num"));  // 2
+
+                // DOM
+                const aTagList = document.getElementsByTagName("a");
+                // attribute
+                console.log("aTagList : ", aTagList);  // 2
+                for (let index = 0; index < aTagList.length; index++) {
+                    console.log(index, "  ", aTagList[index].getAttribute("num"));
+                    
+                }
+
+                document.getElementById("btn").num = "999";
+                
+
+                // property
+                link.href = "https://www.google.com/";
+                link.innerText = "Google";
+                link.target = "_blank";
+                console.log(link.target);
+            };
+        };
+
+        window.onload = init;
+
+    </script>
+</head>
+<body>
+    <button id="btn">click button</button>
+    <hr/>
+    <!-- href 는 a태그의 attribute -->
+    <a href="https://www.naver.com" id="link">naver</a>
+    <a href="https://www.daum.net" id="link2" num="2">Daum</a>
+</body>
+</html>
