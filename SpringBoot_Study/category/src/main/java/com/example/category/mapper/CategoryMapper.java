@@ -17,4 +17,6 @@ public interface CategoryMapper {
     Integer updateCategoryContents(CategoryDTO categoryDTO);
     void shiftOrders(@Param("parentId") Long originalParentId, @Param("orders") Integer originalOrders);
     Integer getLastOrders(Long parentId);
+
+    CategoryDTO getCategory(Long id);
 }

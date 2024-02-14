@@ -49,8 +49,8 @@ public class CategoryController {
     @Operation(summary = "하위 카테고리 조회", description = "파라미터로 받은 카테고리의 하위 카테고리 목록을 반환합니다.")
     @Parameter(name = "id", description = "부모 카테고리 아이디")
     @ResponseBody
-    @GetMapping("subcategories")
-    public Map<Long, CategoryDTO> getAllSubCategoriesById(@RequestParam Long id){
+    @GetMapping("subcategories/{id}")
+    public Map<Long, CategoryDTO> getAllSubCategoriesById(@PathVariable Long id){
         // id에 해당하는 카테고리의 모든 자식 카테고리 조회하여 List에 저장
         List<CategoryDTO> categoryDTOList = categoryService.getAllSubCategoriesByParentId(id);
         // List -> Map
@@ -88,10 +88,19 @@ public class CategoryController {
         return "category/main";
     }
 
+    @Operation(summary = "카테고리 조회", description = "파라미터로 받은 카테고리의 상세 정보를 조회합니다.")
+    @Parameter(name = "categoryDTO", description = "조회할 카테고리")
+    @ResponseBody
+    @GetMapping("category/{id}")
+    public CategoryDTO getCategoryDetails(@PathVariable("id") Long id){
+        CategoryDTO categoryDTO = categoryService.getCategory(id);
+
+        return categoryDTO;
+    }
+
 
     @Operation(summary = "카테고리 생성", description = "파라미터로 받은 카테고리를 생성합니다.")
     @Parameter(name = "categoryDTO", description = "생성할 카테고리")
-    @ResponseBody
     @PostMapping("category")
     public ResponseEntity createCategory(HttpSession session, @RequestBody CategoryDTO categoryDTO){ // [*****] @Valid 나중에 추가하기
         log.info("createCategory category확인 " + categoryDTO);

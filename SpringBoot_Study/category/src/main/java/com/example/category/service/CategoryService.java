@@ -75,4 +75,9 @@ public class CategoryService {
     private Long ObjectToLong(Object object){
         return Long.valueOf(String.valueOf(object));
     }
+
+    // 카테고리 조회
+    public CategoryDTO getCategory(Long id) {
+        return categoryMapper.getCategory(id);
+    }
 }
