@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+ <head>
+  <meta charset="UTF-8">
+  <title> new document </title>
+  <link href="css/style.css" type="text/css" rel="stylesheet" />
+  <script type="text/javascript">
+	  const init = function(){
+		const buttonList = document.getElementById("buttonList");
+		const aTagList = buttonList.getElementsByTagName("a");
+
+		const bannerList = document.getElementById("bannerList");
+		const liList = bannerList.getElementsByTagName("li");
+
+		// console.log(aTagList);
+		
+
+		/* 배너 아래 동그라미 아이콘에 마우스를 갖다 댈 경우 */
+		
+		for(let index = 0; index<aTagList.length; index++){
+			aTagList[index].onmouseover = function(){
+				// 현재 마우스가 올려진 배너의 num
+				const myNum = this.getAttribute('num');
+
+				for(let i=0; i<aTagList.length; i++){
+					if(aTagList[i].getAttribute("num") == myNum){
+						aTagList[i].className = "on";
+						liList[i].className = "on";
+					}else{
+						aTagList[i].className = "";
+						liList[i].className = "";
+					}
+				}
+			};
+		};
+		
+	  }
+
+	  window.onload = init;
+  </script>
+ </head>
+ <body style="padding:100px;">
+	<div class="feature-banner__last">
+		<ul id="bannerList" class="feature-banner__group">
+			<li class="on">
+				<a href="#"><img src="images/1.jpg" alt=""></a>
+			</li>	
+			<li>
+				<a href="#"><img src="images/2.jpg" alt=""></a>
+			</li>
+			<li>
+				<a href="#"><img src="images/3.jpg" alt=""></a>
+			</li>
+			<li>
+				<a href="#"><img src="images/4.jpg" alt=""></a>
+			</li>
+		</ul>
+		
+		<div id="buttonList" class="tmp-nav img-dotted feature-banner__selector">
+			<a href="#" class="on" num="1"><span>1</span></a>
+			<a href="#" num="2"><span>2</span></a>
+			<a href="#" num="3"><span>3</span></a>
+			<a href="#" num="4"><span>4</span></a>
+		</div>
+	</div>
+ </body>
+</html>

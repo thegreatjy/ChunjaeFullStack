@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+ <head>
+  <meta charset="UTF-8">
+  <title> new document </title>
+  <link href="css/style.css" type="text/css" rel="stylesheet" />
+  <script type="text/javascript">
+		const init = () => {
+			// 다음 버튼
+			document.getElementById("nextBtn").onclick = function(){
+				const activeList = pagingList.getElementsByClassName("active");
+				console.log(activeList[0].num);
+				let num = (activeList[0].num + 1) % aTagList.length;
+				aTagList[num].onmouseenter();	// 이벤트 강제 발생 및 실행 
+			};
+
+			// 이전 버튼
+			document.getElementById("prevBtn").onclick = function(){
+				const activeList = pagingList.getElementsByClassName("active");
+				console.log(activeList[0].num);
+				let num = (activeList[0].num + aTagList.length - 1) % aTagList.length;
+				aTagList[num].onmouseenter();	// 이벤트 강제 발생 및 실행 
+			};
+
+
+			const pagingList = document.getElementById("pagingList");
+			const aTagList = pagingList.getElementsByTagName("a");
+			const bannerList = document.getElementById("bannerList");
+			const liTagList = bannerList.getElementsByTagName("li");
+
+			console.log(aTagList);
+
+			for(let i=0; i<aTagList.length; i++){
+				// property 등록
+				// property는 코드가 공개되지 않는다.
+				aTagList[i].num = i;
+				console.log("let i " , i);
+
+				// mouseOver: 적용된 요소의 상위 요소에도 이벤트 적용
+				// mouseEnter: 적용된 요소에만 이벤트 적용
+				// for문 돌 때, 미리 실행되는 게 아니라 이벤트가 발생했을 때 함수가 실행된다.
+				aTagList[i].onmouseenter = function(){
+					// 현재 마우스가 올려진 a 태그의 번호
+					console.log("onMouseEnter let i  ", i);
+
+					for(let j=0; j<aTagList.length; j++){
+						// 현재 마우스가 올려진 a 태그 순서 == a 태그 리스트 전부 중 하나
+						if(this.num == j){
+							// this.setAttribute("class", "bx-pager-link active");
+							aTagList[j].className = "bx-pager-link active";
+							liTagList[j].style.display = "block";
+						}else{
+							// this.setAttribute("class", "bx-pager-link");
+							aTagList[j].className = "bx-pager-link";
+							liTagList[j].style.display = "none";
+						}
+					}
+				}
+			}
+
+
+
+		}
+
+		window.onload = init;
+  </script>
+ </head>
+ <body style="padding:100px;">
+	<div class="customerSection">
+		<div class="custom_name"><em>이름</em> 고객님,</div>
+		<div class="custom_tit"><img src="images/tit_custom.gif" alt="이 상품은 어떠세요?"></div>
+		<div class="custom_part" style="display: block;">
+			<div class="bx-wrapper" style="max-width: 310px;">
+				<div class="bx-viewport">
+					<ul id="bannerList">
+						<li style="display:block;">
+							<a href="#"><img src="images/1.jpg" alt="쇼핑추천"></a>
+						</li>
+						<li style="display:none;">
+							<a href="#"><img src="images/2.jpg" alt="도서추천"></a>
+						</li>
+						<li style="display:none;">
+							<a href="#"><img src="images/3.jpg" alt="티켓추천"></a>
+						</li>
+
+						<li style="display:none;">
+							<a href="#"><img src="images/4.jpg" alt="투어추천"></a>
+						</li>
+					</ul>
+				</div>
+
+
+				<div class="bx-controls bx-has-pager bx-has-controls-direction">
+					<div id="pagingList" class="bx-pager bx-default-pager">
+						<div class="bx-pager-item">
+							<a href="#" class="bx-pager-link active">1</a>
+						</div>
+						<div class="bx-pager-item">
+							<a href="#" class="bx-pager-link">2</a>
+						</div>
+						<div class="bx-pager-item">
+							<a href="#" class="bx-pager-link">3</a>
+						</div>
+						<div class="bx-pager-item">
+							<a href="#" class="bx-pager-link">4</a>
+						</div>
+					</div>
+					<div class="bx-controls-direction">
+						<a class="bx-prev" href="#" id="prevBtn">Prev</a>
+						<a class="bx-next" href="#" id="nextBtn">Next</a>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+ </body>
+</html>
