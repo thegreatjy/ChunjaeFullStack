@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tag Move</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+    <script>
+        const init = () => {
+            // move
+            $('#moveBtn').on(
+                "click",
+                function(){
+                    $('#list1').append($("#list2 li:first"));
+                }
+            );
+
+            $('#checkBtn').on(
+                "click",
+                function(){
+                    $('#list3 li:eq(1)').text("check");
+                    $('#list3 li:eq(1)').prev().text("check");
+                    $('#list3 li:eq(1)').next().text("check");
+                    $('#list3 li:eq(1)').next().parent().css('border', '1px dashed red');
+                    $('#list3 li:eq(1)').find('a').text("MS");
+                }
+            );
+
+            // input form을 통한 데이터 전송
+            $('#sendBtn').on(
+                'click',
+                function(){
+                    const idInput = $('input[name="id"]').val();
+                    console.log(idInput);
+                }
+            );
+
+            // 키보드
+            $('input[name="id"]').on(
+                "keyup",
+                function(e){
+                    // e 키보드 정보
+                    console.log(e);
+                }
+            )
+        };
+
+        window.onload = init;
+    </script>
+</head>
+<body>
+    <form method="get" action="#">
+        id: <input name='id' type="text"/> <button id='sendBtn' type="submit">전송</button>
+    </form>
+
+
+    <button id="moveBtn">move</button>
+    <button id="checkBtn">check</button>
+    <ul id="list1"></ul>
+    <hr/>
+    <ul id="list2">
+        <li>1</li>
+        <li>2</li>
+        <li>3</li>
+        <li>4</li>
+    </ul>
+    <hr/>
+    <ul id="list3">
+        <li><a href="www.naver.com">naver</a></li>
+        <li><a href="www.google.com">google</a></li>
+        <li><a href="www.daum.net">daum</a></li>
+    </ul>
+</body>
+</html>
