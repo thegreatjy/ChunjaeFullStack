@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="en">
+ <head>
+    <meta charset="UTF-8">
+    <title> new document </title>
+    <link href="css/style.css" type="text/css" rel="stylesheet" />
+	<script type="text/javascript">
+		const init = () => {
+			const mailList = document.getElementById("mailList");
+			const mailIdList = document.getElementsByName("mailId");
+			const checkAllInput = document.getElementById("checkAll");
+			console.log(mailIdList);
+
+			
+
+			// 단일 체크
+			for(let i=0; i<mailIdList.length; i++){
+				mailIdList[i].onclick = function(){
+					console.log("mailIdList onclick ", i, "this.value ", this.value);
+					let element = document.getElementById("mailId_" + this.value);
+					
+					if(this.checked){
+						element.className = "selected";
+					}else{
+						element.className = "";
+					}
+				};
+				/*
+				if(mailIdList[i]){
+					checkedList.push(i);
+				}
+				*/
+			}
+
+			// 전체 체크
+			checkAllInput.onclick = function(){
+				for(let i=0; i<mailIdList.length; i++){
+					// mailIdList[i].onclick();
+					
+					mailIdList[i].checked = this.checked;
+					let element = document.getElementById("mailId_" + mailIdList[i].value);
+					
+					if(this.checked){
+						element.className = "selected";
+					}else{
+						element.className = "";
+					}
+					checkAllInput.checked = false;
+				}
+			};
+
+			// 삭제
+			document.getElementById("delBtn").onclick = function(){
+				let checked = false;
+				for(let i=0; i<mailIdList.length; i++){
+					if(mailIdList[i].checked){
+						check = true;
+						break;
+					}
+				}
+
+				if(!checked){
+					console.log("최소 한 개를 선택해 주세요.");
+				}else{
+					console.log("삭제 성공");
+				}
+			};
+
+
+		};
+
+		window.onload = init;
+	</script>
+ </head>
+ <body>
+  <input type="button" id="delBtn" class="delBtn" value="삭제" />	 	
+  <table id="mailList">
+	<caption>메일폼</caption>
+	<colgroup>
+		<col width="10%"/>
+		<col width="10%"/>
+		<col width="*"/>
+		<col width="10%"/>
+		<col width="10%"/>
+	</colgroup>
+	<thead>
+		<tr>
+			<th><input type="checkbox" id="checkAll" /></th>
+			<th>보낸사람</th>
+			<th>제목</th>
+			<th>날짜</th>
+			<th>크기</th>
+		</tr>
+	</thead>
+	<tbody>
+		<tr id="mailId_10">
+			<td><input type="checkbox" name="mailId" value="10" /></td>
+			<td>이지연</td>
+			<td>메일제목입니다.</td>
+			<td>2024.02.14</td>
+			<td>23kb</td>
+		</tr>
+		<tr id="mailId_9">
+			<td><input type="checkbox" name="mailId" value="9" /></td>
+			<td>이지연</td>
+			<td>메일제목입니다.</td>
+			<td>2024.02.14</td>
+			<td>23kb</td>
+		</tr>
+		<tr id="mailId_8">
+			<td><input type="checkbox" name="mailId" value="8" /></td>
+			<td>이지연</td>
+			<td>메일제목입니다.</td>
+			<td>2024.02.14</td>
+			<td>23kb</td>
+		</tr>
+		<tr id="mailId_7">
+			<td><input type="checkbox" name="mailId" value="7" /></td>
+			<td>이지연</td>
+			<td>메일제목입니다.</td>
+			<td>2024.02.14</td>
+			<td>23kb</td>
+		</tr>
+		<tr id="mailId_6">
+			<td><input type="checkbox" name="mailId" value="6" /></td>
+			<td>이지연</td>
+			<td>메일제목입니다.</td>
+			<td>2024.02.14</td>
+			<td>23kb</td>
+		</tr>
+		<tr id="mailId_5">
+			<td><input type="checkbox" name="mailId" value="5" /></td>
+			<td>이지연</td>
+			<td>메일제목입니다.</td>
+			<td>2024.02.14</td>
+			<td>23kb</td>
+		</tr>
+		<tr id="mailId_4">
+			<td><input type="checkbox" name="mailId" value="4" /></td>
+			<td>이지연</td>
+			<td>메일제목입니다.</td>
+			<td>2024.02.14</td>
+			<td>23kb</td>
+		</tr>
+		<tr id="mailId_3">
+			<td><input type="checkbox" name="mailId" value="3" /></td>
+			<td>이지연</td>
+			<td>메일제목입니다.</td>
+			<td>2024.02.14</td>
+			<td>23kb</td>
+		</tr>
+		<tr id="mailId_2">
+			<td><input type="checkbox" name="mailId" value="2" /></td>
+			<td>이지연</td>
+			<td>메일제목입니다.</td>
+			<td>2024.02.14</td>
+			<td>23kb</td>
+		</tr>
+		<tr id="mailId_1">
+			<td><input type="checkbox" name="mailId" value="1" /></td>
+			<td>이지연</td>
+			<td>메일제목입니다.</td>
+			<td>2024.02.14</td>
+			<td>23kb</td>
+		</tr>
+	</tbody>
+  </table>
+ </body>
+</html>
