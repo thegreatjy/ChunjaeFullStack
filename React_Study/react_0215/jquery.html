@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>jQuery</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+    <script>
+        const init = () => {
+            $("#box").on(
+                "click",
+                function(){
+                    // this.innerText = "click";
+                    $(this).text("click");
+                    console.log($(this).attr("id"));    // html
+                    console.log($(this).prop("id"));    // dom
+                }
+            );
+
+            // dom 찾기
+            // $('#box').text("click");
+
+            $('#addBtn').on(
+                "click",
+                function(){
+                    // $('#myList').prepend("<li>prepend</li>");
+                    // $('#myList').append("<li>append</li>");
+                    const li = document.createElement("li");
+                    $('#myList').append("<li>append</li>");
+                }
+            );
+
+            $('#delBtn').on(
+                "click",
+                function(){
+                    // 요소 삭제 
+                    // $("#box").remove();
+                    $('#myList li:first').remove();
+                }
+            );
+        };
+
+        window.onload = init;
+    </script>
+</head>
+<body>
+    <div id="box">text</div>
+    <button id="addBtn">add</button>
+    <button id="delBtn">del</button>
+    <ul id="myList">
+        
+    </ul>
+</body>
+</html>
