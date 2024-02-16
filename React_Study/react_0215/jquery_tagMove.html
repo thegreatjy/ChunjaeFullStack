@@ -41,15 +41,18 @@
                 function(e){
                     // e 키보드 정보
                     console.log(e);
+                    if(e.key.toLowerCase() == 'enter'){
+                        console.log("전송");
+                    }
                 }
-            )
+            );
         };
 
         window.onload = init;
     </script>
 </head>
 <body>
-    <form method="get" action="#">
+    <form method="get" action="">
         id: <input name='id' type="text"/> <button id='sendBtn' type="submit">전송</button>
     </form>
 
