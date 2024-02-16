@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title> new document </title>
+  <link href="css/common.css" type="text/css" rel="stylesheet" />
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script> 
+  <script type="text/javascript">
+	 const init = () => {
+		$('#adressList').data('rowCount', 0);
+
+
+		// 추가 버튼
+		$('#addBtn').on(
+			'click',
+			function(e){
+				e.preventDefault();	// a href 방지
+
+				/* form 검증 */
+				const userName = $.trim($('#userName').val());
+				const userPhone = $.trim($('#userPhone').val());
+
+				if(userName == ""){
+					alert("이름을 입력해 주세요.");
+					$('#userName').focus();
+					return false;
+				}
+				if(userPhone == ""){
+					alert("전화번호를 입력해 주세요.");
+					$('#userPhone').focus();
+					return false;
+				}
+				if(userPhone.length < 11){
+					alert("전화번호는 11자리를 입력해 주셔야 합니다.");
+					$('#userPhone').focus();
+					return false;
+				}
+				/* form 검증 */
+				
+				// 기존 테이블의 레코드 개수
+				let rowCount = $('#adressList').data('rowCount');
+				if(rowCount == 0){
+					$('#adressList tbody tr').remove();
+				}
+				$('#adressList').data('rowCount', rowCount + 1);
+
+		
+
+				const addressList = $('#adressList tbody');
+				const tr = document.createElement("tr");
+				$(tr).append("<td>" + userName + "</td>");
+				let userPhoneStr = userPhone.substring(0,3);
+				userPhoneStr += '-' + userPhone.substring(3,7);
+				userPhoneStr += '-' + userPhone.substring(7);
+
+				$("<td>" + userPhoneStr + "</td>").appendTo(tr);
+
+				// $(tr).append('<td><a href="#"><img src="images/btn_del.gif" alt="삭제" /></a></td>');
+				let td = $('<td></td>').appendTo(tr);
+				const aTagText = '<a href="#"><img src="images/btn_del.gif" alt="삭제" /></a>';
+				const aTag = $(aTagText).appendTo(td);
+
+				// 삭제 버튼
+				$(aTag).on(
+					'click',
+					function(){
+						console.log(123);
+						console.log($(this).parent().parent().remove());
+						const rowCount = $('#adressList').data('rowCount');
+						const nextRowCount = rowCount - 1;
+						$('#adressList').data('rowCount', nextRowCount);
+						if(nextRowCount == 0){
+							$('#adressList tbody').append('<tr><td colspan="3">등록된 내용이 없습니다.</td></tr>');
+						}
+					}
+				);
+
+				addressList.append(tr);
+
+				// form reset
+				$('#userName, #userPhone').val("");
+			}
+		);
+
+
+		$('#userPhone').on(
+			'keyup',
+			function(e){
+				// 정규표현식
+				// g: 전체, i: 대소문자 구분 없음
+				this.value = this.value.replace(/[^0-9]/gi, '');
+
+				if(e.key.toLowerCase() == 'enter'){
+					$('#addBtn').trigger('click');
+				}
+			}
+		);
+	 };
+
+	 window.onload = init;
+  </script>
+ </head>
+ <body>
+<form name="frm" method="post">	
+	<label for="mem_name">이름</label>
+	<input type="text" id="userName" size="15" name="userName" maxlength="10"/>
+	<label for="mem_phone">핸드폰번호</label>
+	<input type="text" id="userPhone" size="20" maxlength="11" name="userPhone"/>
+	<a href="#" id="addBtn"><img src="images/btn_add.gif" alt="추가"/></a>		
+</form>
+<table id="adressList">
+	<caption>전화번호부</caption>
+	<colgroup>
+		<col width="40%" />
+		<col width="40%" />
+		<col width="20%" />
+	</colgroup>
+	<thead>
+		<tr>
+			<th scope="col">이름</th>
+			<th scope="col">전화번호</th>
+			<th scope="col">삭제</th>
+		</tr>
+	</thead>
+	<tbody>
+		<tr>
+			<td colspan="3">등록 된 내용이 없습니다.</td>
+		</tr>
+		<!--
+		<tr>
+			<td>이지연</td>
+			<td>010-1111-2222</td>
+			<td>
+				<a href="#"><img src="images/btn_del.gif" alt="삭제" /></a>
+			</td>
+		</tr>
+		-->
+	</tbody>
+</table>
+ </body>
+</html>
