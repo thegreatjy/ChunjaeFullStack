@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" integrity="sha384-WskhaSGFgHYWDcbwN70/dfYBj47jz9qbsMId/iRN3ewGhXQFZCSftd1LZCfmhktB" crossorigin="anonymous">
+    <style type="text/css">
+        table td,table th {
+            text-align: center;
+        }
+    </style>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+    <link rel="stylesheet" href="https://ajax.googleapis.com/ajax/libs/jqueryui/1.13.2/themes/smoothness/jquery-ui.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.13.2/jquery-ui.min.js"></script>
+    <script type="text/javascript">
+      $.datepicker.setDefaults({
+            dateFormat: 'yymmdd',
+            prevText: '이전 달',
+            nextText: '다음 달',
+            monthNames: ['1월', '2월', '3월', '4월', '5월', '6월', '7월', '8월', '9월', '10월', '11월', '12월'],
+            monthNamesShort: ['1월', '2월', '3월', '4월', '5월', '6월', '7월', '8월', '9월', '10월', '11월', '12월'],
+            dayNames: ['일', '월', '화', '수', '목', '금', '토'],
+            dayNamesShort: ['일', '월', '화', '수', '목', '금', '토'],
+            dayNamesMin: ['일', '월', '화', '수', '목', '금', '토'],
+            showMonthAfterYear: true,
+            yearSuffix: '년'
+      });  
+
+      function init(){
+        $("#searchForm input[name='searchDate']").datepicker().datepicker('setDate', '-1D');
+        
+        $('#searchBtn').on(
+            'click',
+            function(){
+                const searchDate = $("#searchForm input[name='searchDate']").val();
+                const apiUrl = 'http://www.kobis.or.kr/kobisopenapi/webservice/rest/boxoffice/searchDailyBoxOfficeList.json';
+
+                $.ajax(
+                    {
+                        type: "GET",
+                        url: apiUrl,
+                        data:{
+                            key: '~~',
+                            targetDt: searchDate,
+                            multiMovieYn: 'N'
+                        },
+                        dataType: 'JSON',
+                        success: function(data){
+                            makeBoxOfficeList(data.boxOfficeResult.dailyBoxOfficeList, "list1", searchDate);
+                        },
+                        error: function(jqXHR, textStatus, errorThrown){
+                            alert();
+                        }
+                    }
+                )
+            }
+        );
+
+        $('#searchBtn').on(
+            'click',
+            function(){
+                const searchDate = $("#searchForm input[name='searchDate']").val();
+                const apiUrl = 'http://www.kobis.or.kr/kobisopenapi/webservice/rest/boxoffice/searchDailyBoxOfficeList.json';
+
+                $.ajax(
+                    {
+                        type: "GET",
+                        url: apiUrl,
+                        data:{
+                            key: '~~',
+                            targetDt: searchDate,
+                            multiMovieYn: 'Y'
+                        },
+                        dataType: 'JSON',
+                        success: function(data){
+                            makeBoxOfficeList(data.boxOfficeResult.dailyBoxOfficeList, "list2", searchDate);
+                        },
+                        error: function(jqXHR, textStatus, errorThrown){
+                            alert();
+                        }
+                    }
+                );
+            }
+        );
+
+        const makeBoxOfficeList = function(boxOfficeResult, tableId, searchDate){
+            let searchDateStr = searchDate.substring(0, 4) + "년";
+            searchDateStr += searchDate.substring(4, 6) + "월";
+            searchDateStr += searchDate.substring(6) + "일";
+
+            $('#' + tableId).prev().find('.date').text(searchDateStr);
+            // $('#' + tableId + " .date").text(searchDateStr);
+
+            $('#' + tableId + " tbody tr").remove();
+            if(boxOfficeResult.length == 0){
+                const emptyTr = document.createElement("tr");
+                emptyTr.append('<tr><td colspan="4">박스오피스 정보가 없습니다.</td></tr>');
+                $("#" + tableId + " tbody").append(emptyTr);
+            }else{
+                $(boxOfficeResult).each(
+                function(index, element){
+                    const tr = document.createElement("tr");
+                    $(tr).append("<td>" + element.rank + "</td>");
+
+                    // 신규 진입 시, 변동 대신 new 아이콘 출력
+                    if(element.rankOldAndNew == "NEW"){
+                        $(tr).append("<td>" + "<img src='images/icon_new.gif'/>" + "</td>");
+                    }else if(element.rankOldAndNew == "OLD"){
+                        if(element.rankInten == 0){
+                            $(tr).append("<td>" + "<img src='images/icon_equal.gif'/>" + "</td>");
+                        }else if(element.rankInten > 0){
+                            $(tr).append("<td>" + "<img src='images/icon_up.gif'/>" + "</td>");
+                        }else{
+                            $(tr).append("<td>" + "<img src='images/icon_down.gif'/>" + "</td>");
+                        }
+                        // $(tr).append("<td>" + element.rankInten + "</td>");
+                    }
+                    
+                    $(tr).append("<td>" + element.movieNm + "</td>");
+                    $(tr).append("<td>" + element.audiCnt + "</td>");
+                    $('#' + tableId + ' tbody').append(tr);
+                }
+            );
+            }
+        };
+
+      }
+      window.onload = init;
+    </script>
+</head>
+<body>
+    <div class="container" style="margin-top:30px;">
+        <h1>영진위 API 연동</h1>
+        <form id="searchForm" action="#" method="post" class="form-inline">
+            <input type="text" name="searchDate" class="form-control mr-1" readonly="readonly" />
+            <button type="button" id="searchBtn" class="btn btn-primary">검색</button>
+        </form>
+    </div>
+    <div class="container" style="margin-top:20px;">
+        <div style="float:left;width:49%">
+            <h4><span class="date">일별</span> 상업영화 박스오피스</h4>
+            <table id="list1" class="table">
+                <thead class="thead-dark">
+                <tr>
+                    <th>순위</th>
+                    <th>변동</th>
+                    <th>영화명</th>
+                    <th>누적관객수</th>
+                </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td colspan="4">박스오피스 정보가 없습니다.</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+        <div style="float:right;width:49%">
+            <h4><span class="date">일별</span> 다양성영화 박스오피스</h4>
+            <table id="list2" class="table">
+                <thead class="thead-dark">
+                <tr>
+                    <th>순위</th>
+                    <th>변동</th>
+                    <th>영화명</th>
+                    <th>누적관객수</th>
+                </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td colspan="4">박스오피스 정보가 없습니다.</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</body>
+</html>
