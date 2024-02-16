@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title> new document </title>
+  <link href="css/common.css" type="text/css" rel="stylesheet"  media="screen" />
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+  <script type="text/javascript">
+	  const init = () => {
+		$('#loginBtn').on(
+			'click',
+			function(e){
+				e.preventDefault(); // 이중 클릭 방지. a 태그의 href 실행 방지
+				// return false;
+
+				// 아이디 확인
+				let emailValue = $.trim($('#email').val()); // 양쪽 공백 제거
+				console.log(emailValue);
+				if(emailValue == ""){
+					window.alert("아이디를 입력해 주세요.");
+					$('#email').focus();	// 아이디 input 태그에 커서가 이동  
+					return false;
+				}
+
+				// 비밀번호 확인
+				let passwdValue = $.trim($('#passwd').val()); // 양쪽 공백 제거
+				console.log(passwdValue);
+				// 공백
+				if(passwdValue == ""){
+					window.alert("비밀번호를 입력해 주세요.");
+					$('#passwd').focus();	// 비밀번호 input 태그에 커서가 이동  
+					return false;
+				}
+				// 글자 수 제한
+				if(passwdValue.length < 5){
+					window.alert("비밀번호는 최소 5자리 이상입니다.");
+					$('#passwd').focus();	// 비밀번호 input 태그에 커서가 이동  
+					return false;
+				}
+
+				console.log("login");
+				//
+				$('form[name="frm_login"]').submit();
+			}
+		);
+
+		// 비밀번호에서 enter를 누르면 로그인 버튼의 click 이벤트 강제 발생
+		$('#passwd').on(
+			"keyup",
+			function(e){
+				// e 키보드 정보
+				if(e.key.toLowerCase() == 'enter'){
+					$('#loginBtn').trigger("click");
+				}
+			}
+		);
+
+
+	  };
+
+	  window.onload = init;
+  </script>
+ </head>
+ <body>
+	<form name="frm_login" method="post" action="" class="lSearch">
+		<fieldset class="mLogin">
+			<legend>로그인</legend>
+			<h3><img src="images/tit_login.png" alt="로그인 - 소셜 간편 로그인/ 멤버십 로그인"></h3>
+			<dl class="log">
+				<dt class="id">아이디</dt>
+				<dd class="id">
+					<input type="text" class="it" title="아이디" id="email" name="email" placeholder="아이디" />
+				</dd>
+				<dt class="pw">비밀번호</dt>
+				<dd class="pw">
+					<input type="password" class="it" title="비밀번호" id="passwd" name="passwd" maxlength="20" placeholder="비밀번호" />
+				</dd>
+			</dl>
+			<div class="check">
+				<label for="saveCheck">
+					<span class="checkbox" style="background-position: 0px 0px;" id="saveCheckbox"></span>
+					<input type="checkbox" class="styled" name="chk_saveID" value="Y" id="saveCheck" />로그인 상태 유지
+				</label>
+			</div>
+			<div class="mButton1">
+				<a href="#" id="loginBtn"><img src="images/btn_signin.png" alt="SIGN IN"></a>
+			</div>
+			<div class="link">
+				<a href="#">회원가입</a>
+				<span class="bar">|</span>
+				<a href="#">아이디/비밀번호 찾기</a>
+			</div>
+		</fieldset>
+	 </form>
+ </body>
+</html>
