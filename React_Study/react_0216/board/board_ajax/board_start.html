@@ -1,0 +1,303 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>Board</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
+    <style type="text/css">
+      table td,table th {
+          text-align: center;
+      }
+    </style>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+    <script type="text/javascript">
+      // 게시글 등록
+      const writeFormInit = function(){
+        // 등록 버튼
+        $('#regBtn').on(
+          'click',
+          function(){
+            $('#list, #regBtn').hide();
+            $('#writeForm').show();
+            $('#writeForm input[name="title"]').val("");
+            $('#writeForm textarea[name="content"]').val("");
+          }
+        );
+
+        // 등록하기 페이지의 저장 버튼
+        $('#writeBtn').on(
+          'click',
+          function(){
+            const title = $.trim($('#writeForm input[name="title"]').val());
+            const content = $.trim($('#writeForm textarea[name="content"]').val());
+
+            console.log('title ', title, ' content ', content);
+
+            if(title == ""){
+              alert("제목을 입력해 주세요.");
+              $('#writeForm input[name="title"]').focus();
+              return false;
+            }
+            if(content == ""){
+              alert("내용을 입력해 주세요.");
+              $('#writeForm textarea[name="content"]').focus();
+              return false;
+            }
+
+            const result = confirm("정말 등록할까요?");
+            if(!result) return false;
+
+            const apiUrl = 'http://~~.dothome.co.kr/board/insert.php';
+            $.ajax(
+                    {
+                        type: "POST",
+                        url: apiUrl,
+                        data:{
+                            title: title,
+                            content: content
+                        },
+                        dataType: 'JSON',
+                        success: function(data){
+                            console.log("insert result ", data);
+                            if(data.result == "Y"){
+                              alert("입력 성공");
+                              $('#writeCloseBtn').trigger('click');
+                            }else{
+                              alert("입력 실패");
+                            }
+                        },
+                        error: function(jqXHR, textStatus, errorThrown){
+                            alert(textStatus + ", " + errorThrown);
+                        }
+                    }
+                );
+          }
+        );
+
+        // 등록 취소 버튼
+        $('#writeCloseBtn').on(
+          'click',
+          function(){
+            $('#writeForm').hide();
+            $('#list, #regBtn').show();
+          }
+        );
+      };
+
+      // 게시글 목록 조회
+      const getList = function(){
+        const apiUrl = "http://~~.dothome.co.kr/board/list.php";
+
+        $.ajax(
+              {
+                  type: "GET",
+                  url: apiUrl,
+                  dataType: 'JSON',
+                  success: function(data){
+                      $('#list tbody tr').remove();
+
+                      console.log("list result ", data.result);
+                      console.log("data.length ", data.result.length);
+
+                      const table = $('.container .table-responsive tbody');
+
+                      // 게시글이 0개일 때와 1개 이상일 때
+                      if(data.result == 0){
+                        $('.container .table-responsive tbody');
+                        const tr = document.createElement("tr");
+                        $(tr).append('<td colspan="4" style="text-align:center;">등록된 내용이 없습니다.</td>');
+                        $(table).append(tr);
+                      }else{
+                        console.log("data.length ", data.result.length);
+
+                        $(data.result).each(
+                          function(index, element){
+                            console.log(index, element);
+                            const tr = document.createElement("tr");
+                            $(tr).append('<td>' + element.id + '</td>');
+                            $(tr).append('<td>' + element.title + '</td>');
+                            $(tr).append('<td>' + element.date + '</td>');
+                            const td = $('<td></td>').appendTo(tr);
+                            
+                            // 수정 버튼
+                            const modifyBtn = $('<button type="button" class="btn btn-success mr-1">수정</button>').appendTo(td);
+                            $(modifyBtn).data("id", element.id);  // 데이터 저장
+                            // 수정 버튼이 눌렸을 때
+                            $(modifyBtn).on(
+                              'click',
+                              function(){
+                                const apiUrl = "http://~~.dothome.co.kr/board/view.php"
+                                $.ajax(
+                                  {
+                                      type: "GET",
+                                      url: apiUrl,
+                                      data:{
+                                          id: $(this).data("id")
+                                      },
+                                      dataType: 'JSON',
+                                      success: function(data){
+                                        if(data.result.length == 0){  // 데이터가 없는 경우
+                                          alert("조회하신 정보가 없습니다.");
+                                        }else{
+                                          modifyFormInit(data.result[0]);
+                                        }
+                                        return ;
+                                      },
+                                      error: function(jqXHR, textStatus, errorThrown){
+                                          alert(textStatus + ", " + errorThrown);
+                                      }
+                                  }
+                                );
+                              }
+                            );
+                            
+                            // 삭제 버튼
+                            const deleteBtn = $('<button type="button" class="btn btn-danger">삭제</button>').appendTo(td);
+                            $(deleteBtn).data("id", element.id);  // 데이터 저장
+                            $(deleteBtn).on(
+                              'click',
+                              function(){
+                                console.log($(this).data('id'));
+                              }
+                            );
+
+                            $("#list tbody").append(tr);
+                          }
+                        );
+                      }
+                  },
+                  error: function(jqXHR, textStatus, errorThrown){
+                      alert(textStatus + ", " + errorThrown);
+                  }
+              }
+            );
+      };
+
+      const modifyFormInit = function(data){
+        console.log(data);
+        $("#list").hide();
+        $('#list, #regBtn').hide();
+        $('#modifyForm').show();
+        $("#regBtn").hide();
+        $('#modifyForm input[name="id"]').val(data.id);
+        $('#modifyForm input[name="title"]').val(data.title);
+        $('#modifyForm textarea[name="content"]').val(data.content);
+
+        $('#modifyCloseBtn').on(
+          'click',
+          function(){
+            $('#list, #regBtn').show();
+            $('#modifyForm').hide();
+          }
+        );
+      };
+
+      const init = () => {
+        writeFormInit();
+        getList();
+      };
+
+      window.onload = init;
+    </script>
+</head>
+<body>
+    <main role="main" class="container">
+          <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
+            <h1 class="h2">Board</h1>
+            <div class="btn-toolbar mb-2 mb-md-0">
+              <form id="searchForm" action="#" class="form-inline">
+                  <button type="button" class="btn btn-primary" id="regBtn">등록</button>
+              </form>
+            </div>
+          </div>
+          <div class="table-responsive">
+              <table class="table" id="list">
+                <colgroup>
+                    <col width="10%" />
+                    <col width="*" />
+                    <col width="20%" />
+                    <col width="20%" />
+                </colgroup>
+                <thead class="thead-dark">
+                  <tr>
+                    <th scope="col">글번호</th>
+                    <th scope="col">제목</th>
+                    <th scope="col">날짜</th>
+                    <th scope="col">-</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td colspan="4" style="text-align:center;">등록 된 내용이 없습니다.</td>
+                  </tr>
+                  <!--
+                  <tr>
+                    <td>5</td>
+                    <td>테스트 5</td>
+                    <td>2022-02-02 16:51:02</td>
+                    <td>
+                      <button type="button" class="btn btn-success mr-1">수정</button><button type="button" class="btn btn-danger">삭제</button>
+                    </td>
+                  </tr>
+                  -->
+                </tbody>
+              </table>
+
+              <form id="writeForm" action="#" method="post" style="display:none;">
+                  <table class="table">
+                    <colgroup>
+                      <col width="20%" />
+                      <col width="*" />
+                    </colgroup>
+                    <tbody class="thead-dark">
+                      <tr>
+                          <th>제목</th>
+                          <td><input type="input" name="title" class="form-control" /></td>
+                      </tr>
+                      <tr>
+                          <th>내용</th>
+                          <td>
+                              <textarea name="content" class="form-control"></textarea>
+                          </td>
+                      </tr>
+                    </tbody>
+                  </table>
+                  <div style="text-align:center;margin:20px 0;">
+                      <button type="button" id="writeBtn" class="btn btn-primary">저장</button>
+                      <button type="button" id="writeCloseBtn" class="btn btn-secondary">닫기</button>
+                  </div>
+              </form>
+
+              <form id="modifyForm" action="#" method="post" style="display:none;">
+                <table class="table">
+                  <colgroup>
+                      <col width="20%" />
+                      <col width="*" />
+                  </colgroup>
+                  <tbody class="thead-dark">
+                    <tr>
+                      <th>글번호</th>
+                      <td><input type="input" name="id" class="form-control" readonly="readonly" /></td>
+                    </tr>
+                    <tr>
+                        <th>제목</th>
+                        <td><input type="input" name="title" class="form-control" /></td>
+                    </tr>
+                    <tr>
+                        <th>내용</th>
+                        <td>
+                            <textarea name="content" class="form-control"></textarea>
+                        </td>
+                    </tr>
+                  </tbody>
+                </table>
+                <div style="text-align:center;margin:20px 0;">
+                    <button type="button" id="modifyBtn" class="btn btn-primary">수정</button>
+                    <button type="button" id="modifyCloseBtn" class="btn btn-secondary">닫기</button>
+                </div>
+            </form>
+          </div>
+
+    </main>
+</body>
+</html>
