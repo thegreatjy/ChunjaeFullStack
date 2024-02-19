@@ -47,7 +47,8 @@
             const result = confirm("정말 등록할까요?");
             if(!result) return false;
 
-            const apiUrl = 'http://~~.dothome.co.kr/board/insert.php';
+            //httl://~.dothome.co.kr/board/insert.php
+            const apiUrl = 'http://~.dothome.co.kr/board/insert.php';
             $.ajax(
                     {
                         type: "POST",
@@ -62,6 +63,7 @@
                             if(data.result == "Y"){
                               alert("입력 성공");
                               $('#writeCloseBtn').trigger('click');
+                              getList();
                             }else{
                               alert("입력 실패");
                             }
@@ -86,7 +88,7 @@
 
       // 게시글 목록 조회
       const getList = function(){
-        const apiUrl = "http://~~.dothome.co.kr/board/list.php";
+        const apiUrl = "http://~.dothome.co.kr/board/list.php";
 
         $.ajax(
               {
@@ -126,7 +128,7 @@
                             $(modifyBtn).on(
                               'click',
                               function(){
-                                const apiUrl = "http://~~.dothome.co.kr/board/view.php"
+                                const apiUrl = "http://~.dothome.co.kr/board/view.php"
                                 $.ajax(
                                   {
                                       type: "GET",
@@ -139,7 +141,8 @@
                                         if(data.result.length == 0){  // 데이터가 없는 경우
                                           alert("조회하신 정보가 없습니다.");
                                         }else{
-                                          modifyFormInit(data.result[0]);
+                                          //modifyFormInit(data.result[0]);
+                                          modifyForm(data.result[0]);
                                         }
                                         return ;
                                       },
@@ -157,7 +160,37 @@
                             $(deleteBtn).on(
                               'click',
                               function(){
-                                console.log($(this).data('id'));
+                                if(!confirm("삭제하시겠습니까?")){
+                                  return false;
+                                }
+
+
+                                const apiUrl = "http://~.dothome.co.kr/board/delete.php"
+                                $.ajax(
+                                  {
+                                      type: "GET",
+                                      url: apiUrl,
+                                      data:{
+                                          id: $(this).data("id")
+                                      },
+                                      dataType: 'JSON',
+                                      success: function(data){
+                                        console.log(data.result);
+                                        if(data.result == 'Y'){  // 삭제 성공
+                                          alert("삭제하였습니다.");
+                                        }else{
+                                          //modifyFormInit(data.result[0]);
+                                          alert("다시 시도해 주세요.");
+                                          // deleteForm(data.result[0]);
+                                        }
+                                        getList();
+                                        return ;
+                                      },
+                                      error: function(jqXHR, textStatus, errorThrown){
+                                          alert(textStatus + ", " + errorThrown);
+                                      }
+                                  }
+                                );
                               }
                             );
 
@@ -173,16 +206,9 @@
             );
       };
 
-      const modifyFormInit = function(data){
-        console.log(data);
-        $("#list").hide();
-        $('#list, #regBtn').hide();
-        $('#modifyForm').show();
-        $("#regBtn").hide();
-        $('#modifyForm input[name="id"]').val(data.id);
-        $('#modifyForm input[name="title"]').val(data.title);
-        $('#modifyForm textarea[name="content"]').val(data.content);
-
+      // 수정하기 페이지 닫기 버튼
+      const modifyFormInit = function(){
+        // 수정하기 > 닫기
         $('#modifyCloseBtn').on(
           'click',
           function(){
@@ -191,10 +217,77 @@
           }
         );
       };
+      // 수정하기 페이지 입력 폼 노출
+      const modifyForm = function(data){
+        console.log(data);
+        $('#list, #regBtn').hide();
+        $('#modifyForm').show();
+        $("#regBtn").hide();
+        $('#modifyForm input[name="id"]').val(data.id);
+        $('#modifyForm input[name="title"]').val(data.title);
+        $('#modifyForm textarea[name="content"]').val(data.content);
+
+        // 수정하기 페이지의 수정 버튼
+        $('#modifyBtn').on(
+          'click',
+          function(){
+            const id = $.trim($('#modifyForm input[name="id"]').val());
+            const title = $.trim($('#modifyForm input[name="title"]').val());
+            const content = $.trim($('#modifyForm textarea[name="content"]').val());
+
+            console.log('title ', title, ' content ', content);
+
+            if(title == ""){
+              alert("제목을 입력해 주세요.");
+              $('#modifyForm input[name="title"]').focus();
+              return false;
+            }
+            if(content == ""){
+              alert("내용을 입력해 주세요.");
+              $('#modifyForm textarea[name="content"]').focus();
+              return false;
+            }
+
+            const result = confirm("정말 등록할까요?");
+            if(!result) return false;
+
+            //httl://~.dothome.co.kr/board/insert.php
+            const apiUrl = 'http://₩.dothome.co.kr/board/update.php';
+            $.ajax(
+                    {
+                        type: "POST",
+                        url: apiUrl,
+                        data:{
+                            id: id,
+                            title: title,
+                            content: content
+                        },
+                        dataType: 'JSON',
+                        success: function(data){
+                            console.log("modify result ", data);
+                            if(data.result == "Y"){
+                              alert("수정 성공");
+                              $('#modifyCloseBtn').trigger('click');
+                              getList();
+                            }else{
+                              alert("수정 실패");
+                            }
+                        },
+                        error: function(jqXHR, textStatus, errorThrown){
+                            alert(textStatus + ", " + errorThrown);
+                        }
+                    }
+                );
+          }
+        );
+
+      };
 
       const init = () => {
         writeFormInit();
+        modifyFormInit();
         getList();
+
       };
 
       window.onload = init;
