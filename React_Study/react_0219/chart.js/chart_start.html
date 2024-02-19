@@ -1,0 +1,117 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <title>Chart</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.1/dist/chart.umd.min.js"></script>
+    <script type="text/javascript">
+
+        const makeChart = (stock, data) => {
+          const ctx = document.getElementById('myChart');
+
+          const labels = [];
+          const labelDatas = [];
+
+          $(data).each(
+            function(index, element){
+              labels.push(element.date);
+              labelDatas.push(element.close);
+              console.log("element.date ", element.date);
+              console.log("element.close ", element.close);
+            }
+          );
+
+
+          new Chart(ctx, {
+            type: 'line',
+            data: {
+              labels: labels,
+              // datasets 개수 == line 그래프의 line 개수 
+              datasets: [{
+                label: stock,
+                data: labelDatas,
+                borderColor: '#ff0000',
+                backgroundColor: '#ff0000'
+              }]
+            },
+            options: {
+              responsive: true,
+              scales: {
+                y: {
+                  beginAtZero: false
+                }
+              }
+            }
+          });
+        };
+
+      const init = () => {
+        //makeChart();
+
+        $('#stockSelect').on(
+          'change',
+          function(){
+            console.log(this.value);
+            const stock = this.value;
+            if(stock == ""){
+              alert("회사를 선택해 주세요.");
+              return false;
+            }
+
+            const apiUrl = 'http://~.dothome.co.kr/stock/search.php';
+            $.ajax(
+              {
+                  type: "GET",
+                  url: apiUrl,
+                  data:{
+                      stock: stock
+                  },
+                  dataType: 'JSON',
+                  success: function(data){
+                    console.log(data);
+                    // 차트 제거
+
+                    // 차트 생성
+                    makeChart(stock, data.datas);
+                  },
+                  error: function(jqXHR, textStatus, errorThrown){
+                      alert(textStatus + ", " + errorThrown);
+                  }
+              }
+            );
+
+          }
+        );
+      };
+
+      window.onload = init;
+    </script>
+</head>
+<body>
+    <main role="main" class="container">
+          <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
+            <h1 class="h2">Stock Data Chart</h1>
+            <div class="btn-toolbar mb-2 mb-md-0">
+              <form id="search_form" action="#" class="form-inline">
+                  <select class="form-control ml-1" id="stockSelect">
+                    <option value="" selected>회사 선택</option>
+                    <option value="skhynix">SK하이닉스</option>
+                    <option value="samsung">삼성전자</option>
+                    <option value="naver">네이버</option>
+                    <option value="kakao">카카오</option>
+                    <option value="hyundai">현대차</option>
+                  </select>
+              </form>
+            </div>
+          </div>
+          <div class="table-responsive" id="chartContainer" style="height: 400px;">
+              <canvas id="myChart"></canvas>
+          </div>
+    </main>
+</body>
+</html>
