@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.13.2/jquery-ui.min.js"></script>
+    <script type="text/javascript">
+        $(document).ready(function(){
+            console.log('ready!');
+            $('#moveBtn').on(
+                'click',
+                function(){
+                    $('#box').animate(
+                        {
+                            left: '500px',
+                            width: '300px',
+                            top: '300px',
+                            opacity: 0
+                        }, 
+                        1000,  /* 1초 동안 */
+                        'easeOutQuart',
+                        function(){
+                            console.log('animate end');
+                        }
+                    );
+                }
+            );
+        });
+    </script>
+</head>
+<body>
+    <button id="moveBtn">Move</button>
+    <hr />
+    <div 
+    id="box"
+    style="width:100px;height:100px;
+    background-color:red;
+    position:absolute;
+    top:100px"></div>
+</body>
+</html>
